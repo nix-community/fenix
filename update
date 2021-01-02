@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import datetime, json, toml
+from urllib.error import HTTPError
+from urllib.request import urlopen
+
+targets = [
+    "aarch64-unknown-linux-gnu",
+    "i686-unknown-linux-gnu",
+    "x86_64-apple-darwin",
+    "x86_64-unknown-linux-gnu",
+]
+results = { target: {} for target in targets }
+profiles = ["minimal", "default", "complete"]
+
+dist_root = "https://static.rust-lang.org/dist"
+one_day = datetime.timedelta(days = 1)
+
+def f(date = None):
+    date_path = f"/{date}" if date else ""
+
+    try:
+        resp = urlopen(f"{dist_root}{date_path}/channel-rust-nightly.toml")
+    except HTTPError as e:
+        if e.code == 404:
+            f(date - one_day)
+        else:
+            raise e
+    else:
+        manifest = toml.loads(resp.read().decode("utf-8"))
+        components = manifest["profiles"]
+        date = datetime.date.fromisoformat(manifest["date"])
+        pkgs = manifest["pkg"]
+        skipped = False
+
+        for target in targets:
+            for profile in profiles:
+                if results[target].get(profile): continue
+
+                result = { "date": date.isoformat(), "components": {} }
+                success = True
+
+                for component in components[profile]:
+                    pkg = pkgs[component]["target"]
+                    src = pkg.get("*") or pkg.get(target)
+                    if not src: continue
+
+                    if src["available"]:
+                        result["components"][component] = {
+                            "url": src["url"],
+                            "sha256": src["hash"],
+                        }
+                    else:
+                        skipped = True
+                        success = False
+                        break
+
+                if success:
+                    results[target][profile] = result
+
+        if skipped:
+            f(date - one_day)
+
+f()
+json.dump(results, open(f"toolchains.json", "w"))
