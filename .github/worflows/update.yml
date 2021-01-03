@@ -22,7 +22,7 @@ jobs:
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "action@github.com"
-          ./update
+          nix develop -c ./update
           if [ -n "$(git diff)" ]; then
             git commit -am "update toolchains"
           fi
