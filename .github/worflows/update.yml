@@ -16,6 +16,7 @@ jobs:
         uses: cachix/install-nix-action@v12
         with:
           install_url: https://github.com/numtide/nix-flakes-installer/releases/latest/download/install
+          nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: experimental-features = flakes nix-command
 
       - name: Update toolchains
@@ -29,6 +30,17 @@ jobs:
 
       - name: Update lock file
         run: nix flake update --{recreate,commit}-lock-file
+
+      - name: Set up cachix
+        uses: cachix/cachix-action@v8
+        with:
+          name: fenix
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Build with nix
+        run: |
+          nix-build packages.nix -A minimal -A default -A complete \
+            --arg pkgs "import <nixpkgs> {}"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
