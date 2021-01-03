@@ -23,7 +23,7 @@ jobs:
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "action@github.com"
-          nix develop -c ./update
+          nix-shell --run ./update -p "python3.withPackages (ps: [ ps.toml ])"
           if [ -n "$(git diff)" ]; then
             git commit -am "update toolchains"
           fi

@@ -1,20 +1,13 @@
 {
   description = "Rust nightly toolchains for nix";
 
-  inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-  };
+  inputs.nixpkgs.url = "nixpkgs/nixpkgs-unstable";
 
-  outputs = { self, flake-utils, nixpkgs }:
-    let pkgs = nixpkgs.legacyPackages;
-    in {
-      packages = builtins.mapAttrs (k: v:
-        (import ./toolchains.nix).${v} { inherit (pkgs.${k}) lib stdenv zlib; })
-        (import ./system.nix);
-      overlay = import ./.;
-    } // flake-utils.lib.eachDefaultSystem (system: {
-      devShell = with pkgs.${system};
-        mkShell { buildInputs = [ (python3.withPackages (ps: [ ps.toml ])) ]; };
-    });
+  outputs = { self, nixpkgs }: {
+    packages = builtins.mapAttrs (k: v:
+      (import ./toolchains.nix).${v} {
+        inherit (nixpkgs.legacyPackages.${k}) lib stdenv zlib;
+      }) (import ./system.nix);
+    overlay = import ./.;
+  };
 }
