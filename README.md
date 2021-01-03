@@ -1,7 +1,6 @@
 # fenix
 
-Rust nightly toolchains for nix.
-Fenix provides the minimal, default and complete profile of rust nightly toolchains with all components.
+Fenix provides the minimal, default and complete [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust nightly toolchains with all components.
 It intends to be an alternative to [rustup](https://rustup.rs) and the rust overlay provided by [nixpkgs-mozilla](https://github.com/mozilla/nixpkgs-mozilla).
 
 
@@ -64,7 +63,7 @@ in fenix.default.rustc
 ```
 
 
-## Example: building with naersk
+## Example: building with [naersk](https://github.com/nmattia/naersk)
 
 ```nix
 # flake.nix
