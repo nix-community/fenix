@@ -10,7 +10,7 @@
       packages = builtins.mapAttrs (k: v:
         (import ./toolchains.nix).${v} { inherit (pkgs.${k}) lib stdenv zlib; })
         (import ./system.nix);
-      overlay = (import ./.);
+      overlay = import ./.;
     } // flake-utils.lib.eachDefaultSystem (system: {
       devShell = with pkgs.${system};
         mkShell { buildInputs = [ (python3.withPackages (ps: [ ps.toml ])) ]; };
