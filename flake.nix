@@ -8,7 +8,7 @@
     let pkgs = nixpkgs.legacyPackages;
     in {
       packages = builtins.mapAttrs (k: v:
-        (import ./toolchains.nix).${v} { inherit (pkgs.${k}) stdenv zlib; })
+        (import ./toolchains.nix).${v} { inherit (pkgs.${k}) lib stdenv zlib; })
         (import ./system.nix);
       overlay = (import ./.);
     } // flake-utils.lib.eachDefaultSystem (system: {
