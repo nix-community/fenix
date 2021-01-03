@@ -19,6 +19,12 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: experimental-features = flakes nix-command
 
+      - name: Set up cachix
+        uses: cachix/cachix-action@v8
+        with:
+          name: fenix
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
       - name: Update toolchains
         run: |
           git config --local user.name "github-actions"
@@ -30,12 +36,6 @@ jobs:
 
       - name: Update lock file
         run: nix flake update --{recreate,commit}-lock-file
-
-      - name: Set up cachix
-        uses: cachix/cachix-action@v8
-        with:
-          name: fenix
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Build with nix
         run: |

@@ -29,6 +29,7 @@ mapAttrs (target: v:
                 patchelf --set-rpath ${rpath} "$file"
               fi
             done
+
             ${lib.optionalString (component == "rustc")
             "ln -sT {${toolchain.rust-std},$out}/lib/rustlib/${target}/lib"}
           '';
