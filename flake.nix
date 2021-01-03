@@ -1,4 +1,6 @@
 {
+  description = "Rust nightly toolchains for nix";
+
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
