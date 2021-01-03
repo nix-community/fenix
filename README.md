@@ -9,6 +9,7 @@ Binary cache is available for x86_64-linux on [cachix](https://app.cachix.org/ca
 cachix use fenix
 ```
 
+
 ## Supported platforms
 
 | platform | target |
@@ -63,7 +64,9 @@ As a set of packages
 { callPackage }:
 
 let
-  fenix = callPackage "${fetchTarball https://github.com/figsoda/fenix/archive/main.tar.gz}/packages.nix" { };
+  fenix = callPackage "${
+      fetchTarball "https://github.com/figsoda/fenix/archive/main.tar.gz"
+    }/packages.nix" { };
 in fenix.default.rustc
 ```
 
