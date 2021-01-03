@@ -3,6 +3,11 @@
 Fenix provides the minimal, default and complete [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust nightly toolchains with all components.
 It intends to be an alternative to [rustup](https://rustup.rs) and the rust overlay provided by [nixpkgs-mozilla](https://github.com/mozilla/nixpkgs-mozilla).
 
+Binary cache is available for x86_64-linux on [cachix](https://app.cachix.org/cache/fenix)
+
+```
+cachix use fenix
+```
 
 ## Supported platforms
 
