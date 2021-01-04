@@ -62,4 +62,4 @@ def f(date = None):
             f(date - one_day)
 
 f()
-json.dump(results, open(f"toolchains.json", "w"))
+json.dump(results, open(f"lib/toolchains.json", "w"))
