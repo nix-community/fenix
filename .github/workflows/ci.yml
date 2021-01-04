@@ -1,10 +1,10 @@
-name: update
+name: ci
 
 on: push
 
 jobs:
-  update:
-    name: update
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
