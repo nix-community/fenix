@@ -6,7 +6,7 @@
   outputs = { self, nixpkgs }: {
     packages = builtins.mapAttrs (k: v:
       (import ./toolchains.nix).${v} {
-        inherit (nixpkgs.legacyPackages.${k}) lib stdenv zlib;
+        inherit (nixpkgs.legacyPackages.${k}) lib stdenv symlinkJoin zlib;
       }) (import ./system.nix);
     overlay = import ./.;
   };
