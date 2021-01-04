@@ -42,8 +42,7 @@ mapAttrs (target: v:
         }) components;
     in toolchain // {
       toolchain = symlinkJoin {
-        pname = "rust-nightly-${profile}";
-        version = date;
+        name = "rust-nightly-${profile}-${date}";
         paths = attrValues toolchain;
       };
     }) v) (fromJSON (readFile ./toolchains.json))
