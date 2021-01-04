@@ -41,7 +41,7 @@ As a flake (recommended)
 
     ## as an overlay (in your nixos configuration)
     # nixpkgs.overlays = [ fenix.overlay ];
-    # environment.systemPackages = builtins.attrValues pkgs.rust-nightly.default;
+    # environment.systemPackages = [ pkgs.rust-nightly.default.toolchain ];
   };
 }
 ```
@@ -55,7 +55,7 @@ As an overlay
     (import (fetchTarball
       https://github.com/figsoda/fenix/archive/main.tar.gz))
   ];
-  environment.systemPackages = builtins.attrValues pkgs.rust-nightly.default;
+  environment.systemPackages = [ pkgs.rust-nightly.default.toolchain ];
 }
 ```
 

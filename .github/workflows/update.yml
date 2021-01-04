@@ -38,9 +38,7 @@ jobs:
         run: nix flake update --{recreate,commit}-lock-file
 
       - name: Build with nix
-        run: |
-          nix-build packages.nix -A minimal -A default -A complete \
-            --arg pkgs "import <nixpkgs> {}"
+        run: nix build .#{minimal,default,complete}.toolchain
 
       - name: Push changes
         uses: ad-m/github-push-action@master
