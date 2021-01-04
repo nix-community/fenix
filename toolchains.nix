@@ -32,6 +32,12 @@ mapAttrs (target: v:
 
             ${lib.optionalString (component == "rustc")
             "ln -sT {${toolchain.rust-std},$out}/lib/rustlib/${target}/lib"}
+
+            ${lib.optionalString (component == "clippy-preview") ''
+              patchelf \
+                --set-rpath ${toolchain.rustc}/lib:${rpath} \
+                $out/bin/clippy-driver
+            ''}
           '';
         }) components;
     in toolchain // {
