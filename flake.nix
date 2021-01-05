@@ -7,7 +7,7 @@
     packages = builtins.mapAttrs (k: v:
       (import ./lib/toolchains.nix).${v} {
         inherit (nixpkgs.legacyPackages.${k}) lib stdenv symlinkJoin zlib;
-      }) (import ./lib/system.nix);
+      }) (import ./lib/systems.nix);
     overlay = import ./.;
   };
 }
