@@ -44,5 +44,6 @@ mapAttrs (target: v:
       toolchain = symlinkJoin {
         name = "rust-nightly-${profile}-${date}";
         paths = attrValues toolchain;
+        postBuild = "cp --remove-destination $(realpath $out/bin/*) $out/bin";
       };
     }) v) (fromJSON (readFile ./toolchains.json))
