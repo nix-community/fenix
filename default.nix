@@ -1,1 +1,6 @@
-_: super: { rust-nightly = super.callPackage ./packages.nix { }; }
+_: _:
+let fenix = import ./packages.nix;
+in {
+  rust-nightly = { inherit (fenix) minimal default complete; };
+  rust-analyzer-nightly = fenix.rust-analyzer;
+}

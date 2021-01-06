@@ -1,5 +1,4 @@
-{ pkgs }:
-
-(import ./lib/toolchains.nix).${(import ./lib/systems.nix).${pkgs.system}} {
-  inherit (pkgs) lib stdenv symlinkJoin zlib;
-}
+(import (fetchTarball
+  "https://github.com/edolstra/flake-compat/archive/master.tar.gz") {
+    src = ./.;
+  }).defaultNix.default
