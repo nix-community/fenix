@@ -40,10 +40,17 @@ mapAttrs (target: v:
             ''}
           '';
         }) components;
+      copyBins = "cp --remove-destination $(realpath $out/bin/*) $out/bin";
     in toolchain // {
       toolchain = symlinkJoin {
         name = "rust-nightly-${profile}-${date}";
         paths = attrValues toolchain;
-        postBuild = "cp --remove-destination $(realpath $out/bin/*) $out/bin";
+        postBuild = copyBins;
       };
+      withComponents = componentNames:
+        symlinkJoin {
+          name = "rust-nightly-${profile}-with-components-${date}";
+          paths = lib.attrVals componentNames toolchain;
+          postBuild = copyBins;
+        };
     }) v) (fromJSON (readFile ./toolchains.json))
