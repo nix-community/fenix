@@ -40,7 +40,7 @@
     overlay = _: super:
       let fenix = packages.${super.system};
       in {
-        rust-nightly = { inherit (fenix) minimal default complete; };
+        rust-nightly = { inherit (fenix) minimal default complete latest; };
         rust-analyzer-nightly = fenix.rust-analyzer;
       };
   };
