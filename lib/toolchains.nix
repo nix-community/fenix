@@ -9,8 +9,8 @@ mapAttrs (target: v:
       toolchain = mapAttrs (component: source:
         stdenv.mkDerivation {
           pname = "${component}-nightly";
-          version = date;
-          src = fetchurl source;
+          version = source.date or date;
+          src = fetchurl { inherit (source) url sha256; };
           installPhase = ''
             patchShebangs install.sh
             CFG_DISABLE_LDCONFIG=1 ./install.sh --prefix=$out

@@ -10,34 +10,54 @@ targets = [
     "x86_64-apple-darwin",
     "x86_64-unknown-linux-gnu",
 ]
-results = { target: {} for target in targets }
+results = { target: { "latest": {} } for target in targets }
 profiles = ["minimal", "default", "complete"]
 
 dist_root = "https://static.rust-lang.org/dist"
 one_day = datetime.timedelta(days = 1)
 
-def f(date = None):
-    date_path = f"/{date}" if date else ""
+def f(d = None):
+    date_path = f"/{d}" if d else ""
 
     try:
         resp = urlopen(f"{dist_root}{date_path}/channel-rust-nightly.toml")
     except HTTPError as e:
         if e.code == 404:
-            f(date - one_day)
+            f(d - one_day)
         else:
             raise e
     else:
         manifest = toml.loads(resp.read().decode("utf-8"))
         components = manifest["profiles"]
-        date = datetime.date.fromisoformat(manifest["date"])
+        date_str = manifest["date"]
+        date = datetime.date.fromisoformat(date_str)
         pkgs = manifest["pkg"]
         skipped = False
 
         for target in targets:
-            for profile in profiles:
-                if results[target].get(profile): continue
+            if not d: results[target]["latest"] = {
+                "date": date_str,
+                "components": {},
+            }
 
-                result = { "date": date.isoformat(), "components": {} }
+            for component in components["complete"]:
+                if component in results[target]["latest"]["components"]: continue
+
+                pkg = pkgs[component]["target"]
+                src = pkg.get("*") or pkg.get(target)
+                if not src: continue
+
+                if src["available"]:
+                    results[target]["latest"]["components"][component] = {
+                        "date": date_str,
+                        "url": src["url"],
+                        "sha256": src["hash"],
+                    }
+
+            for profile in profiles:
+                if profile in results[target]: continue
+
+                result = { "date": date_str, "components": {} }
                 success = True
 
                 for component in components[profile]:
