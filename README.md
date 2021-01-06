@@ -1,6 +1,6 @@
 # fenix
 
-Fenix provides the minimal, default, complete, and [latest](#latest-profile) [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust nightly toolchains, nightly version of [rust-analyzer](https://rust-analyzer.github.io) and [its vscode extension]() with all components.
+Fenix provides the minimal, default, complete, and [latest](#the-latest-profile) [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust nightly toolchains, nightly version of [rust-analyzer](https://rust-analyzer.github.io) and [its vscode extension]() with all components.
 It intends to be an alternative to [rustup](https://rustup.rs) and the rust overlay provided by [nixpkgs-mozilla](https://github.com/mozilla/nixpkgs-mozilla).
 
 Binary cache is available for x86_64-linux on [cachix](https://app.cachix.org/cache/fenix)
@@ -89,7 +89,7 @@ in fenix.default.rustc
 
 ## The `latest` profile
 
-The `latest` profile is contains all components from the `complete` but not from necessarily the same date.
+The `latest` profile is a custom profile that contains all the components from the `complete` profile but not from necessarily the same date.
 Components from this profile are more bleeding edge, but there is also a larger chance of incompatibility.
 
 
