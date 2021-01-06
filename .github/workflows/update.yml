@@ -25,20 +25,27 @@ jobs:
           name: fenix
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - name: Update toolchains
+      - name: Update everything
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "action@github.com"
+
           nix-shell --run ./update -p "python3.withPackages (ps: [ ps.toml ])"
           if [ -n "$(git diff)" ]; then
             git commit -am "update toolchains"
           fi
 
-      - name: Update lock file
-        run: nix flake update --{recreate,commit}-lock-file
+          nix flake update --{recreate,commit}-lock-file
+
+          curl -LSso lib/rust-analyzer-vsix.zip \
+            https://github.com/rust-analyzer/rust-analyzer/releases/download/nightly/rust-analyzer.vsix
+          if [ -n "$(git diff)" ]; then
+            git commit -am "update rust analyzer vscode extension"
+          fi
 
       - name: Build with nix
-        run: nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer}
+        run: |
+          nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}}
 
       - name: Push changes
         uses: ad-m/github-push-action@master

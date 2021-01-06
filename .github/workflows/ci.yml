@@ -23,4 +23,5 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Build with nix
-        run: nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer}
+        run: |
+          nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}}
