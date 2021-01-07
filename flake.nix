@@ -51,16 +51,6 @@
             };
         }) (import ./lib/systems.nix);
 
-    overlay = _: super:
-      let fenix = packages.${super.system};
-      in {
-        rust-nightly = { inherit (fenix) minimal default complete latest; };
-        rust-analyzer-nightly = fenix.rust-analyzer;
-        vscode-extensions = super.vscode-extensions // {
-          matklad = super.vscode-extensions.matklad // {
-            rust-analyzer-nightly = fenix.rust-analyzer-vscode-extension;
-          };
-        };
-      };
+    overlay = import ./lib/overlay.nix packages.${builtins.currentSystem};
   };
 }
