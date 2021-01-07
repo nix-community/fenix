@@ -43,12 +43,12 @@ jobs:
             git commit -am "update rust analyzer vscode extension"
           fi
 
-      - name: Build with nix
-        run: |
-          nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}}
-
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ github.token }}
           branch: main
+
+      - name: Build with nix
+        run: |
+          nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}}
