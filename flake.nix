@@ -26,6 +26,8 @@
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
         in toolchains // rec {
+          combine =
+            import ./lib/combine.nix pkgs.symlinkJoin "rust-nightly-mixed";
           rust-analyzer = (naersk.lib.${k}.override {
             inherit (toolchains.minimal) cargo rustc;
           }).buildPackage {
