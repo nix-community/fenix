@@ -20,16 +20,17 @@
       mapAttrs (k: v:
         let
           pkgs = nixpkgs.legacyPackages.${k};
-          toolchains = (import ./lib/toolchains.nix).${v} {
-            inherit (pkgs) lib stdenv symlinkJoin zlib;
-          };
+          toolchains = pkgs.callPackage ./lib/toolchains.nix { };
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
-        in toolchains // rec {
+        in toolchains.${v} // rec {
           combine =
             import ./lib/combine.nix pkgs.symlinkJoin "rust-nightly-mixed";
+
+          targets = toolchains;
+
           rust-analyzer = (naersk.lib.${k}.override {
-            inherit (toolchains.minimal) cargo rustc;
+            inherit (toolchains.${v}.minimal) cargo rustc;
           }).buildPackage {
             name = "rust-analyzer-nightly";
             version = rust-analyzer-rev;

@@ -1,9 +1,10 @@
+{ lib, stdenv, symlinkJoin, zlib }:
+
 with builtins;
 
-mapAttrs (target: v:
-  { lib, stdenv, symlinkJoin, zlib }:
-  let rpath = "${zlib}/lib:$out/lib";
-  in mapAttrs (profile:
+let rpath = "${zlib}/lib:$out/lib";
+in mapAttrs (target:
+  mapAttrs (profile:
     { date, components }:
     let
       toolchain = mapAttrs (component: source:
@@ -47,4 +48,4 @@ mapAttrs (target: v:
       withComponents = componentNames:
         combine "rust-nightly-${profile}-with-components-${date}"
         (lib.attrVals componentNames toolchain);
-    }) v) (fromJSON (readFile ./toolchains.json))
+    })) (fromJSON (readFile ./toolchains.json))
