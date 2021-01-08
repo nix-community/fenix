@@ -31,9 +31,6 @@ in mapAttrs (target:
               fi
             done
 
-            ${lib.optionalString (component == "rustc")
-            "ln -sT {${toolchain.rust-std},$out}/lib/rustlib/${target}/lib"}
-
             ${lib.optionalString (component == "clippy-preview") ''
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib:${rpath} \
@@ -43,6 +40,8 @@ in mapAttrs (target:
         }) components;
       combine = import ./combine.nix symlinkJoin;
     in toolchain // {
+      rustc = combine "rustc-nightly-with-std-${date}"
+        (with toolchain; [ rustc rust-std ]);
       toolchain =
         combine "rust-nightly-${profile}-${date}" (attrValues toolchain);
       withComponents = componentNames:
