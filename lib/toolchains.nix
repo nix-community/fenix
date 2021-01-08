@@ -42,6 +42,7 @@ in mapAttrs (target:
     in toolchain // {
       rustc = combine "rustc-nightly-with-std-${date}"
         (with toolchain; [ rustc rust-std ]);
+      rustc-unwrapped = toolchain.rustc;
       toolchain =
         combine "rust-nightly-${profile}-${date}" (attrValues toolchain);
       withComponents = componentNames:
