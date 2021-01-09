@@ -40,18 +40,22 @@
             RUST_ANALYZER_REV = rust-analyzer-rev;
           };
 
-          rust-analyzer-vscode-extension =
-            pkgs.vscode-utils.buildVscodeExtension {
-              name = "rust-analyzer-${rust-analyzer-rev}";
-              src = ./lib/rust-analyzer-vsix.zip;
-              vscodeExtUniqueId = "matklad.rust-analyzer";
-              buildInputs = with pkgs; [ jq moreutils ];
-              patchPhase = ''
-                jq -e '.contributes.configuration.properties."rust-analyzer.server.path"
-                  .default = "${rust-analyzer}/bin/rust-analyzer"
-                ' package.json | sponge package.json
-              '';
-            };
+          rust-analyzer-vscode-extension = let
+            setDefault = k: v: ''
+              .contributes.configuration.properties."rust-analyzer.${k}".default = "${v}"
+            '';
+          in pkgs.vscode-utils.buildVscodeExtension {
+            name = "rust-analyzer-${rust-analyzer-rev}";
+            src = ./lib/rust-analyzer-vsix.zip;
+            vscodeExtUniqueId = "matklad.rust-analyzer";
+            buildInputs = with pkgs; [ jq moreutils ];
+            patchPhase = ''
+              jq -e '
+                ${setDefault "server.path" "${rust-analyzer}/bin/rust-analyzer"}
+                | ${setDefault "updates.channel" "nightly"}
+              ' package.json | sponge package.json
+            '';
+          };
         }) (import ./lib/systems.nix);
 
     overlay = import ./lib/overlay.nix packages.${builtins.currentSystem};
