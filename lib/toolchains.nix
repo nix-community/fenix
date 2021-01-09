@@ -5,7 +5,7 @@ with builtins;
 let
   combine = import ./combine.nix symlinkJoin;
   rpath = "${zlib}/lib:$out/lib";
-in mapAttrs (target:
+in mapAttrs (_:
   mapAttrs (profile:
     { date, components }:
     let
