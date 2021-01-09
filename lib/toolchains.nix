@@ -41,12 +41,13 @@ in mapAttrs (target:
           '';
         }) components;
     in toolchain // {
-      rustc = combine "rustc-nightly-with-std-${date}"
-        (with toolchain; [ rustc rust-std ]);
-      rustc-unwrapped = toolchain.rustc;
       toolchain =
         combine "rust-nightly-${profile}-${date}" (attrValues toolchain);
       withComponents = componentNames:
         combine "rust-nightly-${profile}-with-components-${date}"
         (lib.attrVals componentNames toolchain);
+    } // lib.optionalAttrs (toolchain ? rustc) {
+      rustc = combine "rustc-nightly-with-std-${date}"
+        (with toolchain; [ rustc rust-std ]);
+      rustc-unwrapped = toolchain.rustc;
     })) (fromJSON (readFile ./toolchains.json))
