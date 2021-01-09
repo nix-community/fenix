@@ -18,20 +18,24 @@ in mapAttrs (target:
             patchShebangs install.sh
             CFG_DISABLE_LDCONFIG=1 ./install.sh --prefix=$out
 
-            for file in $(find $out/bin -type f); do
-              if isELF "$file"; then
-                patchelf \
-                  --set-interpreter "$(< ${stdenv.cc}/nix-support/dynamic-linker)" \
-                  --set-rpath ${rpath} \
-                  "$file"
-              fi
-            done
+            if [ -d $out/bin ]; then
+              for file in $(find $out/bin -type f); do
+                if isELF "$file"; then
+                  patchelf \
+                    --set-interpreter "$(< ${stdenv.cc}/nix-support/dynamic-linker)" \
+                    --set-rpath ${rpath} \
+                    "$file" || true
+                fi
+              done
+            fi
 
-            for file in $(find $out/lib -type f); do
-              if isELF "$file"; then
-                patchelf --set-rpath ${rpath} "$file"
-              fi
-            done
+            if [ -d $out/lib ]; then
+              for file in $(find $out/lib -type f); do
+                if isELF "$file"; then
+                  patchelf --set-rpath ${rpath} "$file" || true
+                fi
+              done
+            fi
 
             ${lib.optionalString (component == "clippy-preview") ''
               patchelf \
