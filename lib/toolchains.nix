@@ -2,7 +2,9 @@
 
 with builtins;
 
-let rpath = "${zlib}/lib:$out/lib";
+let
+  combine = import ./combine.nix symlinkJoin;
+  rpath = "${zlib}/lib:$out/lib";
 in mapAttrs (target:
   mapAttrs (profile:
     { date, components }:
@@ -38,7 +40,6 @@ in mapAttrs (target:
             ''}
           '';
         }) components;
-      combine = import ./combine.nix symlinkJoin;
     in toolchain // {
       rustc = combine "rustc-nightly-with-std-${date}"
         (with toolchain; [ rustc rust-std ]);
