@@ -1,4 +1,6 @@
-fenix: _: super: {
+f: _: super:
+let fenix = f super;
+in {
   rust-nightly = {
     inherit (fenix) minimal default complete latest combine targets;
   };

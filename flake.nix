@@ -58,6 +58,6 @@
           };
         }) (import ./lib/systems.nix);
 
-    overlay = import ./lib/overlay.nix packages.${builtins.currentSystem};
+    overlay = import ./lib/overlay.nix (pkgs: packages.${pkgs.system});
   };
 }

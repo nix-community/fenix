@@ -1,1 +1,1 @@
-import ./lib/overlay.nix (import ./packages.nix)
+import ./lib/overlay.nix (_: import ./packages.nix)
