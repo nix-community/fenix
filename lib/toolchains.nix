@@ -18,6 +18,8 @@ in mapAttrs (_:
             patchShebangs install.sh
             CFG_DISABLE_LDCONFIG=1 ./install.sh --prefix=$out
 
+            rm $out/lib/rustlib/{components,install.log,manifest-*,rust-installer-version,uninstall.sh} || true
+
             if [ -d $out/bin ]; then
               for file in $(find $out/bin -type f); do
                 if isELF "$file"; then
