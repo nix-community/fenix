@@ -1,5 +1,9 @@
 symlinkJoin: name: paths:
 symlinkJoin {
   inherit name paths;
-  postBuild = "cp --remove-destination $(realpath $out/bin/*) $out/bin";
+  postBuild = ''
+    if [ -d $out/bin ]; then
+      cp --remove-destination $(realpath $out/bin/*) $out/bin
+    fi
+  '';
 }
