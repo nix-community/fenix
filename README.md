@@ -163,7 +163,43 @@ Components from this profile are more bleeding edge, but there is also a larger 
 Examples to build rust programs with [flake-utils](https://github.com/numtide/flake-utils) and [naersk](https://github.com/nmattia/naersk)
 
 <details>
-  <summary>building</summary>
+  <summary>building with makeRustPlatform</summary>
+
+  ```nix
+  # flake.nix
+  {
+    inputs = {
+      fenix = {
+        url = "github:figsoda/fenix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      flake-utils.url = "github:numtide/flake-utils";
+      nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    };
+
+    outputs = { self, fenix, flake-utils, nixpkgs }:
+      flake-utils.lib.eachDefaultSystem (system:
+        let pkgs = nixpkgs.legacyPackages.${system};
+        in {
+          defaultPackage = let
+            toolchain = fenix.packages.${system}.minimal.toolchain.overrideAttrs
+              (_: { meta.platforms = [ system ]; });
+          in (pkgs.makeRustPlatform {
+            cargo = toolchain;
+            rustc = toolchain;
+          }).buildRustPackage {
+            pname = "hello";
+            version = "0.1.0";
+            src = ./.;
+            cargoSha256 = nixpkgs.lib.fakeSha256;
+          };
+       });
+  }
+  ```
+</details>
+
+<details>
+  <summary>building with naersk</summary>
 
   ```nix
   # flake.nix
@@ -192,7 +228,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
 </details>
 
 <details>
-  <summary>cross compiling</summary>
+  <summary>cross compiling with naersk</summary>
 
   ```nix
   # flake.nix
