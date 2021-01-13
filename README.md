@@ -181,7 +181,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
       flake-utils.lib.eachDefaultSystem (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in {
-          defaultPackage = pkgs.makeRustPlatform {
+          defaultPackage = (pkgs.makeRustPlatform {
             inherit (fenix.packages.${system}.minimal) cargo rustc;
           }).buildRustPackage {
             pname = "hello";
