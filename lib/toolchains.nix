@@ -1,9 +1,9 @@
-{ lib, stdenv, symlinkJoin, zlib }:
+{ callPackage, lib, stdenv, zlib }:
 
 with builtins;
 
 let
-  combine = import ./combine.nix symlinkJoin;
+  combine = callPackage ./combine.nix { };
   rpath = "${zlib}/lib:$out/lib";
 in mapAttrs (_:
   mapAttrs (profile:
@@ -45,6 +45,7 @@ in mapAttrs (_:
                 $out/bin/clippy-driver
             ''}
           '';
+          meta.platforms = lib.platforms.all;
         }) components;
     in toolchain // {
       toolchain =

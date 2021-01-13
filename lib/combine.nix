@@ -1,4 +1,5 @@
-symlinkJoin: name: paths:
+{ lib, symlinkJoin }:
+name: paths:
 symlinkJoin {
   inherit name paths;
   postBuild = ''
@@ -6,4 +7,5 @@ symlinkJoin {
       cp --remove-destination $(realpath $out/bin/*) $out/bin
     fi
   '';
+  meta.platforms = lib.platforms.all;
 }

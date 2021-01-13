@@ -24,8 +24,7 @@
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
         in toolchains.${v} // rec {
-          combine =
-            import ./lib/combine.nix pkgs.symlinkJoin "rust-nightly-mixed";
+          combine = pkgs.callPackage ./lib/combine.nix { } "rust-nightly-mixed";
 
           targets = toolchains;
 
