@@ -245,18 +245,22 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
     outputs = { self, fenix, flake-utils, naersk, nixpkgs }:
       flake-utils.lib.eachDefaultSystem (system: {
         defaultPackage = let
+          pkgs = nixpkgs.legacyPackages.${system};
+          target = "aarch64-unknown-linux-gnu";
           toolchain = with fenix.packages.${system};
             combine [
               minimal.rustc
               minimal.cargo
-              targets.x86_64-unknown-linux-musl.latest.rust-std
+              targets.${target}.latest.rust-std
             ];
         in (naersk.lib.${system}.override {
           cargo = toolchain;
           rustc = toolchain;
         }).buildPackage {
           src = ./.;
-          CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
+          CARGO_BUILD_TARGET = target;
+          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
+            "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
         };
       });
   }
