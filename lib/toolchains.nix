@@ -24,7 +24,7 @@ in mapAttrs (_:
               for file in $(find $out/bin -type f); do
                 if isELF "$file"; then
                   patchelf \
-                    --set-interpreter "$(< ${stdenv.cc}/nix-support/dynamic-linker)" \
+                    --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
                     --set-rpath ${rpath} \
                     "$file" || true
                 fi
