@@ -24,7 +24,7 @@ As a flake (recommended)
 {
   inputs = {
     fenix = {
-      url = "github:figsoda/fenix";
+      url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
@@ -64,7 +64,7 @@ As an overlay
 {
   nixpkgs.overlays = [
     (import (fetchTarball
-      https://github.com/figsoda/fenix/archive/main.tar.gz))
+      https://github.com/nix-community/fenix/archive/main.tar.gz))
   ];
   environment.systemPackages = [ pkgs.rust-nightly.default.toolchain ];
 }
@@ -76,7 +76,7 @@ As a set of packages
 
 let
   fenix = callPackage "${
-      fetchTarball "https://github.com/figsoda/fenix/archive/main.tar.gz"
+      fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"
     }/packages.nix" { };
 in fenix.default.rustc
 ```
@@ -170,7 +170,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
   {
     inputs = {
       fenix = {
-        url = "github:figsoda/fenix";
+        url = "github:nix-community/fenix";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       flake-utils.url = "github:numtide/flake-utils";
@@ -202,7 +202,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
   {
     inputs = {
       fenix = {
-        url = "github:figsoda/fenix";
+        url = "github:nix-community/fenix";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       flake-utils.url = "github:numtide/flake-utils";
@@ -231,7 +231,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
   {
     inputs = {
       fenix = {
-        url = "github:figsoda/fenix";
+        url = "github:nix-community/fenix";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       flake-utils.url = "github:numtide/flake-utils";
