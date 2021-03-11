@@ -6,7 +6,7 @@
       url = "github:nmattia/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rust-analyzer-src = {
       url = "github:rust-analyzer/rust-analyzer/nightly";
       flake = false;
