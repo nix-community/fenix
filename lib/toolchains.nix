@@ -45,6 +45,7 @@ in mapAttrs (_:
                 $out/bin/clippy-driver
             ''}
           '';
+          dontStrip = true;
           meta.platforms = lib.platforms.all;
         }) components;
     in toolchain // {
