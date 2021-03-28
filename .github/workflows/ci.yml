@@ -29,7 +29,8 @@ jobs:
           nix flake update --{recreate,commit}-lock-file
           pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
           nix build "${pkgs[@]}"
-          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+          nix build --override-input --no-write-lock-file \
+            nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
