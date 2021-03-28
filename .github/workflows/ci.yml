@@ -24,4 +24,6 @@ jobs:
 
       - name: Build with nix
         run: |
-          nix build .#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}}
+          pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
+          nix build "${pkgs[@]}"
+          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
