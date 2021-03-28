@@ -53,4 +53,5 @@ jobs:
         run: |
           pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
           nix build "${pkgs[@]}"
-          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+          nix build --no-write-lock-file --override-input \
+            nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
