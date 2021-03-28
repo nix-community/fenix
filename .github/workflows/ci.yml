@@ -24,6 +24,8 @@ jobs:
 
       - name: Build with nix
         run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "action@github.com"
           nix flake update --{recreate,commit}-lock-file
           pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
           nix build "${pkgs[@]}"
