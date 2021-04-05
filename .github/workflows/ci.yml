@@ -17,7 +17,7 @@ jobs:
           extra_nix_config: experimental-features = flakes nix-command
 
       - name: Set up cachix
-        uses: cachix/cachix-action@v9
+        uses: cachix/cachix-action@v8
         with:
           name: nix-community
           signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
