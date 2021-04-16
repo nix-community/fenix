@@ -13,7 +13,7 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v13
         with:
-          install_url: https://github.com/numtide/nix-flakes-installer/releases/latest/download/install
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
           extra_nix_config: experimental-features = flakes nix-command
 
       - name: Set up cachix
@@ -26,5 +26,5 @@ jobs:
         run: |
           pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
           nix build "${pkgs[@]}"
-          nix build --no-write-lock-file --override-input \
+          nix build --override-input \
             nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"

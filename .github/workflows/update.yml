@@ -15,7 +15,7 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v13
         with:
-          install_url: https://github.com/numtide/nix-flakes-installer/releases/latest/download/install
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
           nix_path: nixpkgs=channel:nixpkgs-unstable
           extra_nix_config: experimental-features = flakes nix-command
 
@@ -35,7 +35,7 @@ jobs:
             git commit -am "update toolchains"
           fi
 
-          nix flake update --{recreate,commit}-lock-file
+          nix flake update --commit-lock-file
 
           curl -fLSso lib/rust-analyzer-vsix.zip \
             https://github.com/rust-analyzer/rust-analyzer/releases/download/nightly/rust-analyzer.vsix || true
@@ -53,5 +53,5 @@ jobs:
         run: |
           pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
           nix build "${pkgs[@]}"
-          nix build --no-write-lock-file --override-input \
+          nix build --override-input \
             nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
