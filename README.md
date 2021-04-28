@@ -64,7 +64,7 @@ As an overlay
 {
   nixpkgs.overlays = [
     (import (fetchTarball
-      https://github.com/nix-community/fenix/archive/main.tar.gz))
+      "https://github.com/nix-community/fenix/archive/main.tar.gz"))
   ];
   environment.systemPackages = [ pkgs.rust-nightly.default.toolchain ];
 }
