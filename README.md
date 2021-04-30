@@ -72,12 +72,10 @@ As an overlay
 
 As a set of packages
 ```nix
-{ callPackage }:
-
 let
-  fenix = callPackage "${
+  fenix = import "${
       fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"
-    }/packages.nix" { };
+    }/packages.nix";
 in fenix.default.rustc
 ```
 
