@@ -58,4 +58,4 @@ in mapAttrs (_:
       rustc = combine "rustc-nightly-with-std-${date}"
         (with toolchain; [ rustc rust-std ]);
       rustc-unwrapped = toolchain.rustc;
-    })) (fromJSON (readFile ./toolchains.json))
+    })) (fromJSON (readFile ../data/nightly.json))

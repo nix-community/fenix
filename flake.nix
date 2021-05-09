@@ -45,7 +45,7 @@
             '';
           in pkgs.vscode-utils.buildVscodeExtension {
             name = "rust-analyzer-${rust-analyzer-rev}";
-            src = ./lib/rust-analyzer-vsix.zip;
+            src = ./data/rust-analyzer-vsix.zip;
             vscodeExtUniqueId = "matklad.rust-analyzer";
             buildInputs = with pkgs; [ jq moreutils ];
             patchPhase = ''
@@ -55,7 +55,12 @@
               ' package.json | sponge package.json
             '';
           };
-        }) (import ./lib/systems.nix);
+        }) {
+          aarch64-linux = "aarch64-unknown-linux-gnu";
+          i686-linux = "i686-unknown-linux-gnu";
+          x86_64-darwin = "x86_64-apple-darwin";
+          x86_64-linux = "x86_64-unknown-linux-gnu";
+        };
 
     overlay = import ./lib/overlay.nix (pkgs: packages.${pkgs.system});
   };

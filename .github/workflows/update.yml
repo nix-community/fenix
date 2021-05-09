@@ -37,7 +37,7 @@ jobs:
 
           nix flake update --commit-lock-file
 
-          curl -fLSso lib/rust-analyzer-vsix.zip \
+          curl -fLSso data/rust-analyzer-vsix.zip \
             https://github.com/rust-analyzer/rust-analyzer/releases/download/nightly/rust-analyzer.vsix || true
           if [ -n "$(git diff)" ]; then
             git commit -am "update rust analyzer vscode extension"
