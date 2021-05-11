@@ -20,16 +20,21 @@
       mapAttrs (k: v:
         let
           pkgs = nixpkgs.legacyPackages.${k};
-          toolchains = pkgs.callPackage ./lib/toolchains.nix { };
+          mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
+          nightly = mapAttrs (_:
+            mapAttrs (profile:
+              { date, components }:
+              mkToolchain "rust-nightly-${profile}" date components))
+            (fromJSON (readFile ./data/nightly.json));
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
-        in toolchains.${v} // rec {
+        in nightly.${v} // rec {
           combine = pkgs.callPackage ./lib/combine.nix { } "rust-nightly-mixed";
 
-          targets = toolchains;
+          targets = nightly;
 
           rust-analyzer = (naersk.lib.${k}.override {
-            inherit (toolchains.${v}.minimal) cargo rustc;
+            inherit (nightly.${v}.minimal) cargo rustc;
           }).buildPackage {
             name = "rust-analyzer-nightly";
             version = rust-analyzer-rev;
