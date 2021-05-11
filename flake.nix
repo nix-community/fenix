@@ -21,10 +21,8 @@
         let
           pkgs = nixpkgs.legacyPackages.${k};
           mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
-          nightly = mapAttrs (_:
-            mapAttrs (profile:
-              { date, components }:
-              mkToolchain "rust-nightly-${profile}" date components))
+          nightly = mapAttrs
+            (_: mapAttrs (profile: mkToolchain "rust-nightly-${profile}"))
             (fromJSON (readFile ./data/nightly.json));
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;

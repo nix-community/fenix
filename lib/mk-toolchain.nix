@@ -1,5 +1,7 @@
 { callPackage, lib, stdenv, zlib }:
-name: date: components:
+
+name:
+{ date, components }:
 
 with builtins;
 
