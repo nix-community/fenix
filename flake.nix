@@ -17,22 +17,44 @@
     defaultPackage = packages;
 
     packages = with builtins;
+      with nixpkgs.lib;
       mapAttrs (k: v:
         let
           pkgs = nixpkgs.legacyPackages.${k};
           mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
-          nightly = mapAttrs
+          nightlyToolchains = mapAttrs
             (_: mapAttrs (profile: mkToolchain "rust-nightly-${profile}"))
             (fromJSON (readFile ./data/nightly.json));
+          mkToolchains = channel: path:
+            let manifest = fromJSON (readFile path);
+            in mapAttrs (_: components:
+              let
+                toolchain = mkToolchain "rust-${channel}" {
+                  inherit (manifest) date;
+                  inherit components;
+                };
+              in toolchain // mapAttrs' (k: v:
+                nameValuePair "${k}Toolchain" (toolchain.withComponents
+                  (filter (component: hasAttr component toolchain) v)))
+              manifest.profiles) manifest.targets;
+          stableToolchains = mkToolchains "stable" ./data/stable.json;
+          betaToolchains = mkToolchains "beta" ./data/beta.json;
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
-        in nightly.${v} // rec {
-          combine = pkgs.callPackage ./lib/combine.nix { } "rust-nightly-mixed";
+        in nightlyToolchains.${v} // rec {
+          combine = pkgs.callPackage ./lib/combine.nix { } "rust-mixed";
 
-          targets = nightly;
+          stable = stableToolchains.${v};
+
+          beta = betaToolchains.${v};
+
+          targets = mapAttrs (target: toolchain: toolchain // {
+            stable = stableToolchains.${target};
+            beta = betaToolchains.${target};
+          }) nightlyToolchains;
 
           rust-analyzer = (naersk.lib.${k}.override {
-            inherit (nightly.${v}.minimal) cargo rustc;
+            inherit (nightlyToolchains.${v}.minimal) cargo rustc;
           }).buildPackage {
             name = "rust-analyzer-nightly";
             version = rust-analyzer-rev;

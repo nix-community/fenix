@@ -63,20 +63,21 @@ std_targets = [
     "x86_64-unknown-netbsd",
     "x86_64-unknown-redox",
 ]
-results = { target: { "latest": {} } for target in targets + std_targets }
 profiles = ["minimal", "default", "complete"]
 
 dist_root = "https://static.rust-lang.org/dist"
 one_day = datetime.timedelta(days = 1)
 
-def f(d = None):
+nightly = { target: { "latest": {} } for target in targets + std_targets }
+
+def fetch_nightly(d = None):
     date_path = f"/{d}" if d else ""
 
     try:
         resp = urlopen(f"{dist_root}{date_path}/channel-rust-nightly.toml")
     except HTTPError as e:
         if e.code == 404:
-            f(d - one_day)
+            fetch_nightly(d - one_day)
         else:
             raise e
     else:
@@ -88,41 +89,41 @@ def f(d = None):
         skipped = False
 
         for target in std_targets:
-            if not d: results[target]["latest"] = {
+            if not d: nightly[target]["latest"] = {
                 "date": date_str,
                 "components": {},
             }
 
-            if "rust-std" in results[target]["latest"]["components"]: continue
+            if "rust-std" in nightly[target]["latest"]["components"]: continue
 
             src = pkgs["rust-std"]["target"].get(target)
             if src and src["available"]:
-                results[target]["latest"]["components"]["rust-std"] = {
+                nightly[target]["latest"]["components"]["rust-std"] = {
                     "date": date_str,
                     "url": src["url"],
                     "sha256": src["hash"],
                 }
 
         for target in targets:
-            if not d: results[target]["latest"] = {
+            if not d: nightly[target]["latest"] = {
                 "date": date_str,
                 "components": {},
             }
 
             for component in components["complete"]:
-                if component in results[target]["latest"]["components"]: continue
+                if component in nightly[target]["latest"]["components"]: continue
 
                 pkg = pkgs[component]["target"]
                 src = pkg.get("*") or pkg.get(target)
                 if src and src["available"]:
-                    results[target]["latest"]["components"][component] = {
+                    nightly[target]["latest"]["components"][component] = {
                         "date": date_str,
                         "url": src["url"],
                         "sha256": src["hash"],
                     }
 
             for profile in profiles:
-                if profile in results[target]: continue
+                if profile in nightly[target]: continue
 
                 result = { "date": date_str, "components": {} }
                 success = True
@@ -143,10 +144,42 @@ def f(d = None):
                         break
 
                 if success:
-                    results[target][profile] = result
+                    nightly[target][profile] = result
 
         if skipped:
-            f(date - one_day)
+            fetch_nightly(date - one_day)
 
-f()
-json.dump(results, open("data/nightly.json", "w"))
+fetch_nightly()
+json.dump(nightly, open("data/nightly.json", "w"))
+
+for channel in ["stable", "beta"]:
+    resp = urlopen(f"{dist_root}/channel-rust-{channel}.toml")
+    manifest = toml.loads(resp.read().decode("utf-8"))
+    results = {
+        "date": manifest["date"],
+        "targets": { target: {} for target in targets },
+        "profiles": { profile: manifest["profiles"][profile] for profile in profiles },
+    }
+    pkgs = manifest["pkg"]
+
+    for target in std_targets:
+        src = pkgs["rust-std"]["target"].get(target)
+        if src and src["available"]:
+            results["targets"][target] = {
+                "rust-std": {
+                    "url": src["url"],
+                    "sha256": src["hash"],
+                },
+            }
+
+    for component, pkg in pkgs.items():
+        pkg = pkg["target"]
+        for target in targets:
+            src = pkg.get("*") or pkg.get(target)
+            if src and src["available"]:
+                results["targets"][target][component] = {
+                    "url": src["url"],
+                    "sha256": src["hash"],
+                }
+
+    json.dump(results, open(f"data/{channel}.json", "w"))
