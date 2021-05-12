@@ -32,21 +32,26 @@ As a flake (recommended)
 
   outputs = { self, fenix, nixpkgs }: {
     ## as a set of packages
-    # fenix.x86_64-linux.default.toolchain
-    # fenix.x86_64-linux.rust-analyzer
-    # fenix.x86_64-linux.rust-analyzer-vscode-extension
+    # fenix.packages.x86_64-linux.minimal.toolchain
+    # fenix.packages.x86_64-linux.stable.defaultToolchain
+    # fenix.packages.x86_64-linux.beta.completeToolchain
+    # fenix.packages.x86_64-linux.targets.aarch64-unknown-linux-gnu.latest.rust-std
+    # fenix.packages.x86_64-linux.targets.wasm32-unknown-unknown.stable.rust-std
+    # fenix.packages.x86_64-linux.rust-analyzer
+    # fenix.packages.x86_64-linux.rust-analyzer-vscode-extension
 
     ## as an overlay (in your nixos configuration)
     # nixpkgs.overlays = [ fenix.overlay ];
     # environment.systemPackages = with pkgs; [
-    #   (rust-nightly.latest.withComponents [
-    #     "cargo"
-    #     "clippy-preview"
-    #     "rust-src"
-    #     "rust-std"
-    #     "rustc"
-    #     "rustfmt-preview"
-    #   ])
+    #   (with fenix;
+    #     combine (with default; [
+    #       cargo
+    #       clippy-preview
+    #       rust-std
+    #       rustc
+    #       rustfmt-preview
+    #       latest.rust-src
+    #     ]))
     #   (vscode-with-extensions.override {
     #     vscodeExtensions = [
     #       vscode-extensions.matklad.rust-analyzer-nightly
