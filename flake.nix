@@ -1,5 +1,5 @@
 {
-  description = "Rust nightly toolchains and rust analyzer nightly for nix";
+  description = "Rust toolchains and rust analyzer nightly for nix";
 
   inputs = {
     naersk = {
