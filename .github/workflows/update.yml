@@ -19,12 +19,6 @@ jobs:
           nix_path: nixpkgs=channel:nixpkgs-unstable
           extra_nix_config: experimental-features = flakes nix-command
 
-      - name: Set up cachix
-        uses: cachix/cachix-action@v10
-        with:
-          name: nix-community
-          signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
-
       - name: Update everything
         run: |
           git config --local user.name "github-actions"
@@ -49,9 +43,54 @@ jobs:
           github_token: ${{ github.token }}
           branch: main
 
+  build-nightly:
+    name: build-nightly
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
+          extra_nix_config: experimental-features = flakes nix-command
+
+      - name: Set up cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: nix-community
+          signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
+
       - name: Build with nix
         run: |
-          pkgs=(.#{{minimal,default,complete,latest,stable,beta}.toolchain,rust-analyzer{,-vscode-extension}})
+          pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
+          nix build "${pkgs[@]}"
+          nix build --override-input \
+            nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+
+  build-stable-beta:
+    name: build-stable-beta
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
+          extra_nix_config: experimental-features = flakes nix-command
+
+      - name: Set up cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: nix-community
+          signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
+
+      - name: Build with nix
+        run: |
+          pkgs=(.#{stable,beta}.{minimal,default,complete}Toolchain)
           nix build "${pkgs[@]}"
           nix build --override-input \
             nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
