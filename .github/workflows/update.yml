@@ -45,6 +45,7 @@ jobs:
 
   build-nightly:
     name: build-nightly
+    needs: upadte
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -71,6 +72,7 @@ jobs:
 
   build-stable-beta:
     name: build-stable-beta
+    needs: update
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
