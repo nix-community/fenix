@@ -45,7 +45,7 @@ jobs:
 
   build-nightly:
     name: build-nightly
-    needs: upadte
+    needs: update
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
