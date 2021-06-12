@@ -61,6 +61,7 @@
             version = rust-analyzer-rev;
             src = rust-analyzer-src;
             cargoBuildOptions = xs: xs ++ [ "-p" "rust-analyzer" ];
+            cargoOptions = xs: xs ++ [ "-Z" "avoid-dev-deps" ];
             CARGO_INCREMENTAL = "0";
             RUST_ANALYZER_REV = rust-analyzer-rev;
           };
