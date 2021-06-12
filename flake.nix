@@ -48,11 +48,11 @@
 
           beta = betaToolchains.${v};
 
-          targets = mapAttrs (target: toolchain:
-            toolchain // {
-              stable = stableToolchains.${target};
-              beta = betaToolchains.${target};
-            }) nightlyToolchains;
+          targets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
+            (mapAttrs (_: toolchain: { stable = toolchain; }) stableToolchains)
+            (mapAttrs (_: toolchain: { beta = toolchain; }) betaToolchains)
+            nightlyToolchains
+          ];
 
           rust-analyzer = (naersk.lib.${k}.override {
             inherit (nightlyToolchains.${v}.minimal) cargo rustc;

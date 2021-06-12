@@ -68,7 +68,7 @@ profiles = ["minimal", "default", "complete"]
 dist_root = "https://static.rust-lang.org/dist"
 one_day = datetime.timedelta(days = 1)
 
-nightly = { target: { "latest": {} } for target in targets + std_targets }
+nightly = { target: { "latest": {} } for target in targets }
 
 def fetch_nightly(d = None):
     date_path = f"/{d}" if d else ""
@@ -87,22 +87,6 @@ def fetch_nightly(d = None):
         date = datetime.date.fromisoformat(date_str)
         pkgs = manifest["pkg"]
         skipped = False
-
-        for target in std_targets:
-            if not d: nightly[target]["latest"] = {
-                "date": date_str,
-                "components": {},
-            }
-
-            if "rust-std" in nightly[target]["latest"]["components"]: continue
-
-            src = pkgs["rust-std"]["target"].get(target)
-            if src and src["available"]:
-                nightly[target]["latest"]["components"]["rust-std"] = {
-                    "date": date_str,
-                    "url": src["url"],
-                    "sha256": src["hash"],
-                }
 
         for target in targets:
             if not d: nightly[target]["latest"] = {
@@ -146,6 +130,24 @@ def fetch_nightly(d = None):
                 if success:
                     nightly[target][profile] = result
 
+        for target, src in pkgs["rust-std"]["target"].items():
+            if not target in nightly:
+                if src["available"]:
+                    nightly[target] = {
+                        "latest": {
+                            "date": date_str,
+                            "components": {
+                                "rust-std": {
+                                    "date": date_str,
+                                    "url": src["url"],
+                                    "sha256": src["hash"],
+                                },
+                            },
+                        },
+                    }
+                elif target in std_targets:
+                    skipped = True
+
         if skipped:
             fetch_nightly(date - one_day)
 
@@ -162,16 +164,6 @@ for channel in ["stable", "beta"]:
     }
     pkgs = manifest["pkg"]
 
-    for target in std_targets:
-        src = pkgs["rust-std"]["target"].get(target)
-        if src and src["available"]:
-            results["targets"][target] = {
-                "rust-std": {
-                    "url": src["url"],
-                    "sha256": src["hash"],
-                },
-            }
-
     for component, pkg in pkgs.items():
         pkg = pkg["target"]
         for target in targets:
@@ -181,5 +173,14 @@ for channel in ["stable", "beta"]:
                     "url": src["url"],
                     "sha256": src["hash"],
                 }
+
+    for target, src in pkgs["rust-std"]["target"].items():
+        if src["available"] and not target in targets:
+            results["targets"][target] = {
+                "rust-std": {
+                    "url": src["url"],
+                    "sha256": src["hash"],
+                },
+            }
 
     json.dump(results, open(f"data/{channel}.json", "w"))
