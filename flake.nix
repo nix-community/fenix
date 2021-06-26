@@ -25,8 +25,8 @@
           nightlyToolchains = mapAttrs
             (_: mapAttrs (profile: mkToolchain "rust-nightly-${profile}"))
             (fromJSON (readFile ./data/nightly.json));
-          mkToolchains = channel: path:
-            let manifest = fromJSON (readFile path);
+          mkToolchains = channel:
+            let manifest = fromJSON (readFile (./data + "/${channel}.json"));
             in mapAttrs (_: components:
               let
                 toolchain = mkToolchain "rust-${channel}" {
@@ -37,8 +37,8 @@
                 nameValuePair "${k}Toolchain" (toolchain.withComponents
                   (filter (component: hasAttr component toolchain) v)))
               manifest.profiles) manifest.targets;
-          stableToolchains = mkToolchains "stable" ./data/stable.json;
-          betaToolchains = mkToolchains "beta" ./data/beta.json;
+          stableToolchains = mkToolchains "stable";
+          betaToolchains = mkToolchains "beta";
           rust-analyzer-rev = substring 0 7 (fromJSON
             (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
         in nightlyToolchains.${v} // rec {
