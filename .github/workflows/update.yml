@@ -25,17 +25,16 @@ jobs:
           git config --local user.email "action@github.com"
 
           nix-shell --run ./update -p "python3.withPackages (ps: [ ps.toml ])"
-          if [ -n "$(git diff)" ]; then
-            git commit -am "update toolchains"
-          fi
 
-          nix flake update --commit-lock-file
+          nix flake update
+
+          curl -fLSso data/stable.toml https://static.rust-lang.org/dist/channel-rust-stable.toml
+          curl -fLSso data/beta.toml https://static.rust-lang.org/dist/channel-rust-beta.toml
 
           curl -fLSso data/rust-analyzer-vsix.zip \
             https://github.com/rust-analyzer/rust-analyzer/releases/download/nightly/rust-analyzer.vsix || true
-          if [ -n "$(git diff)" ]; then
-            git commit -am "update rust analyzer vscode extension"
-          fi
+
+          git commit -am "update rust analyzer vscode extension"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

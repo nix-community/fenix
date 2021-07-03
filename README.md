@@ -35,6 +35,10 @@ As a flake (recommended)
     # fenix.packages.x86_64-linux.minimal.toolchain
     # fenix.packages.x86_64-linux.stable.defaultToolchain
     # fenix.packages.x86_64-linux.beta.completeToolchain
+    # fenix.packages.x86_64-linux.fromManifest (import ./channel-rust-nightly.nix)
+    # fenix.packages.x86_64-apple-darwin.fromManifestFile ./channel-rust-stable.toml
+    # fenix.packages.aarch64-linux.toolchainOf { date = "2021-07-01"; sha256 = ""; }
+    # fenix.packages.x86_64-linux.toolchainOf { channel = "stable"; date = "2021-06-17"; sha256 = ""; }
     # fenix.packages.x86_64-linux.targets.aarch64-unknown-linux-gnu.latest.rust-std
     # fenix.packages.x86_64-linux.targets.wasm32-unknown-unknown.stable.rust-std
     # fenix.packages.x86_64-linux.rust-analyzer
