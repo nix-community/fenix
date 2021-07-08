@@ -40,6 +40,26 @@ in let
               fi
             done
           fi
+
+          ${optionalString (component == "rustc") ''
+            for file in $(find $out/lib/rustlib/*/bin -type f); do
+              if isELF "$file"; then
+                patchelf \
+                  --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+                  --set-rpath $out/lib \
+                  "$file"
+              fi
+            done
+          ''}
+
+          ${optionalString (component == "llvm-tools-preview") ''
+            for file in $out/lib/rustlib/*/bin/*; do
+              patchelf \
+                --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+                --set-rpath $out/lib/rustlib/*/lib \
+                "$file"
+            done
+          ''}
         ''}
 
         ${optionalString (component == "clippy-preview") ''
