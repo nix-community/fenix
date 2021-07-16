@@ -2,10 +2,6 @@
   description = "Rust toolchains and rust analyzer nightly for nix";
 
   inputs = {
-    naersk = {
-      url = "github:nmattia/naersk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rust-analyzer-src = {
       url = "github:rust-analyzer/rust-analyzer/nightly";
@@ -13,7 +9,7 @@
     };
   };
 
-  outputs = { self, naersk, nixpkgs, rust-analyzer-src }: rec {
+  outputs = { self, nixpkgs, rust-analyzer-src }: rec {
     defaultPackage = packages;
 
     packages = with builtins;
