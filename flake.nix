@@ -87,14 +87,15 @@
             nightlyToolchains
           ];
 
-          rust-analyzer = (naersk.lib.${k}.override {
+          rust-analyzer = (pkgs.makeRustPlatform {
             inherit (nightlyToolchains.${v}.minimal) cargo rustc;
-          }).buildPackage {
-            name = "rust-analyzer-nightly";
+          }).buildRustPackage {
+            pname = "rust-analyzer-nightly";
             version = rust-analyzer-rev;
             src = rust-analyzer-src;
-            cargoBuildOptions = xs: xs ++ [ "-p" "rust-analyzer" ];
-            cargoOptions = xs: xs ++ [ "-Z" "avoid-dev-deps" ];
+            cargoLock.lockFile = rust-analyzer-src + "/Cargo.lock";
+            cargoBuildFlags = [ "-p" "rust-analyzer" ];
+            doCheck = false;
             CARGO_INCREMENTAL = "0";
             RUST_ANALYZER_REV = rust-analyzer-rev;
           };
