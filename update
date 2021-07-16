@@ -5,13 +5,13 @@ from urllib.error import HTTPError
 from urllib.request import urlopen
 
 targets = [
+    "aarch64-apple-darwin",
     "aarch64-unknown-linux-gnu",
     "i686-unknown-linux-gnu",
     "x86_64-apple-darwin",
     "x86_64-unknown-linux-gnu",
 ]
 std_targets = [
-    "aarch64-apple-darwin",
     "aarch64-apple-ios",
     "aarch64-linux-android",
     "aarch64-pc-windows-msvc",

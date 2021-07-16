@@ -95,6 +95,7 @@ all profiles (minimal, default, complete, and latest)
 
 | platform | target |
 -|-
+aarch64-darwin | aarch64-apple-darwin
 aarch64-linux | aarch64-unknown-linux-gnu
 i686-linux | i686-unknown-linux-gnu
 x86_64-darwin | x86_64-apple-darwin
