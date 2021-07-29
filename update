@@ -66,11 +66,12 @@ std_targets = [
 profiles = ["minimal", "default", "complete"]
 
 dist_root = "https://static.rust-lang.org/dist"
-one_day = datetime.timedelta(days = 1)
+one_day = datetime.timedelta(days=1)
 
-nightly = { target: { "latest": {} } for target in targets }
+nightly = {target: {"latest": {}} for target in targets}
 
-def fetch_nightly(d = None):
+
+def fetch_nightly(d=None):
     date_path = f"/{d}" if d else ""
 
     try:
@@ -89,13 +90,15 @@ def fetch_nightly(d = None):
         skipped = False
 
         for target in targets:
-            if not d: nightly[target]["latest"] = {
-                "date": date_str,
-                "components": {},
-            }
+            if not d:
+                nightly[target]["latest"] = {
+                    "date": date_str,
+                    "components": {},
+                }
 
             for component in components["complete"]:
-                if component in nightly[target]["latest"]["components"]: continue
+                if component in nightly[target]["latest"]["components"]:
+                    continue
 
                 pkg = pkgs[component]["target"]
                 src = pkg.get("*") or pkg.get(target)
@@ -107,15 +110,17 @@ def fetch_nightly(d = None):
                     }
 
             for profile in profiles:
-                if profile in nightly[target]: continue
+                if profile in nightly[target]:
+                    continue
 
-                result = { "date": date_str, "components": {} }
+                result = {"date": date_str, "components": {}}
                 success = True
 
                 for component in components[profile]:
                     pkg = pkgs[component]["target"]
                     src = pkg.get("*") or pkg.get(target)
-                    if not src: continue
+                    if not src:
+                        continue
 
                     if src["available"]:
                         result["components"][component] = {
@@ -150,6 +155,7 @@ def fetch_nightly(d = None):
 
         if skipped:
             fetch_nightly(date - one_day)
+
 
 fetch_nightly()
 json.dump(nightly, open("data/nightly.json", "w"))
