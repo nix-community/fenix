@@ -13,7 +13,10 @@ on:
 jobs:
   build-nightly:
     name: build-nightly
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
@@ -39,7 +42,10 @@ jobs:
 
   build-stable-beta:
     name: build-stable-beta
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
