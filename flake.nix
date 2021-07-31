@@ -91,6 +91,11 @@
             src = rust-analyzer-src;
             cargoLock.lockFile = rust-analyzer-src + "/Cargo.lock";
             cargoBuildFlags = [ "-p" "rust-analyzer" ];
+            buildInputs = with pkgs;
+              optionals stdenv.isDarwin [
+                darwin.apple_sdk.frameworks.CoreServices
+                libiconv
+              ];
             doCheck = false;
             CARGO_INCREMENTAL = "0";
             RUST_ANALYZER_REV = rust-analyzer-rev;
