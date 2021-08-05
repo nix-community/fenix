@@ -25,7 +25,9 @@ jobs:
         uses: cachix/install-nix-action@v13
         with:
           install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
-          extra_nix_config: experimental-features = flakes nix-command
+          extra_nix_config: |
+            experimental-features = flakes nix-command
+            access-tokens = github.com=${{ github.token }}
 
       - name: Set up cachix
         uses: cachix/cachix-action@v10
