@@ -77,11 +77,14 @@
 
           beta = fromManifestFile' v "rust-beta" ./data/beta.toml;
 
-          targets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
-            (mkToolchains "stable")
-            (mkToolchains "beta")
-            nightlyToolchains
-          ];
+          targets = let
+            collectedTargets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
+              (mkToolchains "stable")
+              (mkToolchains "beta")
+              nightlyToolchains
+            ];
+          in mapAttrs (target: v: v // { toolchainOf = toolchainOf' target; })
+          collectedTargets;
 
           rust-analyzer = (pkgs.makeRustPlatform {
             inherit (nightlyToolchains.${v}.minimal) cargo rustc;
