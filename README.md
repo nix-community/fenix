@@ -41,6 +41,7 @@ As a flake (recommended)
     # fenix.packages.x86_64-linux.toolchainOf { channel = "stable"; date = "2021-06-17"; sha256 = ""; }
     # fenix.packages.x86_64-linux.targets.aarch64-unknown-linux-gnu.latest.rust-std
     # fenix.packages.x86_64-linux.targets.wasm32-unknown-unknown.stable.rust-std
+    # fenix.packages.x86_64-linux.targets.wasm32-unknown-unknown.toolchainOf { date = "2021-07-07"; sha256 = ""; }
     # fenix.packages.x86_64-linux.rust-analyzer
     # fenix.packages.x86_64-linux.rust-analyzer-vscode-extension
 
