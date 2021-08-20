@@ -1,0 +1,32 @@
+name: pr
+
+on: pull_request
+
+jobs:
+  check:
+    name: check
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v13
+        with:
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
+          extra_nix_config: experimental-features = flakes nix-command
+
+      - name: Check formatting
+        run: nix run nixpkgs#nixfmt --inputs-from . -- {,lib/}*.nix -c
+
+      - name: Set up cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: nix-community
+
+      - name: Build with nix
+        run: |
+          nix build .#{{stable,beta,complete}.toolchain,rust-analyzer{,-vscode-extension}}
