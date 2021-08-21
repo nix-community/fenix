@@ -47,7 +47,7 @@ in let
                 patchelf \
                   --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
                   --set-rpath $out/lib \
-                  "$file"
+                  "$file" || true
               fi
             done
           ''}
@@ -57,7 +57,7 @@ in let
               patchelf \
                 --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
                 --set-rpath $out/lib/rustlib/*/lib \
-                "$file"
+                "$file" || true
             done
           ''}
         ''}
@@ -66,12 +66,12 @@ in let
           ${optionalString stdenv.isLinux ''
             patchelf \
               --set-rpath ${toolchain.rustc}/lib:${rpath} \
-              $out/bin/clippy-driver
+              $out/bin/clippy-driver || true
           ''}
           ${optionalString stdenv.isDarwin ''
             install_name_tool \
               -add_rpath ${toolchain.rustc}/lib \
-              $out/bin/clippy-driver
+              $out/bin/clippy-driver || true
           ''}
         ''}
       '';
