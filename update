@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
-import datetime, json, toml
+import datetime
+import json
 from urllib.error import HTTPError
 from urllib.request import urlopen
+
+import toml
 
 targets = [
     "aarch64-apple-darwin",
@@ -136,7 +139,7 @@ def fetch_nightly(d=None):
                     nightly[target][profile] = result
 
         for target, src in pkgs["rust-std"]["target"].items():
-            if not target in nightly:
+            if target not in nightly:
                 if src["available"]:
                     nightly[target] = {
                         "latest": {
