@@ -67,25 +67,12 @@ As a flake (recommended)
 }
 ```
 
-As an overlay
-
-```nix
-# configuration.nix
-{
-  nixpkgs.overlays = [
-    (import (fetchTarball
-      "https://github.com/nix-community/fenix/archive/main.tar.gz"))
-  ];
-  environment.systemPackages = [ pkgs.rust-nightly.default.toolchain ];
-}
-```
-
 As a set of packages
 ```nix
 let
-  fenix = import "${
-      fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"
-    }/packages.nix";
+  fenix = import (
+    fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"
+  ) {};
 in fenix.default.rustc
 ```
 
