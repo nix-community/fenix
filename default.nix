@@ -9,12 +9,14 @@ let
     };
 
 in { system ? currentSystem
-, nixpkgs ? import (getFlake "nixpkgs") { inherit system; }, lib ? nixpkgs.lib
+, pkgs ? import (getFlake "nixpkgs") { inherit system; }, lib ? pkgs.lib
 , rust-analyzer-src ? getFlake "rust-analyzer-src" }:
 
 with lib;
 
 let
+  nixpkgs = pkgs;
+
   systemToRust = {
     aarch64-darwin = "aarch64-apple-darwin";
     aarch64-linux = "aarch64-unknown-linux-gnu";
