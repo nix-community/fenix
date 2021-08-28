@@ -10,19 +10,19 @@
   };
 
   outputs = { self, nixpkgs, rust-analyzer-src }: rec {
-    packages = builtins.mapAttrs (system: _:
-      import ./. {
-        inherit system rust-analyzer-src;
-        flakeLock = throw "should not be accessed";
-        nixpkgs = nixpkgs.legacyPackages.${system};
-        lib = nixpkgs.lib;
-      }) {
-        aarch64-darwin = null;
-        aarch64-linux = null;
-        i686-linux = null;
-        x86_64-darwin = null;
-        x86_64-linux = null;
-      };
+    packages = nixpkgs.lib.genAttrs [
+      "aarch64-darwin"
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-darwin"
+      "x86_64-linux"
+    ]
+      (system:
+        import ./. {
+          inherit system rust-analyzer-src;
+          pkgs = nixpkgs.legacyPackages.${system};
+          lib = nixpkgs.lib;
+        });
 
     overlay = import ./lib/overlay.nix (pkgs: packages.${pkgs.system});
   };
