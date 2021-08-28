@@ -30,3 +30,6 @@ jobs:
       - name: Build with nix
         run: |
           nix build .#{{stable,beta,complete}.toolchain,rust-analyzer{,-vscode-extension}}
+
+      - name: Flake check
+        run: nix flake check
