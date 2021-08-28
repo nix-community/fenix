@@ -1,11 +1,19 @@
-{ system ? builtins.currentSystem, flakeLock ? import ./flake.lock.nix
-, nixpkgs ? import flakeLock.nixpkgs {
-  inherit system;
-  config = { };
-  overlays = [ ];
-}, lib ? nixpkgs.lib, rust-analyzer-src ? flakeLock.rust-analyzer-src }:
 with builtins;
+
+let
+  getFlake = name:
+    with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked;
+    fetchTarball {
+      url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
+      sha256 = narHash;
+    };
+
+in { system ? currentSystem
+, nixpkgs ? import (getFlake "nixpkgs") { inherit system; }, lib ? nixpkgs.lib
+, rust-analyzer-src ? getFlake "rust-analyzer-src" }:
+
 with lib;
+
 let
   systemToRust = {
     aarch64-darwin = "aarch64-apple-darwin";
