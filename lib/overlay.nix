@@ -1,10 +1,10 @@
-f: final: prev:
-let fenix = f prev;
+f: _: super:
+let fenix = f super;
 in {
   inherit fenix;
   rust-analyzer-nightly = fenix.rust-analyzer;
-  vscode-extensions = prev.vscode-extensions // {
-    matklad = prev.vscode-extensions.matklad // {
+  vscode-extensions = super.vscode-extensions // {
+    matklad = super.vscode-extensions.matklad // {
       rust-analyzer-nightly = fenix.rust-analyzer-vscode-extension;
     };
   };
