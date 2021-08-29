@@ -30,3 +30,4 @@ jobs:
       - name: Build with nix
         run: |
           nix build .#{{stable,beta,complete}.toolchain,rust-analyzer{,-vscode-extension}}
+          ./test

@@ -1,0 +1,7 @@
+#!/usr/bin/env -S nix shell nixpkgs#gdb nixpkgs#lldb -c sh
+
+set -e
+
+for bin in result*/bin/*; do
+    $bin -h
+done

@@ -39,8 +39,9 @@ jobs:
         run: |
           pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
           nix build "${pkgs[@]}"
-          nix build --override-input \
-            nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+          ./test
+          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+          ./test
 
   build-stable-beta:
     name: build-stable-beta
@@ -70,5 +71,6 @@ jobs:
         run: |
           pkgs=(.#{stable,beta}.{minimal,default,complete}Toolchain)
           nix build "${pkgs[@]}"
-          nix build --override-input \
-            nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+          ./test
+          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
+          ./test
