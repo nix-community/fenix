@@ -67,26 +67,30 @@ As a flake (recommended)
 }
 ```
 
-As an overlay
+As a set of packages
+```nix
+let
+  fenix = import
+    (fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz")
+    { };
+in fenix.default.rustc
+```
 
+As an overlay
 ```nix
 # configuration.nix
 {
   nixpkgs.overlays = [
-    (import (fetchTarball
-      "https://github.com/nix-community/fenix/archive/main.tar.gz"))
+    (import "${
+        fetchTarball
+        "https://github.com/nix-community/fenix/archive/main.tar.gz"
+      }/overlay.nix")
   ];
-  environment.systemPackages = [ pkgs.rust-nightly.default.toolchain ];
+  environment.systemPackages = with pkgs; [
+    fenix.default.toolchain
+    rust-analyzer-nightly
+  ];
 }
-```
-
-As a set of packages
-```nix
-let
-  fenix = import "${
-      fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"
-    }/packages.nix";
-in fenix.default.rustc
 ```
 
 
