@@ -100,13 +100,24 @@ in let
       dontStrip = true;
       meta.platforms = platforms.all;
     }) components;
-in toolchain // {
-  toolchain = combine "${name}-${date}" (attrValues toolchain);
+
+  toolchain' = toolchain // {
+    toolchain = combine "${name}-${date}" (attrValues toolchain);
+
+    rustc =
+      combine "${name}-with-std-${date}" (with toolchain; [ rustc rust-std ])
+      // {
+        unwrapped = toolchain.rustc;
+      };
+    rustc-unwrapped = toolchain.rustc;
+
+    clippy = toolchain.clippy-preview;
+    miri = toolchains.miri-preview;
+    rls = toolchain.rls-preview;
+    rustfmt = toolchain.rustfmt-preview;
+  };
+in toolchain' // {
   withComponents = componentNames:
     combine "${name}-with-components-${date}"
-    (attrVals componentNames toolchain);
-} // optionalAttrs (toolchain ? rustc) {
-  rustc =
-    combine "${name}-with-std-${date}" (with toolchain; [ rustc rust-std ]);
-  rustc-unwrapped = toolchain.rustc;
+    (attrVals componentNames toolchain');
 }

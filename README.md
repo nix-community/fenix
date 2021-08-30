@@ -51,10 +51,9 @@ As a flake (recommended)
     #   (with fenix;
     #     combine (with default; [
     #       cargo
-    #       clippy-preview
-    #       rust-std
+    #       clippy
     #       rustc
-    #       rustfmt-preview
+    #       rustfmt
     #       latest.rust-src
     #     ]))
     #   (vscode-with-extensions.override {
