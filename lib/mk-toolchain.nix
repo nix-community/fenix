@@ -112,7 +112,7 @@ in let
     rustc-unwrapped = toolchain.rustc;
 
     clippy = toolchain.clippy-preview;
-    miri = toolchains.miri-preview;
+    miri = toolchain.miri-preview;
     rls = toolchain.rls-preview;
     rustfmt = toolchain.rustfmt-preview;
   };
