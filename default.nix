@@ -15,16 +15,7 @@ in { system ? currentSystem
 with lib;
 
 let
-  systemToRust = {
-    aarch64-darwin = "aarch64-apple-darwin";
-    aarch64-linux = "aarch64-unknown-linux-gnu";
-    i686-linux = "i686-unknown-linux-gnu";
-    x86_64-darwin = "x86_64-apple-darwin";
-    x86_64-linux = "x86_64-unknown-linux-gnu";
-  };
-
-  v = systemToRust.${system} or (throw
-    "system '${system}' is unsupported by fenix");
+  v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
   mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
 
