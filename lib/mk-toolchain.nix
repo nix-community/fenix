@@ -101,21 +101,20 @@ in let
       meta.platforms = platforms.all;
     }) components;
 
+  alias = from: to:
+    optionalAttrs (toolchain ? ${to}) { ${from} = toolchain.${to}; };
+
   toolchain' = toolchain // {
     toolchain = combine "${name}-${date}" (attrValues toolchain);
-
+  } // optionalAttrs (toolchain ? rustc) {
     rustc =
       combine "${name}-with-std-${date}" (with toolchain; [ rustc rust-std ])
       // {
         unwrapped = toolchain.rustc;
       };
     rustc-unwrapped = toolchain.rustc;
-
-    clippy = toolchain.clippy-preview;
-    miri = toolchain.miri-preview;
-    rls = toolchain.rls-preview;
-    rustfmt = toolchain.rustfmt-preview;
-  };
+  } // alias "clippy" "clippy-preview" // alias "miri" "miri-preview"
+    // alias "rls" "rls-preview" // alias "rustfmt" "rustfmt-preview";
 in toolchain' // {
   withComponents = componentNames:
     combine "${name}-with-components-${date}"
