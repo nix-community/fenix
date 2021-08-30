@@ -81,8 +81,12 @@ in nightlyToolchains.${v} // rec {
       (mkToolchains "beta")
       nightlyToolchains
     ];
-  in mapAttrs (target: v: v // { toolchainOf = toolchainOf' target; })
-  collectedTargets;
+  in mapAttrs (target: v:
+    v // {
+      fromManifest = fromManifest' target "rust";
+      fromManifestFile = fromManifestFile' target "rust";
+      toolchainOf = toolchainOf' target;
+    }) collectedTargets;
 
   rust-analyzer = (pkgs.makeRustPlatform {
     inherit (nightlyToolchains.${v}.minimal) cargo rustc;
