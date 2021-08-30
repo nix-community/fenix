@@ -75,6 +75,17 @@ in let
           ''}
         ''}
 
+        ${optionalString (component == "miri-preview") ''
+          ${optionalString stdenv.isLinux ''
+            patchelf \
+              --set-rpath ${toolchain.rustc}/lib $out/bin/miri || true
+          ''}
+          ${optionalString stdenv.isDarwin ''
+            install_name_tool \
+              -add_rpath ${toolchain.rustc}/lib $out/bin/miri || true
+          ''}
+        ''}
+
         ${optionalString (component == "rls-preview") ''
           ${optionalString stdenv.isLinux ''
             patchelf \
