@@ -74,6 +74,17 @@ in let
               $out/bin/clippy-driver || true
           ''}
         ''}
+
+        ${optionalString (component == "rls-preview") ''
+          ${optionalString stdenv.isLinux ''
+            patchelf \
+              --set-rpath ${toolchain.rustc}/lib $out/bin/rls || true
+          ''}
+          ${optionalString stdenv.isDarwin ''
+            install_name_tool \
+              -add_rpath ${toolchain.rustc}/lib $out/bin/rls || true
+          ''}
+        ''}
       '';
       dontStrip = true;
       meta.platforms = platforms.all;
