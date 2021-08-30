@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell nixpkgs#gdb nixpkgs#lldb -c sh
+#!/bin/sh
 
 set -e
 
@@ -8,6 +8,10 @@ for bin in result*/bin/*; do
         cargo-miri)
             "$bin" miri -h > /dev/null;;
         rust-demangler)
+            ;;
+        rust-gdb)
+            ;;
+        rust-lldb)
             ;;
         *)
             "$bin" --help > /dev/null
