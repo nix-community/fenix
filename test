@@ -4,5 +4,12 @@ set -e
 
 for bin in result*/bin/*; do
     echo "$bin"
-    "$bin" --help > /dev/null
+    case "$(basename "$(basename "$bin")")" in
+        cargo-miri)
+            "$bin" miri -h > /dev/null;;
+        rust-demangler)
+            ;;
+        *)
+            "$bin" --help > /dev/null
+    esac
 done
