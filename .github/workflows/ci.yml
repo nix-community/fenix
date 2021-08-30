@@ -11,8 +11,8 @@ on:
       - completed
 
 jobs:
-  build-nightly:
-    name: build-nightly
+  build:
+    name: build
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -37,40 +37,13 @@ jobs:
 
       - name: Build with nix
         run: |
-          pkgs=(.#{{minimal,default,complete,latest}.toolchain,rust-analyzer{,-vscode-extension}})
+          pkgs=(.#{{stable,beta,minimal,default,complete}.toolchain,rust-analyzer{,-vscode-extension}})
+
           nix build "${pkgs[@]}"
           ./test
+
           nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
           ./test
 
-  build-stable-beta:
-    name: build-stable-beta
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-
-      - name: Install nix
-        uses: cachix/install-nix-action@v13
-        with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
-          extra_nix_config: |
-            experimental-features = flakes nix-command
-            access-tokens = github.com=${{ github.token }}
-
-      - name: Set up cachix
-        uses: cachix/cachix-action@v10
-        with:
-          name: nix-community
-          signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
-
-      - name: Build with nix
-        run: |
-          pkgs=(.#{stable,beta}.{minimal,default,complete}Toolchain)
-          nix build "${pkgs[@]}"
-          ./test
-          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
-          ./test
+          nix build .#latest.toolchain
+          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable .#latest.toolchain
