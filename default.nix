@@ -47,12 +47,16 @@ let
     fromManifest' target name (fromTOML (readFile file));
 
   toolchainOf' = target:
-    { root ? "https://static.rust-lang.org/dist", channel ? "nightly", date
-    , sha256 }:
-    fromManifestFile' target "rust-${channel}" (fetchurl {
-      inherit sha256;
-      url = "${root}/${date}/channel-rust-${channel}.toml";
-    });
+    { root ? "https://static.rust-lang.org/dist", channel ? "nightly"
+    , date ? null, sha256 ? null }:
+    let
+      url = "${root}${
+          optionalString (date != null) "/${date}"
+        }/channel-rust-${channel}.toml";
+    in fromManifestFile' target "rust-${channel}" (if (sha256 == null) then
+      fetchurl url
+    else
+      fetchurl { inherit url sha256; });
 
   mkToolchains = channel:
     let manifest = fromTOML (readFile (./data + "/${channel}.toml"));
