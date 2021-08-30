@@ -3,5 +3,6 @@
 set -e
 
 for bin in result*/bin/*; do
-    $bin -h
+    echo "$bin"
+    "$bin" --help > /dev/null
 done
