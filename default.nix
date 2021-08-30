@@ -15,8 +15,6 @@ in { system ? currentSystem
 with lib;
 
 let
-  nixpkgs = pkgs;
-
   systemToRust = {
     aarch64-darwin = "aarch64-apple-darwin";
     aarch64-linux = "aarch64-unknown-linux-gnu";
@@ -28,7 +26,7 @@ let
   v = systemToRust.${system} or (throw
     "system '${system}' is unsupported by fenix");
 
-  mkToolchain = nixpkgs.callPackage ./lib/mk-toolchain.nix { };
+  mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
 
   nightlyToolchains =
     mapAttrs (_: mapAttrs (profile: mkToolchain "rust-nightly-${profile}"))
@@ -74,7 +72,7 @@ let
   rust-analyzer-rev = substring 0 7
     (fromJSON (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
 in nightlyToolchains.${v} // rec {
-  combine = nixpkgs.callPackage ./lib/combine.nix { } "rust-mixed";
+  combine = pkgs.callPackage ./lib/combine.nix { } "rust-mixed";
 
   fromManifest = fromManifest' v "rust";
 
@@ -95,7 +93,7 @@ in nightlyToolchains.${v} // rec {
   in mapAttrs (target: v: v // { toolchainOf = toolchainOf' target; })
   collectedTargets;
 
-  rust-analyzer = (nixpkgs.makeRustPlatform {
+  rust-analyzer = (pkgs.makeRustPlatform {
     inherit (nightlyToolchains.${v}.minimal) cargo rustc;
   }).buildRustPackage {
     pname = "rust-analyzer-nightly";
@@ -103,7 +101,7 @@ in nightlyToolchains.${v} // rec {
     src = rust-analyzer-src;
     cargoLock.lockFile = rust-analyzer-src + "/Cargo.lock";
     cargoBuildFlags = [ "-p" "rust-analyzer" ];
-    buildInputs = with nixpkgs;
+    buildInputs = with pkgs;
       optionals stdenv.isDarwin [
         darwin.apple_sdk.frameworks.CoreServices
         libiconv
@@ -117,11 +115,11 @@ in nightlyToolchains.${v} // rec {
     setDefault = k: v: ''
       .contributes.configuration.properties."rust-analyzer.${k}".default = "${v}"
     '';
-  in nixpkgs.vscode-utils.buildVscodeExtension {
+  in pkgs.vscode-utils.buildVscodeExtension {
     name = "rust-analyzer-${rust-analyzer-rev}";
     src = ./data/rust-analyzer-vsix.zip;
     vscodeExtUniqueId = "matklad.rust-analyzer";
-    buildInputs = with nixpkgs; [ jq moreutils ];
+    buildInputs = with pkgs; [ jq moreutils ];
     patchPhase = ''
       jq -e '
         ${setDefault "server.path" "${rust-analyzer}/bin/rust-analyzer"}
