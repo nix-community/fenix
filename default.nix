@@ -17,6 +17,8 @@ with lib;
 let
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
+  combine' = pkgs.callPackage ./lib/combine.nix { };
+
   mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
 
   nightlyToolchains =
@@ -41,7 +43,10 @@ let
       };
     in toolchain // mapAttrs' (k: v:
       nameValuePair "${k}Toolchain" (toolchain.withComponents
-        (filter (component: toolchain ? ${component}) v))) manifest.profiles;
+        (filter (component: toolchain ? ${component}) v))) manifest.profiles
+    // {
+      inherit manifest;
+    };
 
   fromManifestFile' = target: name: file:
     fromManifest' target name (fromTOML (readFile file));
@@ -58,6 +63,50 @@ let
     else
       fetchurl { inherit url sha256; });
 
+  fromToolchainName = target: name: sha256:
+    mapNullable (matches:
+      let target' = elemAt matches 4;
+      in toolchainOf' (if target' == null then target else target') {
+        inherit sha256;
+        channel = elemAt matches 0;
+        date = elemAt matches 2;
+      }) (match ''
+        ^(stable|beta|nightly|[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+)(-([[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}))?(-([-[:alnum:]]+))?
+        ?$'' name);
+
+  fromToolchainFile' = target:
+    { file ? null, dir ? null, sha256 ? null }:
+    let
+      text = readFile (if file == null && dir != null then
+        let
+          old = dir + "/rust-toolchain";
+          new = dir + "/rust-toolchain.toml";
+        in (if pathIsRegularFile old then
+          old
+        else if pathIsRegularFile new then
+          new
+        else
+          throw "No rust toolchain file found in ${dir}")
+      else if file != null && dir == null then
+        file
+      else
+        throw "One and only one of `file` and `dir` should be specified");
+      toolchain = fromToolchainName target text sha256;
+    in if toolchain == null then
+      let t = (fromTOML text).toolchain;
+      in if t ? path then
+        throw "fenix doesn't support toolchain.path"
+      else
+        let toolchain = fromToolchainName target t.channel sha256;
+        in combine' "rust-${t.channel}" (attrVals
+          (filter (component: toolchain ? ${component}) (unique
+            (toolchain.manifest.profiles.${t.profile or "default"}
+              ++ t.components or [ ]))) toolchain ++ map (target:
+                (fromManifest' target "rust-${t.channel}"
+                  toolchain.manifest).rust-std) (t.targets or [ ]))
+    else
+      toolchain.defaultToolchain;
+
   mkToolchains = channel:
     let manifest = fromTOML (readFile (./data + "/${channel}.toml"));
     in mapAttrs (target: _: {
@@ -67,13 +116,15 @@ let
   rust-analyzer-rev = substring 0 7
     (fromJSON (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
 in nightlyToolchains.${v} // rec {
-  combine = pkgs.callPackage ./lib/combine.nix { } "rust-mixed";
+  combine = combine' "rust-mixed";
 
   fromManifest = fromManifest' v "rust";
 
   fromManifestFile = fromManifestFile' v "rust";
 
   toolchainOf = toolchainOf' v;
+
+  fromToolchainFile = fromToolchainFile' v;
 
   stable = fromManifestFile' v "rust-stable" ./data/stable.toml;
 
@@ -90,6 +141,7 @@ in nightlyToolchains.${v} // rec {
       fromManifest = fromManifest' target "rust";
       fromManifestFile = fromManifestFile' target "rust";
       toolchainOf = toolchainOf' target;
+      fromToolchainFile = fromToolchainFile' target;
     }) collectedTargets;
 
   rust-analyzer = (pkgs.makeRustPlatform {
