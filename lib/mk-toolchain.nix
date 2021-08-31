@@ -3,13 +3,13 @@
 name:
 { date, components }:
 
-with builtins;
-with lib;
-
 let
+  inherit (builtins) attrValues fetchurl mapAttrs;
+  inherit (lib) attrVals optionalAttrs optionalString platforms;
+
   combine = callPackage ./combine.nix { };
   rpath = "${zlib}/lib:$out/lib";
-in let
+
   toolchain = mapAttrs (component: source:
     stdenv.mkDerivation {
       pname = "${component}-nightly";

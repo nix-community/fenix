@@ -1,6 +1,7 @@
-with builtins;
-
 let
+  inherit (builtins)
+    currentSystem elemAt fetchurl filter fromJSON mapAttrs match readFile;
+
   getFlake = name:
     with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked;
     fetchTarball {
@@ -12,9 +13,11 @@ in { system ? currentSystem
 , pkgs ? import (getFlake "nixpkgs") { inherit system; }, lib ? pkgs.lib
 , rust-analyzer-src ? getFlake "rust-analyzer-src" }:
 
-with lib;
-
 let
+  inherit (lib)
+    attrVals filterAttrs foldl mapAttrs' mapNullable nameValuePair
+    optionalString optionals pathIsRegularFile substring unique zipAttrsWith;
+
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
   combine' = pkgs.callPackage ./lib/combine.nix { };
@@ -29,7 +32,7 @@ let
     let
       toolchain = mkToolchain name {
         inherit (manifest) date;
-        components = lib.mapAttrs (_: src: {
+        components = mapAttrs (_: src: {
           inherit (src) url;
           sha256 = src.hash;
         }) (filterAttrs (_: src: src ? available && src.available) (mapAttrs
