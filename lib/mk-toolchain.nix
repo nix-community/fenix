@@ -1,10 +1,10 @@
-{ callPackage, lib, stdenv, zlib }:
+{ callPackage, fetchurl, lib, stdenv, zlib }:
 
 name:
 { date, components }:
 
 let
-  inherit (builtins) attrValues fetchurl mapAttrs;
+  inherit (builtins) attrValues mapAttrs;
   inherit (lib) attrVals optionalAttrs optionalString platforms;
 
   combine = callPackage ./combine.nix { };
