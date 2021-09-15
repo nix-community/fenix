@@ -116,8 +116,8 @@ let
     (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
     manifest.pkg.rust-std.target;
 
-  rust-analyzer-rev = substring 0 7
-    (fromJSON (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
+  rust-analyzer-rev = rust-analyzer-src.shortRev or (substring 0 7
+    (fromJSON (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev);
 in nightlyToolchains.${v} // rec {
   combine = combine' "rust-mixed";
 
