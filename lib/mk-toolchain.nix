@@ -1,6 +1,6 @@
 { callPackage, fetchurl, lib, stdenv, zlib }:
 
-name:
+suffix:
 { date, components }:
 
 let
@@ -12,7 +12,7 @@ let
 
   toolchain = mapAttrs (component: source:
     stdenv.mkDerivation {
-      pname = "${component}-nightly";
+      pname = "${component}${suffix}";
       version = source.date or date;
       src = fetchurl { inherit (source) url sha256; };
       installPhase = ''
@@ -105,11 +105,10 @@ let
     optionalAttrs (toolchain ? ${to}) { ${from} = toolchain.${to}; };
 
   toolchain' = toolchain // {
-    toolchain = combine "${name}-${date}" (attrValues toolchain);
+    toolchain = combine "rust${suffix}-${date}" (attrValues toolchain);
   } // optionalAttrs (toolchain ? rustc) {
-    rustc =
-      combine "${name}-with-std-${date}" (with toolchain; [ rustc rust-std ])
-      // {
+    rustc = combine "rust${suffix}-with-std-${date}"
+      (with toolchain; [ rustc rust-std ]) // {
         unwrapped = toolchain.rustc;
       };
     rustc-unwrapped = toolchain.rustc;
@@ -117,6 +116,6 @@ let
     // alias "rls" "rls-preview" // alias "rustfmt" "rustfmt-preview";
 in toolchain' // {
   withComponents = componentNames:
-    combine "${name}-with-components-${date}"
+    combine "rust${suffix}-with-components-${date}"
     (attrVals componentNames toolchain');
 }
