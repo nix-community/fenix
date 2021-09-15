@@ -1,6 +1,6 @@
 let
   inherit (builtins)
-    currentSystem elemAt fetchurl filter fromJSON mapAttrs match readFile;
+    currentSystem elemAt filter fromJSON mapAttrs match readFile;
 
   getFlake = name:
     with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked;
@@ -62,9 +62,9 @@ let
           optionalString (date != null) "/${date}"
         }/channel-rust-${channel}.toml";
     in fromManifestFile' target "rust-${channel}" (if (sha256 == null) then
-      fetchurl url
+      builtins.fetchurl url
     else
-      fetchurl { inherit url sha256; });
+      pkgs.fetchurl { inherit url sha256; });
 
   fromToolchainName = target: name: sha256:
     mapNullable (matches:
