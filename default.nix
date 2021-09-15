@@ -25,12 +25,12 @@ let
   mkToolchain = pkgs.callPackage ./lib/mk-toolchain.nix { };
 
   nightlyToolchains =
-    mapAttrs (_: mapAttrs (profile: mkToolchain "rust-nightly-${profile}"))
+    mapAttrs (_: mapAttrs (profile: mkToolchain "-nightly-${profile}"))
     (fromJSON (readFile ./data/nightly.json));
 
-  fromManifest' = target: name: manifest:
+  fromManifest' = target: suffix: manifest:
     let
-      toolchain = mkToolchain name {
+      toolchain = mkToolchain suffix {
         inherit (manifest) date;
         components = mapAttrs (_: src: {
           inherit (src) url;
@@ -61,7 +61,7 @@ let
       url = "${root}${
           optionalString (date != null) "/${date}"
         }/channel-rust-${channel}.toml";
-    in fromManifestFile' target "rust-${channel}" (if (sha256 == null) then
+    in fromManifestFile' target "-${channel}" (if (sha256 == null) then
       builtins.fetchurl url
     else
       pkgs.fetchurl { inherit url sha256; });
@@ -105,33 +105,33 @@ let
           (filter (component: toolchain ? ${component}) (unique
             (toolchain.manifest.profiles.${t.profile or "default"}
               ++ t.components or [ ]))) toolchain ++ map (target:
-                (fromManifest' target "rust-${t.channel}"
+                (fromManifest' target "-${t.channel}"
                   toolchain.manifest).rust-std) (t.targets or [ ]))
     else
       toolchain.defaultToolchain;
 
   mkToolchains = channel:
     let manifest = fromTOML (readFile (./data + "/${channel}.toml"));
-    in mapAttrs (target: _: {
-      ${channel} = fromManifest' target "rust-${channel}" manifest;
-    }) manifest.pkg.rust-std.target;
+    in mapAttrs
+    (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
+    manifest.pkg.rust-std.target;
 
   rust-analyzer-rev = substring 0 7
     (fromJSON (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev;
 in nightlyToolchains.${v} // rec {
   combine = combine' "rust-mixed";
 
-  fromManifest = fromManifest' v "rust";
+  fromManifest = fromManifest' v "";
 
-  fromManifestFile = fromManifestFile' v "rust";
+  fromManifestFile = fromManifestFile' v "";
 
   toolchainOf = toolchainOf' v;
 
   fromToolchainFile = fromToolchainFile' v;
 
-  stable = fromManifestFile' v "rust-stable" ./data/stable.toml;
+  stable = fromManifestFile' v "-stable" ./data/stable.toml;
 
-  beta = fromManifestFile' v "rust-beta" ./data/beta.toml;
+  beta = fromManifestFile' v "-beta" ./data/beta.toml;
 
   targets = let
     collectedTargets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
@@ -141,8 +141,8 @@ in nightlyToolchains.${v} // rec {
     ];
   in mapAttrs (target: v:
     v // {
-      fromManifest = fromManifest' target "rust";
-      fromManifestFile = fromManifestFile' target "rust";
+      fromManifest = fromManifest' target "";
+      fromManifestFile = fromManifestFile' target "";
       toolchainOf = toolchainOf' target;
       fromToolchainFile = fromToolchainFile' target;
     }) collectedTargets;
