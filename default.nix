@@ -163,6 +163,7 @@ in nightlyToolchains.${v} // rec {
     doCheck = false;
     CARGO_INCREMENTAL = "0";
     RUST_ANALYZER_REV = rust-analyzer-rev;
+    meta.mainProgram = "rust-analyzer";
   };
 
   rust-analyzer-vscode-extension = let
