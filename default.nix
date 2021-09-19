@@ -1,9 +1,11 @@
 let
   inherit (builtins)
-    currentSystem elemAt filter fromJSON mapAttrs match readFile;
+    currentSystem elemAt filter fromJSON mapAttrs match readFile substring;
+
+  nodes = (fromJSON (readFile ./flake.lock)).nodes;
 
   getFlake = name:
-    with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked;
+    with nodes.${name}.locked;
     fetchTarball {
       url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
       sha256 = narHash;
@@ -11,12 +13,14 @@ let
 
 in { system ? currentSystem
 , pkgs ? import (getFlake "nixpkgs") { inherit system; }, lib ? pkgs.lib
-, rust-analyzer-src ? getFlake "rust-analyzer-src" }:
+, rust-analyzer-src ? getFlake "rust-analyzer-src", rust-analyzer-rev ?
+  rust-analyzer-src.shortRev or (substring 0 7
+    nodes.rust-analyzer-src.locked.rev) }:
 
 let
   inherit (lib)
     attrVals filterAttrs foldl mapAttrs' mapNullable nameValuePair
-    optionalString optionals pathIsRegularFile substring unique zipAttrsWith;
+    optionalString optionals pathIsRegularFile unique zipAttrsWith;
 
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
@@ -116,8 +120,6 @@ let
     (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
     manifest.pkg.rust-std.target;
 
-  rust-analyzer-rev = rust-analyzer-src.shortRev or (substring 0 7
-    (fromJSON (readFile ./flake.lock)).nodes.rust-analyzer-src.locked.rev);
 in nightlyToolchains.${v} // rec {
   combine = combine' "rust-mixed";
 
