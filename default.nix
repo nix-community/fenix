@@ -2,20 +2,19 @@ let
   inherit (builtins)
     currentSystem elemAt filter fromJSON mapAttrs match readFile substring;
 
-  nodes = (fromJSON (readFile ./flake.lock)).nodes;
-
   getFlake = name:
-    with nodes.${name}.locked;
-    fetchTarball {
-      url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
-      sha256 = narHash;
+    with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked; {
+      inherit rev;
+      outPath = fetchTarball {
+        url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
+        sha256 = narHash;
+      };
     };
 
 in { system ? currentSystem
 , pkgs ? import (getFlake "nixpkgs") { inherit system; }, lib ? pkgs.lib
-, rust-analyzer-src ? getFlake "rust-analyzer-src", rust-analyzer-rev ?
-  rust-analyzer-src.shortRev or (substring 0 7
-    nodes.rust-analyzer-src.locked.rev) }:
+, rust-analyzer-src ? getFlake "rust-analyzer-src"
+, rust-analyzer-rev ? substring 0 7 (rust-analyzer-src.rev or "0000000") }:
 
 let
   inherit (lib)
