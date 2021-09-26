@@ -20,7 +20,7 @@ jobs:
           extra_nix_config: experimental-features = flakes nix-command
 
       - name: Check formatting
-        run: nix run nixpkgs#nixfmt --inputs-from . -- {,lib/}*.nix -c
+        run: nix run nixpkgs#nixpkgs-fmt --inputs-from . -- {,lib/}*.nix --check
 
       - name: Set up cachix
         uses: cachix/cachix-action@v10

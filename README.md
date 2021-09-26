@@ -59,10 +59,9 @@ cachix use nix-community
 
   ```nix
   let
-    fenix = import
-      (fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz")
-      { };
-  in fenix.minimal.toolchain
+    fenix = import (fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz") { };
+  in
+  fenix.minimal.toolchain
   ```
 </details>
 
@@ -73,10 +72,7 @@ cachix use nix-community
   # configuration.nix
   { pkgs, ... }: {
     nixpkgs.overlays = [
-      (import "${
-          fetchTarball
-          "https://github.com/nix-community/fenix/archive/main.tar.gz"
-        }/overlay.nix")
+      (import "${fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"}/overlay.nix")
     ];
     environment.systemPackages = with pkgs; [
       (fenix.complete.withComponents [
@@ -371,8 +367,8 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
 
     outputs = { self, fenix, flake-utils, nixpkgs }:
       flake-utils.lib.eachDefaultSystem (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in {
+        let pkgs = nixpkgs.legacyPackages.${system}; in
+        {
           defaultPackage = (pkgs.makeRustPlatform {
             inherit (fenix.packages.${system}.minimal) cargo rustc;
           }).buildRustPackage {
@@ -381,7 +377,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
             src = ./.;
             cargoSha256 = nixpkgs.lib.fakeSha256;
           };
-       });
+        });
   }
   ```
 </details>
@@ -434,24 +430,26 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
 
     outputs = { self, fenix, flake-utils, naersk, nixpkgs }:
       flake-utils.lib.eachDefaultSystem (system: {
-        defaultPackage = let
-          pkgs = nixpkgs.legacyPackages.${system};
-          target = "aarch64-unknown-linux-gnu";
-          toolchain = with fenix.packages.${system};
-            combine [
-              minimal.rustc
-              minimal.cargo
-              targets.${target}.latest.rust-std
-            ];
-        in (naersk.lib.${system}.override {
-          cargo = toolchain;
-          rustc = toolchain;
-        }).buildPackage {
-          src = ./.;
-          CARGO_BUILD_TARGET = target;
-          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
-            "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
-        };
+        defaultPackage =
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+            target = "aarch64-unknown-linux-gnu";
+            toolchain = with fenix.packages.${system};
+              combine [
+                minimal.rustc
+                minimal.cargo
+                targets.${target}.latest.rust-std
+              ];
+          in
+          (naersk.lib.${system}.override {
+            cargo = toolchain;
+            rustc = toolchain;
+          }).buildPackage {
+            src = ./.;
+            CARGO_BUILD_TARGET = target;
+            CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
+              "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+          };
       });
   }
   ```
