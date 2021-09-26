@@ -1,5 +1,7 @@
 { lib, symlinkJoin }:
+
 name: paths:
+
 symlinkJoin {
   inherit name paths;
   postBuild = ''

@@ -1,6 +1,8 @@
 f: _: super:
-let fenix = f super;
-in {
+
+let fenix = f super; in
+
+{
   inherit fenix;
   rust-analyzer-nightly = fenix.rust-analyzer;
   vscode-extensions = super.vscode-extensions // {
