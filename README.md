@@ -143,7 +143,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
   Creates a [toolchain](#toolchain) from a rustup manifest
 
   ```nix
-  fromManifest (fromTOML (builtins.readFile ./channel-rust-nightly.toml))
+  fromManifest (lib.importTOML ./channel-rust-nightly.toml)
   ```
 </details>
 

@@ -21,8 +21,8 @@ in
 
 let
   inherit (lib)
-    attrVals filterAttrs foldl mapAttrs' mapNullable nameValuePair
-    optionalString optionals pathIsRegularFile unique zipAttrsWith;
+    attrVals filterAttrs foldl importJSON importTOML mapAttrs' mapNullable
+    nameValuePair optionalString optionals pathIsRegularFile unique zipAttrsWith;
 
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
@@ -32,7 +32,7 @@ let
 
   nightlyToolchains = mapAttrs
     (_: mapAttrs (profile: mkToolchain "-nightly-${profile}"))
-    (fromJSON (readFile ./data/nightly.json));
+    (importJSON ./data/nightly.json);
 
   fromManifest' = target: suffix: manifest:
     let toolchain = mkToolchain suffix {
@@ -59,7 +59,7 @@ let
     };
 
   fromManifestFile' = target: name: file:
-    fromManifest' target name (fromTOML (readFile file));
+    fromManifest' target name (importTOML file);
 
   toolchainOf' = target:
     { root ? "https://static.rust-lang.org/dist"
@@ -130,7 +130,7 @@ let
       toolchain.defaultToolchain;
 
   mkToolchains = channel:
-    let manifest = fromTOML (readFile (./data + "/${channel}.toml"));
+    let manifest = importTOML (./data + "/${channel}.toml");
     in
     mapAttrs
       (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
