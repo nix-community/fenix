@@ -12,6 +12,7 @@ cachix use nix-community
 - [Usage](#usage)
 - [Supported platforms and targets](#supported-platforms-and-targets)
 - [Examples](#examples)
+- [Contributing](#contributing)
 
 
 ## Usage
@@ -454,3 +455,8 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
   }
   ```
 </details>
+
+
+## Contributing
+
+All pull requests should target `staging` branch instead of the default `main` branch
