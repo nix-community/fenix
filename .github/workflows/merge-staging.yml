@@ -18,5 +18,5 @@ jobs:
 
       - name: Merge staging into main
         run: |
-          git pull --ff-only origin staging
+          git pull --rebase origin staging
           git push
