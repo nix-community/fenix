@@ -74,6 +74,12 @@ one_day = datetime.timedelta(days=1)
 nightly = {target: {"latest": {}} for target in targets}
 
 
+def write_json(channel, content):
+    with open(f"data/{channel}.json", "w") as file:
+        json.dump(content, file, indent=0)
+        file.write("\n")
+
+
 def fetch_nightly(d=None):
     date_path = f"/{d}" if d else ""
 
@@ -166,12 +172,8 @@ def fetch_nightly(d=None):
 
 
 fetch_nightly()
-json.dump(nightly, open("data/nightly.json", "w"), indent=0)
+write_json("nightly", nightly)
 
 for channel in "stable", "beta":
     url = f"{dist_root}/channel-rust-{channel}.toml"
-    json.dump(
-        toml.loads(urlopen(url).read().decode("utf-8")),
-        open(f"data/{channel}.json", "w"),
-        indent=0,
-    )
+    write_json(channel, toml.loads(urlopen(url).read().decode("utf-8")))
