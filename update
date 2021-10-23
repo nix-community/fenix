@@ -130,6 +130,11 @@ def fetch_nightly(d=None):
                             "url": src["url"],
                             "sha256": src["hash"],
                         }
+                    # rustc-docs is only available on x86_64-unknown-linux-gnu
+                    # and it is causing complete toolchains to be a lot older
+                    # than they need to be
+                    elif component == "rustc-docs":
+                        continue
                     else:
                         skipped = True
                         success = False
