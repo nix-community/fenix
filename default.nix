@@ -130,8 +130,7 @@ let
       toolchain.defaultToolchain;
 
   mkToolchains = channel:
-    let manifest = importTOML (./data + "/${channel}.toml");
-    in
+    let manifest = importJSON (./data + "/${channel}.json"); in
     mapAttrs
       (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
       manifest.pkg.rust-std.target;
@@ -148,9 +147,9 @@ nightlyToolchains.${v} // rec {
 
   fromToolchainFile = fromToolchainFile' v;
 
-  stable = fromManifestFile' v "-stable" ./data/stable.toml;
+  stable = fromManifest' v "-stable" (importJSON ./data/stable.json);
 
-  beta = fromManifestFile' v "-beta" ./data/beta.toml;
+  beta = fromManifest' v "-beta" (importJSON ./data/beta.json);
 
   targets = let collectedTargets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
     (mkToolchains "stable")

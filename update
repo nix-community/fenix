@@ -167,3 +167,11 @@ def fetch_nightly(d=None):
 
 fetch_nightly()
 json.dump(nightly, open("data/nightly.json", "w"), indent=0)
+
+for channel in "stable", "beta":
+    url = f"{dist_root}/channel-rust-{channel}.toml"
+    json.dump(
+        toml.loads(urlopen(url).read().decode("utf-8")),
+        open(f"data/{channel}.json", "w"),
+        indent=0,
+    )
