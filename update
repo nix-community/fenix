@@ -166,4 +166,4 @@ def fetch_nightly(d=None):
 
 
 fetch_nightly()
-json.dump(nightly, open("data/nightly.json", "w"))
+json.dump(nightly, open("data/nightly.json", "w"), indent=0)
