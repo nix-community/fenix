@@ -13,7 +13,7 @@ let
 in
 
 { system ? currentSystem
-, pkgs ? import (getFlake "nixpkgs") { inherit system; }
+, pkgs ? import (getFlake "nixpkgs") { localSystem = { inherit system; }; }
 , lib ? pkgs.lib
 , rust-analyzer-src ? getFlake "rust-analyzer-src"
 , rust-analyzer-rev ? substring 0 7 (rust-analyzer-src.rev or "0000000")
