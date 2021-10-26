@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, rust-analyzer-src }: rec {
+  outputs = { self, nixpkgs, rust-analyzer-src }: {
     packages = nixpkgs.lib.genAttrs
       [
         "aarch64-darwin"
@@ -24,6 +24,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
       });
 
-    overlay = import ./lib/overlay.nix (pkgs: packages.${pkgs.system});
+    overlay = import ./overlay.nix;
   };
 }
