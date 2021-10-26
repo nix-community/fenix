@@ -21,8 +21,9 @@ in
 
 let
   inherit (lib)
-    attrVals filterAttrs foldl importJSON importTOML mapAttrs' mapNullable
-    nameValuePair optionalString optionals pathIsRegularFile unique zipAttrsWith;
+    attrVals filterAttrs findFirst foldl importJSON importTOML mapAttrs'
+    mapNullable nameValuePair optionalString optionals pathIsRegularFile unique
+    zipAttrsWith;
 
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
@@ -78,8 +79,7 @@ let
   fromToolchainName = target: name: sha256:
     mapNullable
       (matches:
-        let target' = elemAt matches 4;
-        in
+        let target' = elemAt matches 4; in
         toolchainOf' (if target' == null then target else target') {
           inherit sha256;
           channel = elemAt matches 0;
@@ -93,16 +93,9 @@ let
     { file ? null, dir ? null, sha256 ? null }:
     let
       text = readFile (if file == null && dir != null then
-        let
-          old = dir + "/rust-toolchain";
-          new = dir + "/rust-toolchain.toml";
-        in
-        (if pathIsRegularFile old then
-          old
-        else if pathIsRegularFile new then
-          new
-        else
-          throw "No rust toolchain file found in ${dir}")
+        findFirst pathIsRegularFile
+          (throw "No rust toolchain file found in ${dir}")
+          [ (dir + "/rust-toolchain") (dir + "/rust-toolchain.toml") ]
       else if file != null && dir == null then
         file
       else
@@ -110,21 +103,18 @@ let
       toolchain = fromToolchainName target text sha256;
     in
     if toolchain == null then
-      let t = (fromTOML text).toolchain;
-      in
+      let t = (fromTOML text).toolchain; in
       if t ? path then
         throw "fenix doesn't support toolchain.path"
       else
-        let toolchain = fromToolchainName target t.channel sha256;
-        in
+        let toolchain = fromToolchainName target t.channel sha256; in
         combine' "rust-${t.channel}" (attrVals
           (filter (component: toolchain ? ${component}) (unique
             (toolchain.manifest.profiles.${t.profile or "default"}
               ++ t.components or [ ])))
           toolchain ++ map
           (target:
-            (fromManifest' target "-${t.channel}"
-              toolchain.manifest).rust-std)
+            (fromManifest' target "-${t.channel}" toolchain.manifest).rust-std)
           (t.targets or [ ]))
     else
       toolchain.defaultToolchain;
@@ -180,7 +170,7 @@ nightlyToolchains.${v} // rec {
         libiconv
       ];
     doCheck = false;
-    CARGO_INCREMENTAL = "0";
+    CARGO_INCREMENTAL = 0;
     RUST_ANALYZER_REV = rust-analyzer-rev;
     meta.mainProgram = "rust-analyzer";
   };
