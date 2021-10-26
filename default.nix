@@ -40,7 +40,7 @@ let
       components = mapAttrs
         (_: src: { inherit (src) url; sha256 = src.hash; })
         (filterAttrs (_: src: src ? available && src.available) (mapAttrs
-          (component: pkg:
+          (_: pkg:
             if pkg.target ? "*" then
               pkg.target."*"
             else if pkg.target ? ${target} then
