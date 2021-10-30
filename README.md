@@ -180,7 +180,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 </details>
 
 <details>
-  <summary><code>fromToolchainFile : attrs -> <a href="#toolchain">toolchain</a></code></summary>
+  <summary><code>fromToolchainFile : attrs -> derivation</code></summary>
 
   Creates a [toolchain](#toolchain) from a [rust toolchain file](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file), accepts the following arguments:
 
