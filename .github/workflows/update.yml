@@ -15,7 +15,7 @@ jobs:
           ref: staging
 
       - name: Install nix
-        uses: cachix/install-nix-action@v15
+        uses: cachix/install-nix-action@v16
         with:
           install_url: https://github.com/numtide/nix-unstable-installer/releases/latest/download/install
           nix_path: nixpkgs=channel:nixpkgs-unstable
