@@ -30,6 +30,7 @@ jobs:
           extra_nix_config: |
             experimental-features = flakes nix-command
             access-tokens = github.com=${{ github.token }}
+            show-trace = true
 
       - name: Set up cachix
         uses: cachix/cachix-action@v10
