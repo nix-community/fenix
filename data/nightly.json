@@ -1,1856 +1,1847 @@
 {
 "aarch64-apple-darwin": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "b53b123440ffefe077905d86df516f9654b39259e257845eea5584809c6f7059"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "d62ac6d506b1fef8a79dcb725e81433c73f9c3c45952a0bd4f2a860e996c8193"
 },
 "cargo": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9dd4b2350b5355361147f22127bb0ad2ceaf08dafd559d85d869ec7b7957ec1c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "fc0ca5612673fadded2579e6af4843785339adecd15df7da89a799ed06e344e5"
 },
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "0626866794d6c09aad56e25f4226727d2babd59e066b3d2415f7cbdf4f2e5815"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "4c22cee6a531165b4c279fe54e0833118b5d137b6ef4ff1d05a1b4b17170e9cc"
 },
 "rust-docs": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6ff805d189cf2f7e04220fd59e42d0cfa7e3da314a62a8a8e41845ac97a67ec2"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "1d11350dedcc43c482ee239c53811f8ecae9ca7ef75bb21220d5b5ad9c46c3b2"
 },
 "rustfmt-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9706be9d2ca21e9456d1c1d89e758a12dbb8b6a29fe62aed09dbf33261ad370e"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "94d7eee348972e2d51e05c330e1acfbbc91b71926dbd006c53c2c92eacd6d979"
 },
 "clippy-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "bf02528efbdfd8f43d705b2146bf8d01774770c2bd90f769a36031ab1e3fe130"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "f2276f1338346016bbdb457fa5b4897fcb0a5446823cb34b021d369fdce9a4a6"
 },
 "rls-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "e36e9835a872eb80aebda6e5f2a41adadf83b1bde60a13f69199625d6d6fbdf4"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "8389ca4f0324f0b0e951ceb1c3efa297f1a24f4b164efa0233860498d3dc40b7"
 },
 "rust-analyzer-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "14757b66737d857eb2efa2991971232274c461c6eb261d14bcb3f746e0d04426"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "cdcf6850abc2d52084d2c05c3f77d9fe544b2e04526fa5fdf1ed639b7b471edf"
 },
 "rust-src": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "609fc5e25f770eae064dea513772011c1d6a329f54b6f57cae597ba3f055827e"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "3a13a74d3376675f6e217cfbd4f4454be09a23e3665c980cdd007c902132c845"
 },
 "rust-analysis": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "29c59ddadbee6da544bbfbc01afc8af00546a05c7690c4c59227bf1332bf4a2c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "0fdcf93ee3b194b514c9e847da2a0879fdb1507c5e53696f9ac4730d7d83cda7"
 },
 "miri-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "f2d9f74fbf942f8e25d8d8ad065d0c24fce9459d2a7538226443e4d81117d437"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "8b69eb23ff1c11d54e864eedc79948ecf7259218454dc31fe927865fe656635f"
 },
 "rustc-dev": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "30d09c42e27837633c2f870f9fb1a6112273dbb1fbc36d97ec33c9c8f0bb6fdc"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "071033c43566d251daa93ac2597e8e0b94fde91c032af3d0754000a43797610f"
 }
 }
 },
 "minimal": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "b53b123440ffefe077905d86df516f9654b39259e257845eea5584809c6f7059"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "d62ac6d506b1fef8a79dcb725e81433c73f9c3c45952a0bd4f2a860e996c8193"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9dd4b2350b5355361147f22127bb0ad2ceaf08dafd559d85d869ec7b7957ec1c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "fc0ca5612673fadded2579e6af4843785339adecd15df7da89a799ed06e344e5"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "0626866794d6c09aad56e25f4226727d2babd59e066b3d2415f7cbdf4f2e5815"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "4c22cee6a531165b4c279fe54e0833118b5d137b6ef4ff1d05a1b4b17170e9cc"
 }
 }
 },
 "default": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "b53b123440ffefe077905d86df516f9654b39259e257845eea5584809c6f7059"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "d62ac6d506b1fef8a79dcb725e81433c73f9c3c45952a0bd4f2a860e996c8193"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9dd4b2350b5355361147f22127bb0ad2ceaf08dafd559d85d869ec7b7957ec1c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "fc0ca5612673fadded2579e6af4843785339adecd15df7da89a799ed06e344e5"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "0626866794d6c09aad56e25f4226727d2babd59e066b3d2415f7cbdf4f2e5815"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "4c22cee6a531165b4c279fe54e0833118b5d137b6ef4ff1d05a1b4b17170e9cc"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6ff805d189cf2f7e04220fd59e42d0cfa7e3da314a62a8a8e41845ac97a67ec2"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "1d11350dedcc43c482ee239c53811f8ecae9ca7ef75bb21220d5b5ad9c46c3b2"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9706be9d2ca21e9456d1c1d89e758a12dbb8b6a29fe62aed09dbf33261ad370e"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "94d7eee348972e2d51e05c330e1acfbbc91b71926dbd006c53c2c92eacd6d979"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "bf02528efbdfd8f43d705b2146bf8d01774770c2bd90f769a36031ab1e3fe130"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "f2276f1338346016bbdb457fa5b4897fcb0a5446823cb34b021d369fdce9a4a6"
 }
 }
 },
 "complete": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "b53b123440ffefe077905d86df516f9654b39259e257845eea5584809c6f7059"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "d62ac6d506b1fef8a79dcb725e81433c73f9c3c45952a0bd4f2a860e996c8193"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9dd4b2350b5355361147f22127bb0ad2ceaf08dafd559d85d869ec7b7957ec1c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "fc0ca5612673fadded2579e6af4843785339adecd15df7da89a799ed06e344e5"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "0626866794d6c09aad56e25f4226727d2babd59e066b3d2415f7cbdf4f2e5815"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "4c22cee6a531165b4c279fe54e0833118b5d137b6ef4ff1d05a1b4b17170e9cc"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6ff805d189cf2f7e04220fd59e42d0cfa7e3da314a62a8a8e41845ac97a67ec2"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "1d11350dedcc43c482ee239c53811f8ecae9ca7ef75bb21220d5b5ad9c46c3b2"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "9706be9d2ca21e9456d1c1d89e758a12dbb8b6a29fe62aed09dbf33261ad370e"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "94d7eee348972e2d51e05c330e1acfbbc91b71926dbd006c53c2c92eacd6d979"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "bf02528efbdfd8f43d705b2146bf8d01774770c2bd90f769a36031ab1e3fe130"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "f2276f1338346016bbdb457fa5b4897fcb0a5446823cb34b021d369fdce9a4a6"
 },
 "rls-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "e36e9835a872eb80aebda6e5f2a41adadf83b1bde60a13f69199625d6d6fbdf4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "8389ca4f0324f0b0e951ceb1c3efa297f1a24f4b164efa0233860498d3dc40b7"
 },
 "rust-analyzer-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "14757b66737d857eb2efa2991971232274c461c6eb261d14bcb3f746e0d04426"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "cdcf6850abc2d52084d2c05c3f77d9fe544b2e04526fa5fdf1ed639b7b471edf"
 },
 "rust-src": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "609fc5e25f770eae064dea513772011c1d6a329f54b6f57cae597ba3f055827e"
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "3a13a74d3376675f6e217cfbd4f4454be09a23e3665c980cdd007c902132c845"
 },
 "rust-analysis": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "29c59ddadbee6da544bbfbc01afc8af00546a05c7690c4c59227bf1332bf4a2c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "0fdcf93ee3b194b514c9e847da2a0879fdb1507c5e53696f9ac4730d7d83cda7"
 },
 "miri-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "f2d9f74fbf942f8e25d8d8ad065d0c24fce9459d2a7538226443e4d81117d437"
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "8b69eb23ff1c11d54e864eedc79948ecf7259218454dc31fe927865fe656635f"
 },
 "rustc-dev": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-aarch64-apple-darwin.tar.gz",
-"sha256": "30d09c42e27837633c2f870f9fb1a6112273dbb1fbc36d97ec33c9c8f0bb6fdc"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-aarch64-apple-darwin.tar.gz",
+"sha256": "071033c43566d251daa93ac2597e8e0b94fde91c032af3d0754000a43797610f"
 }
 }
 }
 },
 "aarch64-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "6e899a4d94b1599c51629b54b09da44073ba132d12a12b85a73a65868ec7bfee"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c097b791dd83aaf396f6cddc49e5dd356cc72969da8a4c629be0f3725da1f881"
 },
 "cargo": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ffe495294b566534e14464faffecf8a80fb5bdde3eec9515e17b63ca5d7bc449"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "7976f260c54d5ed621814cd61cf6510e0e50d4cd6827e7a56eccb82fa9cfaad6"
 },
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "a9fac3a2993448816da3c459da8722c1207a3ee713696ee2bd541c6b6d9b48c8"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c8f377cf3ef03b6de0851248ed08deed1e88ec0318b572ad9366f05147c1a695"
 },
 "rust-docs": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ba0abcb10a3564a74cb575345bf0c90f14a06cc7865ef19ae2417253f13e1538"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "39e462f1bb791534e3c00ba1caa6efde12416d16da9dadeaf4c179154ec0e515"
 },
 "rustfmt-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "531071c03997260be8423dbbdef8200b329522a8db58e474ab75166688059e13"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "062bc55870c1f2050b8d4b130ee5bfd0bf2368a28895b8ea5ab19a27d1bc66f0"
 },
 "clippy-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "8ef5e7673ce8daa0b799d4e293baf37cc48458b1b3275e653f9abb566cd9ead8"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "0cc20a2da8f94671a8352c73739e4f944634fad60164247aedbffd1867c15b09"
 },
 "rls-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "73d18466d4390b8e41c99c4627ddea0562a2fbcd44e3650813e4e5d4675068a8"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "5539af3862a9f33801453829cbe2126c566fd13b4c27848f001cf50554a5e49d"
 },
 "rust-analyzer-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "5cf4960488436540c045837fffa100dbf035b24bd29278c871dd969a72b2af6c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "94ddbb9d5bb121d1a053e738093a5fe919d487c5013ef24ee4aea3d21f7cc4ab"
 },
 "rust-src": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "9154e981b17f464fe8e2e5bf0074923ac1cfbd84266a821c5caa5172588a54af"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "b656eb98bb64a2ad8d0e18e52fb1d28f4c38952737ba2440bc6a45fc3b337ac7"
 },
 "rust-analysis": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "8038dd56dfb6c6818ca63f86618dd283f99d5ddf0ac3aa59d4a52c9777140b4f"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "05ed5ca465ca8f2c0374c35849c9ff2da482b90f73569408308e30044efd81d0"
 },
 "miri-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "6d0dd492b40837c23a9ea365f4ec5c97c52cf890ce21b59b2cf7c577c6607d9f"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "0cba31ab0fb37edc5a517005713d0b793c9b192f13187bccb4730e7f776b1655"
 },
 "rustc-dev": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "06c8019929a370f92dadad17dfcee03516efab83e27f09f41075e16de512c12a"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "f4eb04f765cd8c3b9dee1afc712a84f3f852884a6089cf6f5a04e8051ab3454c"
 }
 }
 },
 "minimal": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "6e899a4d94b1599c51629b54b09da44073ba132d12a12b85a73a65868ec7bfee"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c097b791dd83aaf396f6cddc49e5dd356cc72969da8a4c629be0f3725da1f881"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ffe495294b566534e14464faffecf8a80fb5bdde3eec9515e17b63ca5d7bc449"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "7976f260c54d5ed621814cd61cf6510e0e50d4cd6827e7a56eccb82fa9cfaad6"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "a9fac3a2993448816da3c459da8722c1207a3ee713696ee2bd541c6b6d9b48c8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c8f377cf3ef03b6de0851248ed08deed1e88ec0318b572ad9366f05147c1a695"
 }
 }
 },
 "default": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "6e899a4d94b1599c51629b54b09da44073ba132d12a12b85a73a65868ec7bfee"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c097b791dd83aaf396f6cddc49e5dd356cc72969da8a4c629be0f3725da1f881"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ffe495294b566534e14464faffecf8a80fb5bdde3eec9515e17b63ca5d7bc449"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "7976f260c54d5ed621814cd61cf6510e0e50d4cd6827e7a56eccb82fa9cfaad6"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "a9fac3a2993448816da3c459da8722c1207a3ee713696ee2bd541c6b6d9b48c8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c8f377cf3ef03b6de0851248ed08deed1e88ec0318b572ad9366f05147c1a695"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ba0abcb10a3564a74cb575345bf0c90f14a06cc7865ef19ae2417253f13e1538"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "39e462f1bb791534e3c00ba1caa6efde12416d16da9dadeaf4c179154ec0e515"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "531071c03997260be8423dbbdef8200b329522a8db58e474ab75166688059e13"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "062bc55870c1f2050b8d4b130ee5bfd0bf2368a28895b8ea5ab19a27d1bc66f0"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "8ef5e7673ce8daa0b799d4e293baf37cc48458b1b3275e653f9abb566cd9ead8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "0cc20a2da8f94671a8352c73739e4f944634fad60164247aedbffd1867c15b09"
 }
 }
 },
 "complete": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "6e899a4d94b1599c51629b54b09da44073ba132d12a12b85a73a65868ec7bfee"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c097b791dd83aaf396f6cddc49e5dd356cc72969da8a4c629be0f3725da1f881"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ffe495294b566534e14464faffecf8a80fb5bdde3eec9515e17b63ca5d7bc449"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "7976f260c54d5ed621814cd61cf6510e0e50d4cd6827e7a56eccb82fa9cfaad6"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "a9fac3a2993448816da3c459da8722c1207a3ee713696ee2bd541c6b6d9b48c8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "c8f377cf3ef03b6de0851248ed08deed1e88ec0318b572ad9366f05147c1a695"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "ba0abcb10a3564a74cb575345bf0c90f14a06cc7865ef19ae2417253f13e1538"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "39e462f1bb791534e3c00ba1caa6efde12416d16da9dadeaf4c179154ec0e515"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "531071c03997260be8423dbbdef8200b329522a8db58e474ab75166688059e13"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "062bc55870c1f2050b8d4b130ee5bfd0bf2368a28895b8ea5ab19a27d1bc66f0"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "8ef5e7673ce8daa0b799d4e293baf37cc48458b1b3275e653f9abb566cd9ead8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "0cc20a2da8f94671a8352c73739e4f944634fad60164247aedbffd1867c15b09"
 },
 "rls-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "73d18466d4390b8e41c99c4627ddea0562a2fbcd44e3650813e4e5d4675068a8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "5539af3862a9f33801453829cbe2126c566fd13b4c27848f001cf50554a5e49d"
 },
 "rust-analyzer-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "5cf4960488436540c045837fffa100dbf035b24bd29278c871dd969a72b2af6c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "94ddbb9d5bb121d1a053e738093a5fe919d487c5013ef24ee4aea3d21f7cc4ab"
 },
 "rust-src": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "9154e981b17f464fe8e2e5bf0074923ac1cfbd84266a821c5caa5172588a54af"
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "b656eb98bb64a2ad8d0e18e52fb1d28f4c38952737ba2440bc6a45fc3b337ac7"
 },
 "rust-analysis": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "8038dd56dfb6c6818ca63f86618dd283f99d5ddf0ac3aa59d4a52c9777140b4f"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "05ed5ca465ca8f2c0374c35849c9ff2da482b90f73569408308e30044efd81d0"
 },
 "miri-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "6d0dd492b40837c23a9ea365f4ec5c97c52cf890ce21b59b2cf7c577c6607d9f"
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "0cba31ab0fb37edc5a517005713d0b793c9b192f13187bccb4730e7f776b1655"
 },
 "rustc-dev": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-aarch64-unknown-linux-gnu.tar.gz",
-"sha256": "06c8019929a370f92dadad17dfcee03516efab83e27f09f41075e16de512c12a"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-aarch64-unknown-linux-gnu.tar.gz",
+"sha256": "f4eb04f765cd8c3b9dee1afc712a84f3f852884a6089cf6f5a04e8051ab3454c"
 }
 }
 }
 },
 "i686-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1b321a582902948da70f7e87e4f01f54748333aa33e66cbda1c94dd6436127ea"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "88d3ab1ce5a1e6acd94cc4957ee9433ac612ba98133186f56bd86c70fabc3a0b"
 },
 "cargo": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "4269227626ce8e5e47d3447fee570f0feef93632471390322edf2b973bf812e5"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "df2cc7cd6aa3af301d8daf2e0c5e098df34009d8b95bf3d9021955f149c516fe"
 },
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "dc379be02b72779b6effde825a3d6db0d74e09cc7ff630d9c2de765d1e532b02"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "24352b952ab2eea7f5b7ba91d26c6052765ae6d5f89634f514bec0eae172dee4"
 },
 "rust-docs": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "678f2da7e70dea4b04f5343ed2af5613d1819e7ee66c1a1164be6343b1cd09bd"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "af5ee21ac012b63bd80c7bea665f5acb320c54a1aa801639666b8c484edfad66"
 },
 "rustfmt-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1e74a5cc44e7fa7293235916382fb1003dfd752eecfdfbe8b98e88396e24a5d3"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "8fcdd0faa7aa860f51276ed715646183e55aea990ff431110aa2f83c1b2847e5"
 },
 "clippy-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "a8e41e0e55c90b465d24acbedff12ad5bdee841b5970369f9e099ddd8baa623b"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "ed3853a7b49cc1f32d2999b9b7aa3c9a5eac35ab89afd2ca94e0b42fcdc34a88"
 },
 "rls-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "fd07766d138c427b68c0ad677f5b4892a44467cd0b3164691e4cca1ae3fce92d"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "161bcddd6d0a0e554caf0e9e249cbd1599af583dac46bd2b18c0a6a6bb3dd93b"
 },
 "rust-analyzer-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "9533a5161d7847a9a88aa9d919ed22f4230d49b01066aca3e96c0256d2769099"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "00baed245d048a1a4bb1d14f458966f995bbddd54de58579a5c9fbf78a32dbfd"
 },
 "rust-src": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "30e4fd1c0eb69fc6b5834ea6de0b98e58f2ddec2da4fca1dcb1dfa7b684334c1"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "9f5408d7f34a4edfbe5df1835b70943d599836ee5c73572dd44b4c49c018ce55"
 },
 "rust-analysis": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "b4c13bb26cd2d29c6677a2b5fd7b99a9c785c75be484aa83143b1025adac3602"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "0672d9cf1021a12a3de01fff46ce938293822fee2a2cb212b3f06db533056444"
 },
 "miri-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1be271f673555a28e813c008bee9a65cee773863f2223459e14c1b95683ae86e"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "c7a8e4a67aeb3371c4fc6dca42daa3aaae0f5f3c0063604959c3a2015b0b3117"
 },
 "rustc-dev": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "ba7bd08d5d167a39c279d5ee6459bc8e5dfdd911612b99aeb3aa5da2b608b7bf"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "4332586b0f517359eb0c3367746cd89be810c5537d3072b39ef20cdf8aa80462"
 }
 }
 },
 "minimal": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1b321a582902948da70f7e87e4f01f54748333aa33e66cbda1c94dd6436127ea"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "88d3ab1ce5a1e6acd94cc4957ee9433ac612ba98133186f56bd86c70fabc3a0b"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "4269227626ce8e5e47d3447fee570f0feef93632471390322edf2b973bf812e5"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "df2cc7cd6aa3af301d8daf2e0c5e098df34009d8b95bf3d9021955f149c516fe"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "dc379be02b72779b6effde825a3d6db0d74e09cc7ff630d9c2de765d1e532b02"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "24352b952ab2eea7f5b7ba91d26c6052765ae6d5f89634f514bec0eae172dee4"
 }
 }
 },
 "default": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1b321a582902948da70f7e87e4f01f54748333aa33e66cbda1c94dd6436127ea"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "88d3ab1ce5a1e6acd94cc4957ee9433ac612ba98133186f56bd86c70fabc3a0b"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "4269227626ce8e5e47d3447fee570f0feef93632471390322edf2b973bf812e5"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "df2cc7cd6aa3af301d8daf2e0c5e098df34009d8b95bf3d9021955f149c516fe"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "dc379be02b72779b6effde825a3d6db0d74e09cc7ff630d9c2de765d1e532b02"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "24352b952ab2eea7f5b7ba91d26c6052765ae6d5f89634f514bec0eae172dee4"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "678f2da7e70dea4b04f5343ed2af5613d1819e7ee66c1a1164be6343b1cd09bd"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "af5ee21ac012b63bd80c7bea665f5acb320c54a1aa801639666b8c484edfad66"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1e74a5cc44e7fa7293235916382fb1003dfd752eecfdfbe8b98e88396e24a5d3"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "8fcdd0faa7aa860f51276ed715646183e55aea990ff431110aa2f83c1b2847e5"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "a8e41e0e55c90b465d24acbedff12ad5bdee841b5970369f9e099ddd8baa623b"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "ed3853a7b49cc1f32d2999b9b7aa3c9a5eac35ab89afd2ca94e0b42fcdc34a88"
 }
 }
 },
 "complete": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1b321a582902948da70f7e87e4f01f54748333aa33e66cbda1c94dd6436127ea"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "88d3ab1ce5a1e6acd94cc4957ee9433ac612ba98133186f56bd86c70fabc3a0b"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "4269227626ce8e5e47d3447fee570f0feef93632471390322edf2b973bf812e5"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "df2cc7cd6aa3af301d8daf2e0c5e098df34009d8b95bf3d9021955f149c516fe"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "dc379be02b72779b6effde825a3d6db0d74e09cc7ff630d9c2de765d1e532b02"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "24352b952ab2eea7f5b7ba91d26c6052765ae6d5f89634f514bec0eae172dee4"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "678f2da7e70dea4b04f5343ed2af5613d1819e7ee66c1a1164be6343b1cd09bd"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "af5ee21ac012b63bd80c7bea665f5acb320c54a1aa801639666b8c484edfad66"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1e74a5cc44e7fa7293235916382fb1003dfd752eecfdfbe8b98e88396e24a5d3"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "8fcdd0faa7aa860f51276ed715646183e55aea990ff431110aa2f83c1b2847e5"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "a8e41e0e55c90b465d24acbedff12ad5bdee841b5970369f9e099ddd8baa623b"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "ed3853a7b49cc1f32d2999b9b7aa3c9a5eac35ab89afd2ca94e0b42fcdc34a88"
 },
 "rls-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "fd07766d138c427b68c0ad677f5b4892a44467cd0b3164691e4cca1ae3fce92d"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "161bcddd6d0a0e554caf0e9e249cbd1599af583dac46bd2b18c0a6a6bb3dd93b"
 },
 "rust-analyzer-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "9533a5161d7847a9a88aa9d919ed22f4230d49b01066aca3e96c0256d2769099"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "00baed245d048a1a4bb1d14f458966f995bbddd54de58579a5c9fbf78a32dbfd"
 },
 "rust-src": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "30e4fd1c0eb69fc6b5834ea6de0b98e58f2ddec2da4fca1dcb1dfa7b684334c1"
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "9f5408d7f34a4edfbe5df1835b70943d599836ee5c73572dd44b4c49c018ce55"
 },
 "rust-analysis": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "b4c13bb26cd2d29c6677a2b5fd7b99a9c785c75be484aa83143b1025adac3602"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "0672d9cf1021a12a3de01fff46ce938293822fee2a2cb212b3f06db533056444"
 },
 "miri-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "1be271f673555a28e813c008bee9a65cee773863f2223459e14c1b95683ae86e"
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "c7a8e4a67aeb3371c4fc6dca42daa3aaae0f5f3c0063604959c3a2015b0b3117"
 },
 "rustc-dev": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-i686-unknown-linux-gnu.tar.gz",
-"sha256": "ba7bd08d5d167a39c279d5ee6459bc8e5dfdd911612b99aeb3aa5da2b608b7bf"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-i686-unknown-linux-gnu.tar.gz",
+"sha256": "4332586b0f517359eb0c3367746cd89be810c5537d3072b39ef20cdf8aa80462"
 }
 }
 }
 },
 "x86_64-apple-darwin": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "b89e409a9645cb7b61f077081607c311c734f7b904b9d7c71b253f7a76201a31"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "bd57984d88a1b0dd0b440dc54d576fb4f25b1d78bfbbdc2758a6c46cc1dcb4dd"
 },
 "cargo": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "3acd64924696c8c403932ea1ee230da92a05f41954a14d956e992b491b5c673c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "3d023c286ac4c3ffde2045e16865bc47ba690ce5d30bac8066cd39cb19df5adc"
 },
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "ad7f0179843a4a75f3bc3c450f404138631a2b575e48d7ff327e7bfab1f4eb64"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "93d120b030c265546550c4a7f90b1111434f606414facef7e0ee4e60ae7fde87"
 },
 "rust-docs": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6ff805d189cf2f7e04220fd59e42d0cfa7e3da314a62a8a8e41845ac97a67ec2"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "1d11350dedcc43c482ee239c53811f8ecae9ca7ef75bb21220d5b5ad9c46c3b2"
 },
 "rustfmt-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "bf325a3ac58e05784ecbaf28d1a7cf978d2a4b55ca84bcb1b441752e979fa83a"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "f7ea907914a7151c70ef0806a76cf205369cc3e67061640518197b11bbf86341"
 },
 "clippy-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "9861888c2faf4471cb49e58e9b842e567ac68ffec96c5a1c4aac31ddf1439e86"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "d0f76eb22101af1f312b27c35bee63f9e98c2393752c0288c7014902e85f8414"
 },
 "rls-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "8e33accd10bc28359bbdd569450f50daed16c2e13fc90b299fab107759107fb2"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "178345da5113c0cc9d8be69d0c2b11211f4cca9bd81ede9cc4403a149ed1a524"
 },
 "rust-analyzer-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "a5b3252c04f520528fdcda874f38e762b86a81c5418535192c077460abfec46f"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "336accc2175516a50d44a0a5fc29cb42328b8a1f44c184a8c9a466080df0d8f8"
 },
 "rust-src": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "fbbd96f96f5824ad0760c8e0ebe2c465e6db632c7be69d1abb24fc8cca26fb4d"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "f3db34117ad75cd20ee551c1544605c680f654a238d6d75a6a0ca45fbd786488"
 },
 "rust-analysis": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "0b5cf4314c1da221878268f6a9d919b3e43806825d67fa3d170337eedaaf0deb"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "e86d7e4565ede0cde70d550ea67152a0d7d640d892aad415bd5524f3c9dfbf15"
 },
 "miri-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6f695794290dfa9d50c96f96334cd7968b52b558a5d5fcfe48ceaf4ff611569d"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "2d7e65d0dd752f9cd3f22ade1ff1555f9dd641ae52f7cdc7a827d1767225cf57"
 },
 "rustc-dev": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6a05a6b527a615a6fae467170745101b4e328882e49d2e46e9b975bffa7389e9"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "b65657d4e3fb5c0967f260606fc950a2933eb2fda5a3ad25e2416ba744a08ff0"
 }
 }
 },
 "minimal": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "b89e409a9645cb7b61f077081607c311c734f7b904b9d7c71b253f7a76201a31"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "bd57984d88a1b0dd0b440dc54d576fb4f25b1d78bfbbdc2758a6c46cc1dcb4dd"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "3acd64924696c8c403932ea1ee230da92a05f41954a14d956e992b491b5c673c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "3d023c286ac4c3ffde2045e16865bc47ba690ce5d30bac8066cd39cb19df5adc"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "ad7f0179843a4a75f3bc3c450f404138631a2b575e48d7ff327e7bfab1f4eb64"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "93d120b030c265546550c4a7f90b1111434f606414facef7e0ee4e60ae7fde87"
 }
 }
 },
 "default": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "b89e409a9645cb7b61f077081607c311c734f7b904b9d7c71b253f7a76201a31"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "bd57984d88a1b0dd0b440dc54d576fb4f25b1d78bfbbdc2758a6c46cc1dcb4dd"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "3acd64924696c8c403932ea1ee230da92a05f41954a14d956e992b491b5c673c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "3d023c286ac4c3ffde2045e16865bc47ba690ce5d30bac8066cd39cb19df5adc"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "ad7f0179843a4a75f3bc3c450f404138631a2b575e48d7ff327e7bfab1f4eb64"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "93d120b030c265546550c4a7f90b1111434f606414facef7e0ee4e60ae7fde87"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6ff805d189cf2f7e04220fd59e42d0cfa7e3da314a62a8a8e41845ac97a67ec2"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "1d11350dedcc43c482ee239c53811f8ecae9ca7ef75bb21220d5b5ad9c46c3b2"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "bf325a3ac58e05784ecbaf28d1a7cf978d2a4b55ca84bcb1b441752e979fa83a"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "f7ea907914a7151c70ef0806a76cf205369cc3e67061640518197b11bbf86341"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "9861888c2faf4471cb49e58e9b842e567ac68ffec96c5a1c4aac31ddf1439e86"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "d0f76eb22101af1f312b27c35bee63f9e98c2393752c0288c7014902e85f8414"
 }
 }
 },
 "complete": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "b89e409a9645cb7b61f077081607c311c734f7b904b9d7c71b253f7a76201a31"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "bd57984d88a1b0dd0b440dc54d576fb4f25b1d78bfbbdc2758a6c46cc1dcb4dd"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "3acd64924696c8c403932ea1ee230da92a05f41954a14d956e992b491b5c673c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "3d023c286ac4c3ffde2045e16865bc47ba690ce5d30bac8066cd39cb19df5adc"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "ad7f0179843a4a75f3bc3c450f404138631a2b575e48d7ff327e7bfab1f4eb64"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "93d120b030c265546550c4a7f90b1111434f606414facef7e0ee4e60ae7fde87"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6ff805d189cf2f7e04220fd59e42d0cfa7e3da314a62a8a8e41845ac97a67ec2"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "1d11350dedcc43c482ee239c53811f8ecae9ca7ef75bb21220d5b5ad9c46c3b2"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "bf325a3ac58e05784ecbaf28d1a7cf978d2a4b55ca84bcb1b441752e979fa83a"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "f7ea907914a7151c70ef0806a76cf205369cc3e67061640518197b11bbf86341"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "9861888c2faf4471cb49e58e9b842e567ac68ffec96c5a1c4aac31ddf1439e86"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "d0f76eb22101af1f312b27c35bee63f9e98c2393752c0288c7014902e85f8414"
 },
 "rls-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "8e33accd10bc28359bbdd569450f50daed16c2e13fc90b299fab107759107fb2"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "178345da5113c0cc9d8be69d0c2b11211f4cca9bd81ede9cc4403a149ed1a524"
 },
 "rust-analyzer-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "a5b3252c04f520528fdcda874f38e762b86a81c5418535192c077460abfec46f"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "336accc2175516a50d44a0a5fc29cb42328b8a1f44c184a8c9a466080df0d8f8"
 },
 "rust-src": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "fbbd96f96f5824ad0760c8e0ebe2c465e6db632c7be69d1abb24fc8cca26fb4d"
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "f3db34117ad75cd20ee551c1544605c680f654a238d6d75a6a0ca45fbd786488"
 },
 "rust-analysis": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "0b5cf4314c1da221878268f6a9d919b3e43806825d67fa3d170337eedaaf0deb"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "e86d7e4565ede0cde70d550ea67152a0d7d640d892aad415bd5524f3c9dfbf15"
 },
 "miri-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6f695794290dfa9d50c96f96334cd7968b52b558a5d5fcfe48ceaf4ff611569d"
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "2d7e65d0dd752f9cd3f22ade1ff1555f9dd641ae52f7cdc7a827d1767225cf57"
 },
 "rustc-dev": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-x86_64-apple-darwin.tar.gz",
-"sha256": "6a05a6b527a615a6fae467170745101b4e328882e49d2e46e9b975bffa7389e9"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-x86_64-apple-darwin.tar.gz",
+"sha256": "b65657d4e3fb5c0967f260606fc950a2933eb2fda5a3ad25e2416ba744a08ff0"
 }
 }
 }
 },
 "x86_64-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "f13608a7fb13efb26f470b67a29ba9506be75766181c1159c795475a21d3f8d4"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4a2ea089382f502010db119419ff9be1a4aa020655081185bb9021d49e8decc0"
 },
 "cargo": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8b3b9c889cce5ad05f6d990f99ada535a61b77bdf5da53faf228a7935f8603f4"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "b518a4239c69a4c670cd9523022eca3dc6907943652be57088ccc1817db0262c"
 },
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "7d504cd05aa337a1bd138b61c193e351dd39bdb02ee9fa22c5fa5ad5e02b1562"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "1f66b88d41b16a87e4f1f617c8816e3975846a1a74e44bd31fd2b94d15ab9a60"
 },
 "rust-docs": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "132b987fc5e2c30d5582de9d2b5dc019f41bdbc9b5c58d18131a4ebbc0550ab8"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4fc7806066d40d9383108371bac07474f68102759ec78d1986b4f25a07032af1"
 },
 "rustfmt-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "b9fcf977cae9a2b25098c87bcea57df188b1bab659da62f335c3a759178089ad"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "a417603cb4053796ce298458b84948fe15fab46b720e2eed06ce1607d4209330"
 },
 "clippy-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8fb7074bc04bc47ea96c3dc2b6e997d4d5e64fecafb87448edbd12ec0635541c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "feeb1e5e4479c94aaf9a1136c77c863ed5c1b336c8468dba5348606d10a8b5cf"
 },
 "rls-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "b41737f1e9fdc20f73c2ce796a6ccc91fb1c4033823665dc6a08584dd970fb75"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "b1df90fa380f032569b6a7462ff842e39c43d0f0dae7114b702664126241760c"
 },
 "rust-analyzer-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "51fc616fb818d7255a896693978a32a3dce054171210bb85b976f1961dce7957"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "0ce05e3ca20ba3902a4c74e56c71a235deec6d1ee38fe3a35bf76404d4f7dd06"
 },
 "rust-src": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "595dfc7cb30ba5e8c78d56e6259a70320b7379e663a12d80189b5ef4069e71b0"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "45cd3eaa652ad9fcb2f8d3f4ba58762e92f6fb1b3a7f54cd6fe38f0f263f6fa0"
 },
 "rust-analysis": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "59642fbbe83813fba1505264b475e50283cfb0fe935f0c4bbc738810315fb85e"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "33e2e5515a53e90175cb491b53f42f6ce189938e3e42ede824a5033396c76aa9"
 },
 "miri-preview": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "c2ac111ab941291bc7b3a63902bb4f89a22773a50eacb92388b3c6ecd5312591"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "1f8533d7e2e9dcc1577acb8f1c28fb7afeb540582083265d32c2db92868c0ff9"
 },
 "rustc-dev": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "e888703cc7a59169effe69f44957dbf7b9b0778a7d2f34cdbd5c6878de72365c"
-},
-"rustc-docs": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "0d82e3af5d1c5cf6514ddae605271b0c17fd1c5e3ef0c80deff2c441964d8361"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "a9a1e353b3a0556ab66ff5bd46f2db7906b6cb0ec727aa25f2d66fc62f427cca"
 }
 }
 },
 "minimal": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "f13608a7fb13efb26f470b67a29ba9506be75766181c1159c795475a21d3f8d4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4a2ea089382f502010db119419ff9be1a4aa020655081185bb9021d49e8decc0"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8b3b9c889cce5ad05f6d990f99ada535a61b77bdf5da53faf228a7935f8603f4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "b518a4239c69a4c670cd9523022eca3dc6907943652be57088ccc1817db0262c"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "7d504cd05aa337a1bd138b61c193e351dd39bdb02ee9fa22c5fa5ad5e02b1562"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "1f66b88d41b16a87e4f1f617c8816e3975846a1a74e44bd31fd2b94d15ab9a60"
 }
 }
 },
 "default": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "f13608a7fb13efb26f470b67a29ba9506be75766181c1159c795475a21d3f8d4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4a2ea089382f502010db119419ff9be1a4aa020655081185bb9021d49e8decc0"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8b3b9c889cce5ad05f6d990f99ada535a61b77bdf5da53faf228a7935f8603f4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "b518a4239c69a4c670cd9523022eca3dc6907943652be57088ccc1817db0262c"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "7d504cd05aa337a1bd138b61c193e351dd39bdb02ee9fa22c5fa5ad5e02b1562"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "1f66b88d41b16a87e4f1f617c8816e3975846a1a74e44bd31fd2b94d15ab9a60"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "132b987fc5e2c30d5582de9d2b5dc019f41bdbc9b5c58d18131a4ebbc0550ab8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4fc7806066d40d9383108371bac07474f68102759ec78d1986b4f25a07032af1"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "b9fcf977cae9a2b25098c87bcea57df188b1bab659da62f335c3a759178089ad"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "a417603cb4053796ce298458b84948fe15fab46b720e2eed06ce1607d4209330"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8fb7074bc04bc47ea96c3dc2b6e997d4d5e64fecafb87448edbd12ec0635541c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "feeb1e5e4479c94aaf9a1136c77c863ed5c1b336c8468dba5348606d10a8b5cf"
 }
 }
 },
 "complete": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rustc": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "f13608a7fb13efb26f470b67a29ba9506be75766181c1159c795475a21d3f8d4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4a2ea089382f502010db119419ff9be1a4aa020655081185bb9021d49e8decc0"
 },
 "cargo": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8b3b9c889cce5ad05f6d990f99ada535a61b77bdf5da53faf228a7935f8603f4"
+"url": "https://static.rust-lang.org/dist/2022-02-12/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "b518a4239c69a4c670cd9523022eca3dc6907943652be57088ccc1817db0262c"
 },
 "rust-std": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "7d504cd05aa337a1bd138b61c193e351dd39bdb02ee9fa22c5fa5ad5e02b1562"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "1f66b88d41b16a87e4f1f617c8816e3975846a1a74e44bd31fd2b94d15ab9a60"
 },
 "rust-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "132b987fc5e2c30d5582de9d2b5dc019f41bdbc9b5c58d18131a4ebbc0550ab8"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "4fc7806066d40d9383108371bac07474f68102759ec78d1986b4f25a07032af1"
 },
 "rustfmt-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "b9fcf977cae9a2b25098c87bcea57df188b1bab659da62f335c3a759178089ad"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustfmt-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "a417603cb4053796ce298458b84948fe15fab46b720e2eed06ce1607d4209330"
 },
 "clippy-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/clippy-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "8fb7074bc04bc47ea96c3dc2b6e997d4d5e64fecafb87448edbd12ec0635541c"
+"url": "https://static.rust-lang.org/dist/2022-02-12/clippy-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "feeb1e5e4479c94aaf9a1136c77c863ed5c1b336c8468dba5348606d10a8b5cf"
 },
 "rls-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rls-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "b41737f1e9fdc20f73c2ce796a6ccc91fb1c4033823665dc6a08584dd970fb75"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rls-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "b1df90fa380f032569b6a7462ff842e39c43d0f0dae7114b702664126241760c"
 },
 "rust-analyzer-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analyzer-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "51fc616fb818d7255a896693978a32a3dce054171210bb85b976f1961dce7957"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analyzer-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "0ce05e3ca20ba3902a4c74e56c71a235deec6d1ee38fe3a35bf76404d4f7dd06"
 },
 "rust-src": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-src-nightly.tar.gz",
-"sha256": "ae7d6766f5a8525dfb02ffbdd67a73f879e0d0ca661d5c52af860e849d67abfe"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-src-nightly.tar.gz",
+"sha256": "3fe81715a4a84bc22174b09fab78d6421eb73121034defa64f8719c343def5f0"
 },
 "llvm-tools-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/llvm-tools-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "595dfc7cb30ba5e8c78d56e6259a70320b7379e663a12d80189b5ef4069e71b0"
+"url": "https://static.rust-lang.org/dist/2022-02-12/llvm-tools-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "45cd3eaa652ad9fcb2f8d3f4ba58762e92f6fb1b3a7f54cd6fe38f0f263f6fa0"
 },
 "rust-analysis": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-analysis-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "59642fbbe83813fba1505264b475e50283cfb0fe935f0c4bbc738810315fb85e"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-analysis-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "33e2e5515a53e90175cb491b53f42f6ce189938e3e42ede824a5033396c76aa9"
 },
 "miri-preview": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/miri-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "c2ac111ab941291bc7b3a63902bb4f89a22773a50eacb92388b3c6ecd5312591"
+"url": "https://static.rust-lang.org/dist/2022-02-12/miri-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "1f8533d7e2e9dcc1577acb8f1c28fb7afeb540582083265d32c2db92868c0ff9"
 },
 "rustc-dev": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-dev-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "e888703cc7a59169effe69f44957dbf7b9b0778a7d2f34cdbd5c6878de72365c"
-},
-"rustc-docs": {
-"url": "https://static.rust-lang.org/dist/2022-02-11/rustc-docs-nightly-x86_64-unknown-linux-gnu.tar.gz",
-"sha256": "0d82e3af5d1c5cf6514ddae605271b0c17fd1c5e3ef0c80deff2c441964d8361"
+"url": "https://static.rust-lang.org/dist/2022-02-12/rustc-dev-nightly-x86_64-unknown-linux-gnu.tar.gz",
+"sha256": "a9a1e353b3a0556ab66ff5bd46f2db7906b6cb0ec727aa25f2d66fc62f427cca"
 }
 }
 }
 },
 "aarch64-apple-ios": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-apple-ios.tar.gz",
-"sha256": "561b66bea101b5afccf83c629e9534be2cdf82689339d326c115ad198cf09a17"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-apple-ios.tar.gz",
+"sha256": "73c3dcfcc57e0e4a8dd72fdadcb8baf402f55f011e1c14ecb818dabf3ddf711c"
 }
 }
 }
 },
 "aarch64-apple-ios-sim": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-apple-ios-sim.tar.gz",
-"sha256": "d9c55ec9d12bf1e739016129bcedc3230536406cfdab427eb3606ccb6820a744"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-apple-ios-sim.tar.gz",
+"sha256": "a982eb98168e7500a1ae76fab6fb54c5f0611ac48220be1aeb3d8e50c852df90"
 }
 }
 }
 },
 "aarch64-fuchsia": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-fuchsia.tar.gz",
-"sha256": "6911e3848615bf4c158152671c5698a1adfdb82df9e2a9bc9e9bf79c928b5201"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-fuchsia.tar.gz",
+"sha256": "cbeafcb911559322d042f3af7bb581dbab8ac996f0177040604dad05e79edfda"
 }
 }
 }
 },
 "aarch64-linux-android": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-linux-android.tar.gz",
-"sha256": "c35c1b8bae62091b62c99ef9f3f2ca5d00171c5140f1962a07493e8a160a333f"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-linux-android.tar.gz",
+"sha256": "147ad53d77445540651a1fc5a9199a4624243fdaafb3b770205144a0da8b0309"
 }
 }
 }
 },
 "aarch64-pc-windows-msvc": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-pc-windows-msvc.tar.gz",
-"sha256": "cff86ef10e7c6afe8226c8f2d273c030efb00cb2ea79b4cb17a5ac3cfbc0e11c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-pc-windows-msvc.tar.gz",
+"sha256": "d85e2fc9bd7eff594b409f35e8bd2b66b65a1d0d8527e294551ef166ba948dcf"
 }
 }
 }
 },
 "aarch64-unknown-linux-musl": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-linux-musl.tar.gz",
-"sha256": "4e73090c6745754f683455ca0b250424797ac48bcbc4f504bf660543234e0900"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-linux-musl.tar.gz",
+"sha256": "8bfdd1e7ab935b392a103c106a2cce216c1c5b09e5cd9b97f6914d795964377e"
 }
 }
 }
 },
 "aarch64-unknown-none": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-none.tar.gz",
-"sha256": "75cc3cd4a3a202e6a06aae64b6785813aef3ba2d92f89dc78dfef567fe840939"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-none.tar.gz",
+"sha256": "ed1169491fccdd6561711f0e601be1984dee3080a8f35d1ba261ac44540be965"
 }
 }
 }
 },
 "aarch64-unknown-none-softfloat": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-aarch64-unknown-none-softfloat.tar.gz",
-"sha256": "c10a0fc9e18665f9e60af6a3cc08346988edf9321a6c6815bf6a3ee5a7acea2c"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-aarch64-unknown-none-softfloat.tar.gz",
+"sha256": "0458c758b266a72b84e30c82ad8af00f4653dc8bf3270c67c6bbd150800278eb"
 }
 }
 }
 },
 "arm-linux-androideabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-arm-linux-androideabi.tar.gz",
-"sha256": "1e993bd83dbc5928bbea4d2cec47af3ec9b09bce8dc1101c5d6a6371d9c2b604"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-arm-linux-androideabi.tar.gz",
+"sha256": "028a18569d7267116ed5c741605f2238fd1896a410de84669e992602d7d4d0ee"
 }
 }
 }
 },
 "arm-unknown-linux-gnueabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-arm-unknown-linux-gnueabi.tar.gz",
-"sha256": "7d5c9ad123c7f36ced7f1aa23d89aae533729b460d7c1ee6eb8fb468516424e9"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-arm-unknown-linux-gnueabi.tar.gz",
+"sha256": "d14abef357e683590c3f06db39d59cd29d0912f9b053776615440bd86f090dfe"
 }
 }
 }
 },
 "arm-unknown-linux-gnueabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-arm-unknown-linux-gnueabihf.tar.gz",
-"sha256": "2897891514bf922c8aede1d1ea9e6b814ff81d1f4e6003297f1f55662d4e04d0"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-arm-unknown-linux-gnueabihf.tar.gz",
+"sha256": "0c1a52a41eebd84e0cbafdf74dc68989892f7c246bc33511823ee672f64ffbe0"
 }
 }
 }
 },
 "arm-unknown-linux-musleabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-arm-unknown-linux-musleabi.tar.gz",
-"sha256": "3f49415408397385c33c0f9405ead2f86e1426c1e5368e1f752e878edc6a244a"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-arm-unknown-linux-musleabi.tar.gz",
+"sha256": "15b0e26c13c7202c72bd02426ee1f77cf4e87387e495992d391295cc8672ab93"
 }
 }
 }
 },
 "arm-unknown-linux-musleabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-arm-unknown-linux-musleabihf.tar.gz",
-"sha256": "a836b6d69bd4ef1ecbf9bc433f17723f80a41530e14749cdaf4f7262072583b2"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-arm-unknown-linux-musleabihf.tar.gz",
+"sha256": "5cb02c9b1046ff89d851940bed97ad53790e9c90de2d0a168afddbeaad364396"
 }
 }
 }
 },
 "armebv7r-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armebv7r-none-eabi.tar.gz",
-"sha256": "94c1b34ccb20a4e5d2a89aaaef516286a9dac335e23912743116de8a7d345583"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armebv7r-none-eabi.tar.gz",
+"sha256": "dd2b8d72e9f20f111d03765355de9edb9f4bb6a7a1fc6540fbfa2973e6d49d33"
 }
 }
 }
 },
 "armebv7r-none-eabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armebv7r-none-eabihf.tar.gz",
-"sha256": "c992096ee5b229b2ff834f89f8a01ea800d0384f7a11eae00bc8895f28c26800"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armebv7r-none-eabihf.tar.gz",
+"sha256": "ae22e7cd5ba1080216419750442d7f6d34fb1e83d55e7177daa79f738469089d"
 }
 }
 }
 },
 "armv5te-unknown-linux-gnueabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv5te-unknown-linux-gnueabi.tar.gz",
-"sha256": "b7b20bfc9a431bb4bfb21575cc89635e7170b5af552c70cdc3271cd240085b02"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv5te-unknown-linux-gnueabi.tar.gz",
+"sha256": "e1d0f7edeaab96e7195794db2d5153db0a76a462ab1a277d9a0aaae2ccb77c46"
 }
 }
 }
 },
 "armv5te-unknown-linux-musleabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv5te-unknown-linux-musleabi.tar.gz",
-"sha256": "a82776f839f57e075103d0728731bda9c246f4273dff7c90bb8eb169f1b49462"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv5te-unknown-linux-musleabi.tar.gz",
+"sha256": "7e26c38e20f22a18f20a2f9e200053531c5cfd3caf51b8371b496f8a690f7de6"
 }
 }
 }
 },
 "armv7-linux-androideabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7-linux-androideabi.tar.gz",
-"sha256": "61b9fe12bafae78616ef037f9217ee69bba418a2ccf4044b92a7a9d954a45ca9"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7-linux-androideabi.tar.gz",
+"sha256": "2fb9403b3910be19c19521599cebaf6b74674166fd7c892a047a580726158f81"
 }
 }
 }
 },
 "armv7-unknown-linux-gnueabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7-unknown-linux-gnueabi.tar.gz",
-"sha256": "f7e5c1db3831184e9993fa98cbd571f7615b7878abeaf3310b33b797ade2c6d8"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7-unknown-linux-gnueabi.tar.gz",
+"sha256": "ad0ddc38948d1b0f68755c644fdca778e5c120cb35dcae145d263f6f4933c7d2"
 }
 }
 }
 },
 "armv7-unknown-linux-gnueabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7-unknown-linux-gnueabihf.tar.gz",
-"sha256": "7bad015eb08e3699761cdc0f0ae96f35795a50c42abf1f72c2c1949678d4b268"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7-unknown-linux-gnueabihf.tar.gz",
+"sha256": "ebe4f267b270a204a3e33e8e2b8e991b20f2fb17f374c6789114c9da31ea4082"
 }
 }
 }
 },
 "armv7-unknown-linux-musleabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7-unknown-linux-musleabi.tar.gz",
-"sha256": "322248f98b619326048ba2d7a6fb7e1ffbd47944b0dd37340c518b183b995412"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7-unknown-linux-musleabi.tar.gz",
+"sha256": "0b52f4016e89cd51d5ac06bc229758bd59aead3d18d1dd94d81e1ec8bc41ffdc"
 }
 }
 }
 },
 "armv7-unknown-linux-musleabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7-unknown-linux-musleabihf.tar.gz",
-"sha256": "9fad23c32c8bab9fc3eacfd69fc84de8e34d8e250c5521dac8776e6b92c101b5"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7-unknown-linux-musleabihf.tar.gz",
+"sha256": "6dc8b278bbb7c92dc8c05cda7096c60bd0b32f76dd43574e12beda3c8f9bfbc1"
 }
 }
 }
 },
 "armv7a-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7a-none-eabi.tar.gz",
-"sha256": "1b6e0d1daa33fd510a3ead903c59cc47e3714b6e0e91a189c70d89e8070886df"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7a-none-eabi.tar.gz",
+"sha256": "7717ecbb075b0d7879c1e30ba55cfb9253c4ae1b65a1880bd12f725c8f78749b"
 }
 }
 }
 },
 "armv7r-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7r-none-eabi.tar.gz",
-"sha256": "cd85a5f1303ebc4fd4ca33553e6f3a9e62b28d3a31b6469d5b462d848d3c5e53"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7r-none-eabi.tar.gz",
+"sha256": "d310767f7155f098f97ef692ec686c3d67a3c1bc65e9970739b08c4123a67371"
 }
 }
 }
 },
 "armv7r-none-eabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-armv7r-none-eabihf.tar.gz",
-"sha256": "838633e2efc0c7d6dd848c6e636cd5e59b90c7d257e80cf4c758748e1473c5b7"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-armv7r-none-eabihf.tar.gz",
+"sha256": "1f4add2f99c9392174dfe2dd4e0eab24d13bfcea71da1fd7ff78c18760639055"
 }
 }
 }
 },
 "asmjs-unknown-emscripten": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-asmjs-unknown-emscripten.tar.gz",
-"sha256": "6b87902f58e1560f074184ee395a716755690abf8ddb5756e81fca1c516e1a25"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-asmjs-unknown-emscripten.tar.gz",
+"sha256": "d2d4fbfd6ec4fe21fad93752a5d18bee028b432b8177c662e81264ad34a2485d"
 }
 }
 }
 },
 "i586-pc-windows-msvc": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i586-pc-windows-msvc.tar.gz",
-"sha256": "19cb41028e7c65b03770e2b9a835da94bfecce09a3f04be661264cab280e3511"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i586-pc-windows-msvc.tar.gz",
+"sha256": "0506b13fe2359078a011e90787dd07a393c55347645dd6aa42446b89c1e4e399"
 }
 }
 }
 },
 "i586-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i586-unknown-linux-gnu.tar.gz",
-"sha256": "29b35600636cf2a4a4bc70b43da851a12457c635b080d932e2d885fd90119cc7"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i586-unknown-linux-gnu.tar.gz",
+"sha256": "af00754aa31807e10a07603a97ce89ac5d49ea636dc567fd6d2f32b419af01bd"
 }
 }
 }
 },
 "i586-unknown-linux-musl": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i586-unknown-linux-musl.tar.gz",
-"sha256": "b55f146a64c958e04c87d8654263a3ed7196d59c325895c00e779ceb1c30f30e"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i586-unknown-linux-musl.tar.gz",
+"sha256": "d4308b88ec92714b650b845db7fa1bbdc0c3c003935f099691612c9cd52622ba"
 }
 }
 }
 },
 "i686-linux-android": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-linux-android.tar.gz",
-"sha256": "a5624a941e9dffe841f372407d89e45facc591065c980a0b1693bd865e724337"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-linux-android.tar.gz",
+"sha256": "173c8e9fb383008d240f6bfab337e9cb82d8595135655becfcb357a15ef65a35"
 }
 }
 }
 },
 "i686-pc-windows-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-pc-windows-gnu.tar.gz",
-"sha256": "58288a2f6c76dc0e8f9034c042ad60b3b9d6bbb6caea4ea1938004e9fd203751"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-pc-windows-gnu.tar.gz",
+"sha256": "44bdc42568984e0756a03b6ca4db3f92f4dc23018091e8b070d60729ce0ff969"
 }
 }
 }
 },
 "i686-pc-windows-msvc": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-pc-windows-msvc.tar.gz",
-"sha256": "013afaeabe45d49bbec6843cbd1ca8ff6140fbe1c5ee0f9c58d6563aa7412558"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-pc-windows-msvc.tar.gz",
+"sha256": "7d59eec1679aa948c4de9f7187a8349aff1ab0b6ba9c4c82cb34acc8d0f4cbf0"
 }
 }
 }
 },
 "i686-unknown-freebsd": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-unknown-freebsd.tar.gz",
-"sha256": "a4a33dad565d9b0e42b6a33fb063193386b496c2172ed4d36c6d66c2bb463d52"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-unknown-freebsd.tar.gz",
+"sha256": "95ae49b11fc7c7cf652fcc0f9b0548402d0e903ccfaab1d0046ff73b598a33ca"
 }
 }
 }
 },
 "i686-unknown-linux-musl": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-i686-unknown-linux-musl.tar.gz",
-"sha256": "41680171815b99a599639cb5bb5d8d640fec8695bd9b0f8976217dedc8ad5fb9"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-i686-unknown-linux-musl.tar.gz",
+"sha256": "6175f5577314c1a38500bbfdf359ac84b59eec02a23477bd045f0ef529209f1d"
 }
 }
 }
 },
 "mips-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mips-unknown-linux-gnu.tar.gz",
-"sha256": "7f65cdd08fbb3cbbd205d19ea65ddcd121aa7918591854e089344f5519c59436"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mips-unknown-linux-gnu.tar.gz",
+"sha256": "fcf95e34853d95d838a5a9483968c21c299838e7dbb8209bd971d7c876a496b8"
 }
 }
 }
 },
 "mips-unknown-linux-musl": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mips-unknown-linux-musl.tar.gz",
-"sha256": "46e2de18b003d849007ec5422365ca358b0946e4ae0e8a31148b9b798df87547"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mips-unknown-linux-musl.tar.gz",
+"sha256": "02cf4b1ca831aea74d64580ce94d15e6507fd5ff065f9543e3139848bbc528e7"
 }
 }
 }
 },
 "mips64-unknown-linux-gnuabi64": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mips64-unknown-linux-gnuabi64.tar.gz",
-"sha256": "504fbf822bf2d515d980aed09f98261f6606f2fde834c99e7ef6f6f342e8a412"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mips64-unknown-linux-gnuabi64.tar.gz",
+"sha256": "d936722f675418db8683f4a9033c11046acce445d75256971300faa918daa732"
 }
 }
 }
 },
 "mips64-unknown-linux-muslabi64": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mips64-unknown-linux-muslabi64.tar.gz",
-"sha256": "338944c879b477b94003ab775a9b7336efdd528c3afe8b6282a1fc81515135f4"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mips64-unknown-linux-muslabi64.tar.gz",
+"sha256": "4a16ff5c7ec7a4d013d68325a2364f1939a549e253c7f655e9985595933d0e1c"
 }
 }
 }
 },
 "mips64el-unknown-linux-gnuabi64": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mips64el-unknown-linux-gnuabi64.tar.gz",
-"sha256": "f59f03deb6a3764380c8cdfaac90ecbe1280565b7977bbea5bd04f506109168b"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mips64el-unknown-linux-gnuabi64.tar.gz",
+"sha256": "33d485a727244055dffbd6957d1cb6ea2e699999ceb81a5d56746934f8848fdd"
 }
 }
 }
 },
 "mips64el-unknown-linux-muslabi64": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mips64el-unknown-linux-muslabi64.tar.gz",
-"sha256": "ee3607b5ea1be5385296edeba20b76c3637c307d9bf47fd40202514ed2028bf0"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mips64el-unknown-linux-muslabi64.tar.gz",
+"sha256": "77ee018f1a34ba8daf60e465ecc1dec7556dc7f2e48f4c31a108d17c31462aa3"
 }
 }
 }
 },
 "mipsel-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mipsel-unknown-linux-gnu.tar.gz",
-"sha256": "d1d2bfa78e960b74df047d58795bb57426ee875cccf0bfd1649a985e0b029cff"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mipsel-unknown-linux-gnu.tar.gz",
+"sha256": "d7121acf8f82e190c1cbc23233132393e701ac16bca4c27b983aa375e3a60d2f"
 }
 }
 }
 },
 "mipsel-unknown-linux-musl": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-mipsel-unknown-linux-musl.tar.gz",
-"sha256": "56530c0f8b5e0c16d3cf8729aef2f6b71c4f45ff55b7aed425d9fa12908e1b19"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-mipsel-unknown-linux-musl.tar.gz",
+"sha256": "bcd4d21b12cdd8f103eb9c6fc63cb2e3a155f8a0322740bdb415d4ecb7390254"
 }
 }
 }
 },
 "nvptx64-nvidia-cuda": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-nvptx64-nvidia-cuda.tar.gz",
-"sha256": "0c9155145ce0c4f563029ec0f76e8902b20efdd764fef830a7e6c0f83afa65ab"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-nvptx64-nvidia-cuda.tar.gz",
+"sha256": "0908efaba270a0eb3e61e5991f4444a6bdeaa7c26083b0935ef7479be81b08d3"
 }
 }
 }
 },
 "powerpc-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-powerpc-unknown-linux-gnu.tar.gz",
-"sha256": "8f0822dc507326f1615163750a52f240e76627b433600ee5375ce943f148cc5e"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-powerpc-unknown-linux-gnu.tar.gz",
+"sha256": "989594cb106f07f514ba0d3cb0d092d584312613c483ab3c8e988c102087d64a"
 }
 }
 }
 },
 "powerpc64-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-powerpc64-unknown-linux-gnu.tar.gz",
-"sha256": "f48253659836a51fb3da431628c34b411eeaada0bb72a791f0b3882e79a18eb6"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-powerpc64-unknown-linux-gnu.tar.gz",
+"sha256": "68145101728f42b1ed5248e875a339044640bddb03b3322e1dfdf22a8ed8facc"
 }
 }
 }
 },
 "powerpc64le-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-powerpc64le-unknown-linux-gnu.tar.gz",
-"sha256": "e835bd4afff3d7abdbb6ee16f67e71c8d081b6b351ab453ab2c83a8125dc0918"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-powerpc64le-unknown-linux-gnu.tar.gz",
+"sha256": "504c9a40c3c824144b0de252d489100aef999ab33675b567873523da5adc05f1"
 }
 }
 }
 },
 "riscv32i-unknown-none-elf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-riscv32i-unknown-none-elf.tar.gz",
-"sha256": "f7f16c21409ecda24667751200b7bb846bfe09c18a59e47f2467537c149b4132"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-riscv32i-unknown-none-elf.tar.gz",
+"sha256": "ca8d21afea8572eb8e5437837824e0fa3d21608bf428b98524cc472c899a8aca"
 }
 }
 }
 },
 "riscv32imac-unknown-none-elf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-riscv32imac-unknown-none-elf.tar.gz",
-"sha256": "421a5387178f4afe5f528f95543813961ef008fb9e71a68528b63e59e0659ae4"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-riscv32imac-unknown-none-elf.tar.gz",
+"sha256": "87786d4e457a550af08b280467935893e0f2299bb258eb5770e10735f363c96b"
 }
 }
 }
 },
 "riscv32imc-unknown-none-elf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-riscv32imc-unknown-none-elf.tar.gz",
-"sha256": "e9a3bf3c3b4fa19d82062c12d078997f5827121054a03505a234147d2d745dea"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-riscv32imc-unknown-none-elf.tar.gz",
+"sha256": "e684ac8a77c1f4f0afa4f9baf3e7670b58b5a0e595715686dcdd1b95635fb7df"
 }
 }
 }
 },
 "riscv64gc-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-riscv64gc-unknown-linux-gnu.tar.gz",
-"sha256": "2b4c8e0de0cf3db59d9358466a96ac364eafab8aa85e92f35e9e74e90c5674d9"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-riscv64gc-unknown-linux-gnu.tar.gz",
+"sha256": "e09523684024a9f6e6336dfea88f192d0deef8c93ab6a7da65604ab30c2b7e53"
 }
 }
 }
 },
 "riscv64gc-unknown-none-elf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-riscv64gc-unknown-none-elf.tar.gz",
-"sha256": "e2026c7bf8fb2a70a550cef21cd6130156c0aebdc966ae3fc43061cfa10e82cf"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-riscv64gc-unknown-none-elf.tar.gz",
+"sha256": "d4b869d07436c954503c67fa1c4219abfc9dbaab342eaeffd5eb7c962b48d2f5"
 }
 }
 }
 },
 "riscv64imac-unknown-none-elf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-riscv64imac-unknown-none-elf.tar.gz",
-"sha256": "c975f9d633c1c28eb7af3f2d3f530d2b91c461cfc9ec91253b11c933a822db72"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-riscv64imac-unknown-none-elf.tar.gz",
+"sha256": "9bd72f63098fff7ad3cd6cde9592e9f12e45631306715397d2ffe3deb806858c"
 }
 }
 }
 },
 "s390x-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-s390x-unknown-linux-gnu.tar.gz",
-"sha256": "00a4e1a8c1d2879e87a7598249e32c51956eb88054f7888f82a997885abdd4bd"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-s390x-unknown-linux-gnu.tar.gz",
+"sha256": "7bc62181580b71458cebc0536233220082035d05898e409484d77c66e89a433f"
 }
 }
 }
 },
 "sparc64-unknown-linux-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-sparc64-unknown-linux-gnu.tar.gz",
-"sha256": "c99ec69abdff32de5a52608ba4a8544f1ddcccf5e0ea1953d400e1f133d16239"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-sparc64-unknown-linux-gnu.tar.gz",
+"sha256": "0e12a01ed39a5489fcb5dda7a4ce479114fdfa0dffadbaf2c10929a297951e38"
 }
 }
 }
 },
 "sparcv9-sun-solaris": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-sparcv9-sun-solaris.tar.gz",
-"sha256": "ff336f7b13d3d911aec306840b41027fff1c8ee1c947df762e8fc1d65ed1add1"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-sparcv9-sun-solaris.tar.gz",
+"sha256": "a17b8536ef1ccf82cc328e4c49cdf8a7e7ca8da3ee304b5f4a7ebb6252d8be1b"
 }
 }
 }
 },
 "thumbv6m-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv6m-none-eabi.tar.gz",
-"sha256": "c385e4ce9ca1659f2dc5cc7f2cca9fe0e1fcb2593a89b33c0f5ee06349bfce13"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv6m-none-eabi.tar.gz",
+"sha256": "cf53524521c05c30d5e630087af544c2d747e45e99e9435b8a9144bac24e9fe3"
 }
 }
 }
 },
 "thumbv7em-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv7em-none-eabi.tar.gz",
-"sha256": "55363119a38da8ea6c01e10e8651d10e57750967fa51ec03d21906c07e251592"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv7em-none-eabi.tar.gz",
+"sha256": "3581a0d358d485bacc8f9ff4ce8a903d3ce80c404288fe4264d69e7df228de5d"
 }
 }
 }
 },
 "thumbv7em-none-eabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv7em-none-eabihf.tar.gz",
-"sha256": "a8a5742439ec35bd032885bb960ee0880fa59497e56e28b8d54918ebaaa93bd2"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv7em-none-eabihf.tar.gz",
+"sha256": "5742f2cb65f86b07805725831f933865bcee9db061145d3f18ecc520d2e4c50e"
 }
 }
 }
 },
 "thumbv7m-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv7m-none-eabi.tar.gz",
-"sha256": "e5f6b17aae06d324ed32526a35e3a402b6d4dc0c575c622be01ea38d3e574a62"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv7m-none-eabi.tar.gz",
+"sha256": "ee11bba42cf8fb2f706f91b1bf2a57bad2e133b9d7cb250a0eced66161ec23ef"
 }
 }
 }
 },
 "thumbv7neon-linux-androideabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv7neon-linux-androideabi.tar.gz",
-"sha256": "7e725810fc7ff7c194b4ba5efab7274bac52ef65a7d9a1567cf1b505e5a00225"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv7neon-linux-androideabi.tar.gz",
+"sha256": "0898e121b412c7b04aed00adc95327905df4d8f2181b30389d512004bec8d133"
 }
 }
 }
 },
 "thumbv7neon-unknown-linux-gnueabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv7neon-unknown-linux-gnueabihf.tar.gz",
-"sha256": "9fb96446d74ffb2079bd2dd8c3bc955bc1564721fff93c003781013ecd10be77"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv7neon-unknown-linux-gnueabihf.tar.gz",
+"sha256": "0f0d2ffcf08359ca6057f6a6b4b68d568ad731614c00ffa9bbe7d1b7e38da9a4"
 }
 }
 }
 },
 "thumbv8m.base-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv8m.base-none-eabi.tar.gz",
-"sha256": "6b65de1409fc470c1d27a8db01b6008e74696879cc30e820f33080d32da96e52"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv8m.base-none-eabi.tar.gz",
+"sha256": "bf6b36fbb3c30753dfbe89d7618c5f9f3edbd09d6aa46132977cac2757f3be9e"
 }
 }
 }
 },
 "thumbv8m.main-none-eabi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv8m.main-none-eabi.tar.gz",
-"sha256": "3cf313ef016abd0777ccfb00e105a53c3b85ab5d70fbc793a8189db61e104451"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv8m.main-none-eabi.tar.gz",
+"sha256": "3b949d5bd68979b472678d7fccd08727a395a198e39891ce2c6aa537a19f8d10"
 }
 }
 }
 },
 "thumbv8m.main-none-eabihf": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-thumbv8m.main-none-eabihf.tar.gz",
-"sha256": "cf1a37ca87845e150eeae0d4ed6b05af7c721aed4e34ef114279153f3e65fe71"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-thumbv8m.main-none-eabihf.tar.gz",
+"sha256": "1d85934c1cf5654c28ec13c5f756f2400ef0feb6393cc045fb810e0ebe3058d3"
 }
 }
 }
 },
 "wasm32-unknown-emscripten": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-wasm32-unknown-emscripten.tar.gz",
-"sha256": "b3f3eaf56f68135b8d90ce3d03c3ef326e9c406ba5f8d09487c723ddf5d49aec"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-wasm32-unknown-emscripten.tar.gz",
+"sha256": "41914a01f03b0168ae1e4698b57dafa98445c04f62e8f678d57cf578be87c8bc"
 }
 }
 }
 },
 "wasm32-unknown-unknown": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-wasm32-unknown-unknown.tar.gz",
-"sha256": "1ae83fae36d3331de45aca85414284acfff61a61a89c10dc9e0a763233f66ea3"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-wasm32-unknown-unknown.tar.gz",
+"sha256": "30722d6a2ed2e06e0f5532b2cd710dd3ea8e4c5649802d4d2caedae33c78ce5a"
 }
 }
 }
 },
 "wasm32-wasi": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-wasm32-wasi.tar.gz",
-"sha256": "a72d1a129c54017715e3cd87cb28f8a5795957c596e2b9e201db4c46567e4964"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-wasm32-wasi.tar.gz",
+"sha256": "b70f915d2ce37f47379fe002e9862aa6cd4e8fe9d5506f9a5973b6f3ba827b5c"
 }
 }
 }
 },
 "x86_64-apple-ios": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-apple-ios.tar.gz",
-"sha256": "4d7fdba0b2aaab2af893941afea6437cd88684225bfcfc231e7a10f4ada6708b"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-apple-ios.tar.gz",
+"sha256": "8f044426139f9d34fc0a3d7f101f9a40dfe1936d6d6a42c59954555115624fc4"
 }
 }
 }
 },
 "x86_64-fortanix-unknown-sgx": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-fortanix-unknown-sgx.tar.gz",
-"sha256": "ac1d1a6c3ef51abfe705c9f33599d3b9880b8638a9e854e732800f47ddefc483"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-fortanix-unknown-sgx.tar.gz",
+"sha256": "59283d366d12340df51b5051d18632a6c9ae680b909b1156c2dbfd2e586dde4a"
 }
 }
 }
 },
 "x86_64-fuchsia": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-fuchsia.tar.gz",
-"sha256": "f624ee6ceb39340248852fae93125da0f127abcc7add2edc52ce1c17ce4a1b91"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-fuchsia.tar.gz",
+"sha256": "cd4e7d7d1718a6785a1de60876a9c6e3ff78910676ee5722621c08fbed7d2da7"
 }
 }
 }
 },
 "x86_64-linux-android": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-linux-android.tar.gz",
-"sha256": "e78ac574b1ddb09eb90445721ba58c18f0abb7fe4012a3e62ea3207c625c6be8"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-linux-android.tar.gz",
+"sha256": "7241137f2bf94c6a6b9f5d402c45e3333c23637e8cdf2bb9c4dee0085b2a1289"
 }
 }
 }
 },
 "x86_64-pc-solaris": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-pc-solaris.tar.gz",
-"sha256": "ae407fdc2818df161b8b14e2128d90824c37a4e90c4b94f958a8bb3c8c2fb830"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-pc-solaris.tar.gz",
+"sha256": "cd57d0592a1ad6e3cf6e1598aea7a8707547b72f4ed0f4a408b83c6a2a4e0c12"
 }
 }
 }
 },
 "x86_64-pc-windows-gnu": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-pc-windows-gnu.tar.gz",
-"sha256": "4748e0719f35ccecead580ffed24e3ea6456711529ac9338680d208c0aab7e63"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-pc-windows-gnu.tar.gz",
+"sha256": "9a41f098f2747ccccbdcd7b92216c56ab8b222d24e6186a4199c89f5364b98c0"
 }
 }
 }
 },
 "x86_64-pc-windows-msvc": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz",
-"sha256": "e4b1a4f0d3eddc01e275c1854324a26b9677f76fa0efe09080cebabf0f2104bb"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-pc-windows-msvc.tar.gz",
+"sha256": "5c1ddec57145583553217650270fd272ec592b8d7d7f1544841561a9afcaffae"
 }
 }
 }
 },
 "x86_64-sun-solaris": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-sun-solaris.tar.gz",
-"sha256": "668f81c2247fe51f8a68d63c36fe9c24e183e37324be5fe688a53038a9d92a27"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-sun-solaris.tar.gz",
+"sha256": "1b3fd18484ef4b59cfa446aae60c9cb1c187c96f6c4971f2e12ed85732afa9ca"
 }
 }
 }
 },
 "x86_64-unknown-freebsd": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-freebsd.tar.gz",
-"sha256": "b5b60878185d3385ad34f7c6f574604a1c3ba8cfa78493078d705b9f11476b31"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-freebsd.tar.gz",
+"sha256": "81b6406323bd6d2d62f19b1b389fe7d30c18520362c9d2ebed877b66d36a1f47"
 }
 }
 }
 },
 "x86_64-unknown-illumos": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-illumos.tar.gz",
-"sha256": "6f77ce8b3d10bacc60a5a5675bc2c3490b3bb7c250e83c115b3a39a2601adf2d"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-illumos.tar.gz",
+"sha256": "9b93d39c5adc295b65af03d4377038fb5f540a45a3c9222c971af8af640b0bba"
 }
 }
 }
 },
 "x86_64-unknown-linux-gnux32": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-linux-gnux32.tar.gz",
-"sha256": "883a2f7afb678c44e79f40b04d8792c10c56b11a6b94d17b315c797b428cd8fc"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-linux-gnux32.tar.gz",
+"sha256": "91b60f9befac53faa05eef6e8c5a37835c1585b8ea0fb2fd3ffcb796f1803c92"
 }
 }
 }
 },
 "x86_64-unknown-linux-musl": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-linux-musl.tar.gz",
-"sha256": "5192096eb6aeb77ff3ef194a559999dede01ef7e5286a881f2338e2c7e2b7438"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-linux-musl.tar.gz",
+"sha256": "a38510b0979d42b3ed7663e34b1313bb78800069765a34282f0d6d5f5a371c12"
 }
 }
 }
 },
 "x86_64-unknown-netbsd": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-netbsd.tar.gz",
-"sha256": "b2d3e628e7b7900d14ab31c9c0facc642b388820dccb02f8a03c7ce46e2f2183"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-netbsd.tar.gz",
+"sha256": "0bf49c910f8a7b9f2e06ab179ae5471514b4f0117e3641d85bb57e329667ce84"
 }
 }
 }
 },
 "x86_64-unknown-redox": {
 "latest": {
-"date": "2022-02-11",
+"date": "2022-02-12",
 "components": {
 "rust-std": {
-"date": "2022-02-11",
-"url": "https://static.rust-lang.org/dist/2022-02-11/rust-std-nightly-x86_64-unknown-redox.tar.gz",
-"sha256": "9cfa576cbd57fe13c54c1a59455cdf829b9dfb3326b318da9c9aff2b83dc9321"
+"date": "2022-02-12",
+"url": "https://static.rust-lang.org/dist/2022-02-12/rust-std-nightly-x86_64-unknown-redox.tar.gz",
+"sha256": "2dd05f5cfbc0692ff9dac03deabff19a82369c3ab8c1251b283b938affeafa03"
 }
 }
 }
