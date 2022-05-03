@@ -47,7 +47,7 @@ let
                 if isELF "$file"; then
                   patchelf \
                     --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-                    --set-rpath $out/lib \
+                    --set-rpath ${stdenv.cc.cc.lib}/lib:${rpath} \
                     "$file" || true
                 fi
               done
