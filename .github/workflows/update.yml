@@ -28,7 +28,7 @@ jobs:
           nix-shell --run ./update -p "python3.withPackages (ps: [ ps.toml ])"
           nix flake update
           curl -fLSso data/rust-analyzer-vsix.zip \
-            https://github.com/rust-analyzer/rust-analyzer/releases/download/nightly/rust-analyzer.vsix || true
+            https://github.com/rust-lang/rust-analyzer/releases/download/nightly/rust-analyzer-no-server.vsix || true
 
           git commit -am "update: rust toolchains, rust analyzer, flake.lock"
           git push

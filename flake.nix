@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     rust-analyzer-src = {
-      url = "github:rust-analyzer/rust-analyzer/nightly";
+      url = "github:rust-lang/rust-analyzer/nightly";
       flake = false;
     };
   };
