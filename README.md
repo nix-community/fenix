@@ -105,7 +105,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
   rustc = <derivation>; # rustc with rust-std
   rustc-unwrapped = <derivation>; # rustc without rust-std, same as rustc.unwrapped
   rustfmt = <derivation>; # alias to rustfmt-preview
-  rust-src = <derivation>; # RUST_SRC_PATH = "${fenix.complete.rust-src}/bin/rust-lib/src"
+  rust-src = <derivation>; # RUST_SRC_PATH = "${fenix.complete.rust-src}/lib/rustlib/src/rust/library"
   # ...
 
   # derivation with all the components
