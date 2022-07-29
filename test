@@ -7,6 +7,8 @@ for bin in result*/bin/*; do
     case "$(basename "$(basename "$bin")")" in
         cargo-miri)
             "$bin" miri -h > /dev/null;;
+        miri)
+            "$bin" --help --sysroot /dev/null > /dev/null;;
         rust-demangler)
             ;;
         rust-gdb)
