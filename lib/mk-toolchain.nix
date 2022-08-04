@@ -128,6 +128,7 @@ let
   } // alias "clippy" "clippy-preview"
     // alias "miri" "miri-preview"
     // alias "rls" "rls-preview"
+    // alias "rust-analyzer" "rust-analyzer-preview"
     // alias "rustfmt" "rustfmt-preview";
 in
 
