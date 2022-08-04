@@ -42,6 +42,17 @@ let
               done
             fi
 
+            if [ -d $out/libexec ]; then
+              for file in $(find $out/libexec -type f); do
+                if isELF "$file"; then
+                  patchelf \
+                    --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+                    --set-rpath ${rpath} \
+                    "$file" || true
+                fi
+              done
+            fi
+
             ${optionalString (component == "rustc") ''
               for file in $(find $out/lib/rustlib/*/bin -type f); do
                 if isELF "$file"; then
