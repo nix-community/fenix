@@ -17,6 +17,9 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]
+        build-flags:
+          - ""
+          - --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,13 +39,7 @@ jobs:
 
       - name: Build with nix
         run: |
-          pkgs=(.#{{stable,beta,minimal,default,complete}.toolchain,rust-analyzer{,-vscode-extension}})
-
-          nix build "${pkgs[@]}"
+          nix build ${{ matrix.build-flags }} .#{{stable,beta,minimal,default,complete}.toolchain,rust-analyzer{,-vscode-extension}}
           ./test
 
-          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable "${pkgs[@]}"
-          ./test
-
-          nix build .#latest.toolchain
-          nix build --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable .#latest.toolchain
+          nix build ${{ matrix.build-flags }} .#latest.toolchain
