@@ -36,20 +36,22 @@ let
     (importJSON ./data/nightly.json);
 
   fromManifest' = target: suffix: manifest:
-    let toolchain = mkToolchain suffix {
-      inherit (manifest) date;
-      components = mapAttrs
-        (_: src: { inherit (src) url; sha256 = src.hash; })
-        (filterAttrs (_: src: src ? available && src.available) (mapAttrs
-          (_: pkg:
-            if pkg.target ? "*" then
-              pkg.target."*"
-            else if pkg.target ? ${target} then
-              pkg.target.${target}
-            else
-              null)
-          manifest.pkg));
-    }; in
+    let
+      toolchain = mkToolchain suffix {
+        inherit (manifest) date;
+        components = mapAttrs
+          (_: src: { inherit (src) url; sha256 = src.hash; })
+          (filterAttrs (_: src: src ? available && src.available) (mapAttrs
+            (_: pkg:
+              if pkg.target ? "*" then
+                pkg.target."*"
+              else if pkg.target ? ${target} then
+                pkg.target.${target}
+              else
+                null)
+            manifest.pkg));
+      };
+    in
     toolchain // mapAttrs'
       (k: v:
         nameValuePair "${k}Toolchain" (toolchain.withComponents
@@ -141,11 +143,14 @@ nightlyToolchains.${v} // rec {
 
   beta = fromManifest' v "-beta" (importJSON ./data/beta.json);
 
-  targets = let collectedTargets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
-    (mkToolchains "stable")
-    (mkToolchains "beta")
-    nightlyToolchains
-  ]; in
+  targets =
+    let
+      collectedTargets = zipAttrsWith (_: foldl (x: y: x // y) { }) [
+        (mkToolchains "stable")
+        (mkToolchains "beta")
+        nightlyToolchains
+      ];
+    in
     mapAttrs
       (target: v:
         v // {
@@ -175,9 +180,12 @@ nightlyToolchains.${v} // rec {
     meta.mainProgram = "rust-analyzer";
   };
 
-  rust-analyzer-vscode-extension = let setDefault = k: v: ''
-    .contributes.configuration.properties."rust-analyzer.${k}".default = "${v}"
-  ''; in
+  rust-analyzer-vscode-extension =
+    let
+      setDefault = k: v: ''
+        .contributes.configuration.properties."rust-analyzer.${k}".default = "${v}"
+      '';
+    in
     pkgs.vscode-utils.buildVscodeExtension {
       name = "rust-analyzer-${rust-analyzer-rev}";
       src = ./data/rust-analyzer-vsix.zip;
