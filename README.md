@@ -117,7 +117,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
   defaultToolchain = <derivation>;
   completeToolchain = <derivation>;
 
-  # wtihComponents : [string] -> derivation
+  # withComponents : [string] -> derivation
   # creates a derivation with the given list of components from the toolchain
   withComponents = <function>;
 }
