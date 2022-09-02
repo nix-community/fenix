@@ -9,6 +9,17 @@ Binary cache is available for `x86_64-darwin` and `x86_64-linux` on [cachix](htt
 cachix use nix-community
 ```
 
+Note: The nixpkgs from your system will be used when fenix is being used as an overlay, which may not be cached if you are using a stable/older version of nixpkgs.
+To fix this, use the packages directly or use the following workaround (see [#79](https://github.com/nix-community/fenix/issues/79))
+
+```nix
+{
+  nixpkgs.overlays = [
+    (_: super: let pkgs = fenix.inputs.nixpkgs.legacyPackages.${super.system}; in fenix.overlay pkgs pkgs)
+  ];
+}
+```
+
 - [Usage](#usage)
 - [Supported platforms and targets](#supported-platforms-and-targets)
 - [Examples](#examples)
