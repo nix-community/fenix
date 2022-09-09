@@ -9,6 +9,8 @@ for bin in result*/bin/*; do
             "$bin" miri -h > /dev/null;;
         miri)
             "$bin" --help --sysroot /dev/null > /dev/null;;
+        rls)
+            ;;
         rust-demangler)
             ;;
         rust-gdb)
