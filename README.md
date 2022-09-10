@@ -361,7 +361,7 @@ x86_64-linux | x86_64-unknown-linux-gnu
 
 ## Examples
 
-Examples to build rust programs with [flake-utils](https://github.com/numtide/flake-utils) and [naersk](https://github.com/nmattia/naersk) (optional)
+Examples to build rust programs with makeRustPlatform, [crane](https://github.com/ipetkov/crane), and [naersk](https://github.com/nmattia/naersk)
 
 <details>
   <summary>building with makeRustPlatform</summary>
@@ -378,45 +378,61 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
     };
 
     outputs = { self, fenix, flake-utils, nixpkgs }:
-      flake-utils.lib.eachDefaultSystem (system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in
-        {
-          defaultPackage = (pkgs.makeRustPlatform {
-            inherit (fenix.packages.${system}.minimal) cargo rustc;
+      flake-utils.lib.eachDefaultSystem (system: {
+        packages.default =
+          let
+            toolchain = fenix.packages.${system}.minimal.toolchain;
+            pkgs = nixpkgs.legacyPackages.${system};
+          in
+
+          (pkgs.makeRustPlatform {
+            cargo = toolchain;
+            rustc = toolchain;
           }).buildRustPackage {
-            pname = "hello";
+            pname = "example";
             version = "0.1.0";
+
             src = ./.;
-            cargoSha256 = nixpkgs.lib.fakeSha256;
+
+            cargoLock.lockFile = ./Cargo.lock;
           };
-        });
+      });
   }
   ```
 </details>
 
 <details>
-  <summary>building with naersk</summary>
+  <summary>building with crane</summary>
 
   ```nix
   {
     inputs = {
+      crane = {
+        url = "github:ipetkov/crane";
+        inputs = {
+          flake-utils.follows = "flake-utils";
+          nixpkgs.follows = "nixpkgs";
+        };
+      };
       fenix = {
         url = "github:nix-community/fenix";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       flake-utils.url = "github:numtide/flake-utils";
-      naersk = {
-        url = "github:nmattia/naersk";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
       nixpkgs.url = "nixpkgs/nixos-unstable";
     };
 
-    outputs = { self, fenix, flake-utils, naersk, nixpkgs }:
+    outputs = { self, crane, fenix, flake-utils, nixpkgs }:
       flake-utils.lib.eachDefaultSystem (system: {
-        defaultPackage = (naersk.lib.${system}.override {
-          inherit (fenix.packages.${system}.minimal) cargo rustc;
-        }).buildPackage { src = ./.; };
+        packages.default =
+          let
+            craneLib = crane.lib.${system}.overrideToolchain
+              fenix.packages.${system}.minimal.toolchain;
+          in
+
+          craneLib.buildPackage {
+            src = ./.;
+          };
       });
   }
   ```
@@ -434,7 +450,7 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
       };
       flake-utils.url = "github:numtide/flake-utils";
       naersk = {
-        url = "github:nmattia/naersk";
+        url = "github:nix-community/naersk";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -442,17 +458,17 @@ Examples to build rust programs with [flake-utils](https://github.com/numtide/fl
 
     outputs = { self, fenix, flake-utils, naersk, nixpkgs }:
       flake-utils.lib.eachDefaultSystem (system: {
-        defaultPackage =
+        packages.default =
           let
             pkgs = nixpkgs.legacyPackages.${system};
             target = "aarch64-unknown-linux-gnu";
-            toolchain = with fenix.packages.${system};
-              combine [
-                minimal.rustc
-                minimal.cargo
-                targets.${target}.latest.rust-std
-              ];
+            toolchain = with fenix.packages.${system}; combine [
+              minimal.cargo
+              minimal.rustc
+              targets.${target}.latest.rust-std
+            ];
           in
+
           (naersk.lib.${system}.override {
             cargo = toolchain;
             rustc = toolchain;
