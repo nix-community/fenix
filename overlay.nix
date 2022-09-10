@@ -9,5 +9,8 @@ let fenix = super.callPackage ./. { }; in
     matklad = super.vscode-extensions.matklad // {
       rust-analyzer-nightly = fenix.rust-analyzer-vscode-extension;
     };
+    rust-lang = super.vscode-extensions.rust-lang // {
+      rust-analyzer-nightly = fenix.rust-analyzer-vscode-extension;
+    };
   };
 }

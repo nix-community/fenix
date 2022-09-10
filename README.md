@@ -1,6 +1,6 @@
 # fenix
 
-Fenix provides the `minimal`, `default`, and `complete` [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust toolchains, [`latest`](#latest) profile of nightly toolchains, nightly version of [rust analyzer](https://rust-analyzer.github.io) and [its vscode extension](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer).
+Fenix provides the `minimal`, `default`, and `complete` [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust toolchains, [`latest`](#latest) profile of nightly toolchains, nightly version of [rust analyzer](https://rust-analyzer.github.io) and [its vscode extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
 It aims to be a replacement for [rustup](https://rustup.rs) and the rust overlay provided by [nixpkgs-mozilla](https://github.com/mozilla/nixpkgs-mozilla).
 
 Binary cache is available for `x86_64-darwin` and `x86_64-linux` on [cachix](https://nix-community.cachix.org/)
@@ -277,13 +277,13 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 <details>
   <summary><code>rust-analyzer-vscode-extension : derivation</code></summary>
 
-  Nightly version of `vscode-extensions.matklad.rust-analyzer`, also available with overlay as `vscode-extensions.matklad.rust-analyzer-nightly`
+  Nightly version of `vscode-extensions.rust-lang.rust-analyzer`, also available with overlay as `vscode-extensions.rust-lang.rust-analyzer-nightly`
 
   ```nix
   # with overlay
   with pkgs; vscode-with-extensions.override {
     vscodeExtensions = [
-      vscode-extensions.matklad.rust-analyzer-nightly
+      vscode-extensions.rust-lang.rust-analyzer-nightly
     ];
   }
   ```
