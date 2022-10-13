@@ -22,7 +22,7 @@ jobs:
         run: nix run nixpkgs#nixpkgs-fmt --inputs-from . -- {,lib/}*.nix --check
 
       - name: Set up cachix
-        uses: cachix/cachix-action@v10
+        uses: cachix/cachix-action@v11
         with:
           name: nix-community
 
