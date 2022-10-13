@@ -15,7 +15,7 @@ jobs:
           ref: staging
 
       - name: Install nix
-        uses: cachix/install-nix-action@v17
+        uses: cachix/install-nix-action@v18
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
 
