@@ -15,7 +15,7 @@ To fix this, use the packages directly or use the following workaround (see [#79
 ```nix
 {
   nixpkgs.overlays = [
-    (_: super: let pkgs = fenix.inputs.nixpkgs.legacyPackages.${super.system}; in fenix.overlay pkgs pkgs)
+    (_: super: let pkgs = fenix.inputs.nixpkgs.legacyPackages.${super.system}; in fenix.overlays.default pkgs pkgs)
   ];
 }
 ```
@@ -47,7 +47,7 @@ To fix this, use the packages directly or use the following workaround (see [#79
         system = "x86_64-linux";
         modules = [
           ({ pkgs, ... }: {
-            nixpkgs.overlays = [ fenix.overlay ];
+            nixpkgs.overlays = [ fenix.overlays.default ];
             environment.systemPackages = with pkgs; [
               (fenix.complete.withComponents [
                 "cargo"
