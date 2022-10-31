@@ -2,6 +2,7 @@
 
 import datetime
 import json
+from typing import Any, Optional
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
@@ -22,19 +23,19 @@ one_day = datetime.timedelta(days=1)
 nightly = {target: {"latest": {}} for target in targets}
 
 
-def write_json(channel, content):
+def write_json(channel: str, content: Any) -> None:
     with open(f"data/{channel}.json", "w") as file:
         json.dump(content, file, indent=0)
         file.write("\n")
 
 
-def fetch_nightly(d=None):
+def fetch_nightly(d: Optional[datetime.date] = None) -> None:
     date_path = f"/{d}" if d else ""
 
     try:
         resp = urlopen(f"{dist_root}{date_path}/channel-rust-nightly.toml")
     except HTTPError as e:
-        if e.code == 404:
+        if e.code == 404 and d:
             fetch_nightly(d - one_day)
         else:
             raise e
