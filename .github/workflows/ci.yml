@@ -33,7 +33,7 @@ jobs:
         uses: cachix/cachix-action@v10
         with:
           name: nix-community
-          signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Build with nix
         run: |
