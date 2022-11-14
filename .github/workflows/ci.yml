@@ -37,6 +37,10 @@ jobs:
           name: nix-community
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
+      - name: Check with nix
+        run: |
+          nix flake check
+
       - name: Build with nix
         run: |
           nix build ${{ matrix.build-flags }} .#{{stable,beta,minimal,default,complete}.toolchain,rust-analyzer{,-vscode-extension}}
