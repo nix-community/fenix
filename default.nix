@@ -42,13 +42,7 @@ let
         components = mapAttrs
           (_: src: { inherit (src) url; sha256 = src.hash; })
           (filterAttrs (_: src: src ? available && src.available) (mapAttrs
-            (_: pkg:
-              if pkg.target ? "*" then
-                pkg.target."*"
-              else if pkg.target ? ${target} then
-                pkg.target.${target}
-              else
-                null)
+            (_: pkg: pkg.target."*" or pkg.target.${target} or null)
             manifest.pkg));
       };
     in
