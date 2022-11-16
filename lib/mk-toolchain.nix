@@ -5,7 +5,9 @@ suffix:
 
 let
   inherit (builtins) attrValues mapAttrs;
-  inherit (lib) attrVals optionalAttrs optionalString platforms;
+  inherit (lib)
+    attrVals mapAttrs' nameValuePair optionalAttrs optionalString platforms
+    removeSuffix;
 
   combine = callPackage ./combine.nix { };
   rpath = "${zlib}/lib:$out/lib";
@@ -114,10 +116,7 @@ let
       })
     components;
 
-  alias = from: to:
-    optionalAttrs (toolchain ? ${to}) { ${from} = toolchain.${to}; };
-
-  toolchain' = toolchain // {
+  toolchain' = toolchain // mapAttrs' (k: nameValuePair (removeSuffix "-preview" k)) toolchain // {
     toolchain = combine "rust${suffix}-${date}" (attrValues toolchain);
   } // optionalAttrs (toolchain ? rustc) {
     rustc = combine "rust${suffix}-with-std-${date}"
@@ -125,11 +124,7 @@ let
       unwrapped = toolchain.rustc;
     };
     rustc-unwrapped = toolchain.rustc;
-  } // alias "clippy" "clippy-preview"
-    // alias "miri" "miri-preview"
-    // alias "rls" "rls-preview"
-    // alias "rust-analyzer" "rust-analyzer-preview"
-    // alias "rustfmt" "rustfmt-preview";
+  };
 in
 
 toolchain' // {
