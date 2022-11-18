@@ -12,7 +12,7 @@
   outputs = { self, nixpkgs, rust-analyzer-src }:
     let
       inherit (builtins) concatLists concatStringsSep isAttrs listToAttrs typeOf;
-      inherit (nixpkgs.lib) flatten genAttrs isDerivation mapAttrsToList nameValuePair warn;
+      inherit (nixpkgs.lib) flatten genAttrs isDerivation mapAttrsToList nameValuePair systems warn;
 
       attrDerivations = set: path: (mapAttrsToList
         (k: v:
@@ -26,6 +26,9 @@
     in
 
     {
+      formatter = genAttrs systems.flakeExposed
+        (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+
       packages = genAttrs
         [
           "aarch64-darwin"
