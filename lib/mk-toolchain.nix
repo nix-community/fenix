@@ -6,8 +6,8 @@ suffix:
 let
   inherit (builtins) attrValues mapAttrs;
   inherit (lib)
-    attrVals mapAttrs' nameValuePair optionalAttrs optionalString platforms
-    removeSuffix;
+    attrVals maintainers mapAttrs' nameValuePair optionalAttrs optionalString
+    platforms removeSuffix;
 
   combine = callPackage ./combine.nix { };
   rpath = "${zlib}/lib:$out/lib";
@@ -112,7 +112,10 @@ let
           ''}
         '';
         dontStrip = true;
-        meta.platforms = platforms.all;
+        meta = {
+          maintainers = with maintainers; [ figsoda ];
+          platforms = platforms.all;
+        };
       })
     components;
 

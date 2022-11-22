@@ -1,5 +1,9 @@
 { lib, symlinkJoin, stdenv }:
 
+let
+  inherit (lib) maintainers optionalString platforms;
+in
+
 name: paths:
 
 symlinkJoin {
@@ -8,13 +12,13 @@ symlinkJoin {
     for file in $(find $out/bin -xtype f -maxdepth 1); do
       install -m755 $(realpath "$file") $out/bin
 
-      ${lib.optionalString stdenv.isLinux ''
+      ${optionalString stdenv.isLinux ''
         if isELF "$file"; then
           patchelf --set-rpath $out/lib "$file" || true
         fi
       ''}
 
-      ${lib.optionalString stdenv.isDarwin ''
+      ${optionalString stdenv.isDarwin ''
         install_name_tool -add_rpath $out/lib "$file" || true
       ''}
     done
@@ -23,5 +27,8 @@ symlinkJoin {
       install $(realpath "$file") $out/lib
     done
   '';
-  meta.platforms = lib.platforms.all;
+  meta = {
+    maintainers = with maintainers; [ figsoda ];
+    platforms = platforms.all;
+  };
 }

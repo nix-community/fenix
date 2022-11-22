@@ -21,9 +21,9 @@ in
 
 let
   inherit (lib)
-    attrVals filterAttrs findFirst foldl importJSON importTOML mapAttrs'
-    mapNullable nameValuePair optionalString optionals pathIsRegularFile unique
-    zipAttrsWith;
+    attrVals filterAttrs findFirst foldl importJSON importTOML maintainers
+    mapAttrs' mapNullable nameValuePair optionalString optionals
+    pathIsRegularFile unique zipAttrsWith;
 
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
 
@@ -171,7 +171,10 @@ nightlyToolchains.${v} // rec {
     doCheck = false;
     CARGO_INCREMENTAL = 0;
     RUST_ANALYZER_REV = rust-analyzer-rev;
-    meta.mainProgram = "rust-analyzer";
+    meta = {
+      maintainers = with maintainers; [ figsoda ];
+      mainProgram = "rust-analyzer";
+    };
   };
 
   rust-analyzer-vscode-extension =
@@ -191,5 +194,6 @@ nightlyToolchains.${v} // rec {
           | ${setDefault "updates.channel" "nightly"}
         ' package.json | sponge package.json
       '';
+      meta.maintainers = with maintainers; [ figsoda ];
     };
 }
