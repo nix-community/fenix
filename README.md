@@ -199,7 +199,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
   -|-
   file | path to the rust toolchain file, usually either `./rust-toolchain` or `./rust-toolchain.toml`, conflicts with `dir`
   dir | path to the directory that has `rust-toolchain` or `rust-toolchain.toml`, conflicts with `file`
-  sha256 | sha256 of the manifest, required in pure evalution mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
+  sha256 | sha256 of the manifest, required in pure evaluation mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
 
   ```nix
   fromToolchainFile {
