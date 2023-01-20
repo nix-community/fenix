@@ -80,12 +80,12 @@ let
             ${optionalString stdenv.isLinux ''
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib:${rpath} \
-                $out/bin/clippy-driver || true
+                $out/bin/{cargo-clippy,clippy-driver} || true
             ''}
             ${optionalString stdenv.isDarwin ''
               install_name_tool \
                 -add_rpath ${toolchain.rustc}/lib \
-                $out/bin/clippy-driver || true
+                $out/bin/{cargo-clippy,clippy-driver} || true
             ''}
           ''}
 
@@ -108,6 +108,17 @@ let
             ${optionalString stdenv.isDarwin ''
               install_name_tool \
                 -add_rpath ${toolchain.rustc}/lib $out/bin/rls || true
+            ''}
+          ''}
+
+          ${optionalString (component == "rustfmt-preview") ''
+            ${optionalString stdenv.isLinux ''
+              patchelf \
+                --set-rpath ${toolchain.rustc}/lib $out/bin/rustfmt || true
+            ''}
+            ${optionalString stdenv.isDarwin ''
+              install_name_tool \
+                -add_rpath ${toolchain.rustc}/lib $out/bin/rustfmt || true
             ''}
           ''}
         '';
