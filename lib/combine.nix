@@ -12,6 +12,10 @@ symlinkJoin {
     for file in $(find $out/bin -xtype f -maxdepth 1); do
       install -m755 $(realpath "$file") $out/bin
 
+      if [[ $file =~ /(rustfmt|clippy-driver|cargo-clippy|miri)$ ]]; then
+        continue
+      fi
+
       ${optionalString stdenv.isLinux ''
         if isELF "$file"; then
           patchelf --set-rpath $out/lib "$file" || true
