@@ -76,19 +76,6 @@ let
             ''}
           ''}
 
-          ${optionalString (component == "clippy-preview") ''
-            ${optionalString stdenv.isLinux ''
-              patchelf \
-                --set-rpath ${toolchain.rustc}/lib:${rpath} \
-                $out/bin/{cargo-clippy,clippy-driver} || true
-            ''}
-            ${optionalString stdenv.isDarwin ''
-              install_name_tool \
-                -add_rpath ${toolchain.rustc}/lib \
-                $out/bin/{cargo-clippy,clippy-driver} || true
-            ''}
-          ''}
-
           ${optionalString (component == "miri-preview") ''
             ${optionalString stdenv.isLinux ''
               patchelf \
@@ -130,7 +117,7 @@ let
       })
     components;
 
-  toolchain' = toolchain // mapAttrs' (k: nameValuePair (removeSuffix "-preview" k)) toolchain // {
+  toolchain' = toolchain // {
     toolchain = combine "rust${suffix}-${date}" (attrValues toolchain);
   } // optionalAttrs (toolchain ? rustc) {
     rustc = combine "rust${suffix}-with-std-${date}"
@@ -138,11 +125,20 @@ let
       unwrapped = toolchain.rustc;
     };
     rustc-unwrapped = toolchain.rustc;
+  } // optionalAttrs (toolchain ? clippy-preview) {
+    clippy-preview = combine "clippy${suffix}-with-std-${date}"
+      (with toolchain; [ clippy-preview rustc rust-std ]) // {
+      unwrapped = toolchain.clippy-preview;
+    };
+    clippy-preview-unwrapped = toolchain.clippy-preview;
+    clippy-unwrapped = toolchain.clippy-preview;
   };
+
+  toolchain'' = toolchain' // mapAttrs' (k: nameValuePair (removeSuffix "-preview" k)) toolchain';
 in
 
-toolchain' // {
+toolchain'' // {
   withComponents = componentNames: combine
     "rust${suffix}-with-components-${date}"
-    (attrVals componentNames toolchain');
+    (attrVals componentNames toolchain'');
 }
