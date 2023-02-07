@@ -28,8 +28,6 @@ jobs:
 
       - name: Install nix
         uses: cachix/install-nix-action@v19
-        with:
-          extra_nix_config: access-tokens = github.com=${{ github.token }}
 
       - name: Set up cachix
         uses: cachix/cachix-action@v12
