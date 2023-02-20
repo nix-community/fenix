@@ -361,8 +361,6 @@ x86_64-linux | x86_64-unknown-linux-gnu
 
 ## Examples
 
-Examples to build rust programs with makeRustPlatform, [crane](https://github.com/ipetkov/crane), and [naersk](https://github.com/nmattia/naersk)
-
 <details>
   <summary>building with makeRustPlatform</summary>
 
@@ -483,6 +481,30 @@ Examples to build rust programs with makeRustPlatform, [crane](https://github.co
   ```
 </details>
 
+<details>
+  <summary>pinning to a specific version of rust without using IFD</summary>
+
+  ```nix
+  {
+    inputs = {
+      fenix = {
+        url = "github:nix-community/fenix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      nixpkgs.url = "nixpkgs/nixos-unstable";
+      rust-manifest = {
+        url = "https://static.rust-lang.org/dist/2022-02-06/channel-rust.toml";
+        flake = false;
+      };
+    };
+
+    outputs = { self, fenix, nixpkgs, rust-manifest }: {
+      packages.x86_64-linux.default =
+        (fenix.packages.x86_64-linux.fromManifestFile rust-manifest).minimalToolchain;
+    };
+  }
+  ```
+</details>
 
 ## Contributing
 
