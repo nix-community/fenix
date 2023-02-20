@@ -42,7 +42,7 @@ To fix this, use the packages directly or use the following workaround (see [#79
     };
 
     outputs = { self, fenix, nixpkgs }: {
-      defaultPackage.x86_64-linux = fenix.packages.x86_64-linux.minimal.toolchain;
+      packages.x86_64-linux.default = fenix.packages.x86_64-linux.minimal.toolchain;
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
