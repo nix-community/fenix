@@ -122,5 +122,25 @@ fetch_nightly()
 write_json("nightly", nightly)
 
 for channel in "stable", "beta":
-    url = f"{dist_root}/channel-rust-{channel}.toml"
-    write_json(channel, toml.loads(urlopen(url).read().decode("utf-8")))
+    manifest = toml.loads(
+        urlopen(f"{dist_root}/channel-rust-{channel}.toml").read().decode("utf-8")
+    )
+    data = {
+        "date": manifest["date"],
+        "pkg": {},
+        "profiles": manifest["profiles"],
+    }
+
+    for component, pkg in manifest["pkg"].items():
+        data["pkg"][component] = {"target": {}}
+        for target, src in pkg["target"].items():
+            if src.get("available"):
+                data["pkg"][component]["target"][target] = {
+                    "available": True,
+                    "url": src["url"],
+                    "hash": src["hash"],
+                }
+        if data["pkg"][component]["target"] == {}:
+            del data["pkg"][component]
+
+    write_json(channel, data)
