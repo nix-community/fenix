@@ -2,11 +2,10 @@
 
 import datetime
 import json
+import tomllib
 from typing import Any, Optional
 from urllib.error import HTTPError
 from urllib.request import urlopen
-
-import toml
 
 targets = [
     "aarch64-apple-darwin",
@@ -40,7 +39,7 @@ def fetch_nightly(d: Optional[datetime.date] = None) -> None:
         else:
             raise e
     else:
-        manifest = toml.loads(resp.read().decode("utf-8"))
+        manifest = tomllib.load(resp)
         components = manifest["profiles"]
         date_str = manifest["date"]
         date = datetime.date.fromisoformat(date_str)
@@ -122,9 +121,7 @@ fetch_nightly()
 write_json("nightly", nightly)
 
 for channel in "stable", "beta":
-    manifest = toml.loads(
-        urlopen(f"{dist_root}/channel-rust-{channel}.toml").read().decode("utf-8")
-    )
+    manifest = tomllib.load(urlopen(f"{dist_root}/channel-rust-{channel}.toml"))
     data = {
         "date": manifest["date"],
         "pkg": {},
