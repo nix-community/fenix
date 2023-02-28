@@ -4,10 +4,14 @@ let
   inherit (lib) maintainers optionalString platforms;
 in
 
-name: paths:
+name: paths: toolchain:
 
 symlinkJoin {
   inherit name paths;
+
+  passthru = {
+    inherit toolchain;
+  };
   postBuild = ''
     for file in $(find $out/bin -xtype f -maxdepth 1); do
       install -m755 $(realpath "$file") $out/bin

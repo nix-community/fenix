@@ -118,7 +118,7 @@ let
     components;
 
   toolchain' = toolchain // {
-    toolchain = combine "rust${suffix}-${date}" (attrValues toolchain);
+    toolchain = combine "rust${suffix}-${date}" (attrValues toolchain) toolchain;
   } // optionalAttrs (toolchain ? rustc) {
     rustc = combine "rust${suffix}-with-std-${date}"
       (with toolchain; [ rustc rust-std ]) // {
