@@ -1,0 +1,20 @@
+name: monthly
+
+on:
+  schedule:
+    - cron: "0 8 1 * *"
+
+jobs:
+  monthly:
+    name: monthly
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: monthly
+
+      - name: Merge main into monthly
+        run: |
+          git pull --ff-only origin main
+          git push
