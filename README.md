@@ -21,6 +21,7 @@ To fix this, use the packages directly or use the following workaround (see [#79
 ```
 
 - [Usage](#usage)
+- [Monthly branch](#monthly-branch)
 - [Supported platforms and targets](#supported-platforms-and-targets)
 - [Examples](#examples)
 - [Contributing](#contributing)
@@ -288,6 +289,25 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
   }
   ```
 </details>
+
+
+## Monthly branch
+
+Fenix has a monthly branch that is updated on the 1st of every month,
+for cases where you want to use rust nightly but don't need it to be
+updated very often.
+
+```nix
+{
+  inputs = {
+    fenix.url = "github:nix-community/fenix/monthly";
+  };
+
+  outputs = { self, fenix }: {
+    packages.x86_64-linux.default = fenix.packages.x86_64-linux.default;
+  };
+}
+```
 
 
 ## Supported platforms and targets
