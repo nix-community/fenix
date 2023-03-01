@@ -304,7 +304,7 @@ updated very often.
   };
 
   outputs = { self, fenix }: {
-    packages.x86_64-linux.default = fenix.packages.x86_64-linux.default;
+    packages.x86_64-linux.default = fenix.packages.x86_64-linux.default.toolchain;
   };
 }
 ```
