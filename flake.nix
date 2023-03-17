@@ -11,70 +11,79 @@
 
   outputs = { self, nixpkgs, rust-analyzer-src }:
     let
-      inherit (builtins) concatLists concatStringsSep isAttrs listToAttrs typeOf;
-      inherit (nixpkgs.lib) flatten genAttrs isDerivation mapAttrsToList nameValuePair systems warn;
+      inherit (builtins)
+        concatStringsSep
+        isAttrs
+        ;
+      inherit (nixpkgs.lib)
+        concatMapAttrs
+        genAttrs
+        isDerivation
+        isFunction
+        warn
+        ;
 
-      attrDerivations = set: path: (mapAttrsToList
+      eachSystem = genAttrs [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+
+      attrDerivations = set: path: (concatMapAttrs
         (k: v:
           if isDerivation v then
-            [ (nameValuePair (concatStringsSep "." (path ++ [ k ])) v) ]
+            { ${concatStringsSep "." (path ++ [ k ])} = v; }
           else if isAttrs v then
             attrDerivations v (path ++ [ k ])
           else
-            [ ])
+            { })
         set);
     in
 
     {
-      formatter = genAttrs systems.flakeExposed
-        (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
 
-      packages = genAttrs
-        [
-          "aarch64-darwin"
-          "aarch64-linux"
-          "i686-linux"
-          "x86_64-darwin"
-          "x86_64-linux"
-        ]
-        (system: listToAttrs (concatLists (mapAttrsToList
-          (k: v:
-            if isDerivation v then
-              [ (nameValuePair k v) ]
-            else if isAttrs v then
-              [
-                (nameValuePair k (v // {
+      packages = eachSystem (system: concatMapAttrs
+        (k: v:
+          if isDerivation v then
+            { ${k} = v; }
+          else if isFunction v then
+            {
+              ${k} = {
+                type = "derivation";
+                name = "dummy-function";
+                __functor = _: v;
+              };
+            }
+          else if isAttrs v then
+            (if k == "targets" then
+              genAttrs
+                (map (x: "targets.<triple>.${x}.rust-std") [ "stable" "beta" "latest" ])
+                (_: {
                   type = "derivation";
-                  name = "dummy-attrset";
-                }))
-              ] ++ (if k == "targets" then
-                map
-                  (x: nameValuePair "targets.<triple>.${x}.rust-std" {
-                    type = "derivation";
-                    name = "dummy-rust-std";
-                  })
-                  [ "stable" "beta" "latest" ]
-              else
-                flatten (attrDerivations v [ k ]))
-            else
-              [
-                (nameValuePair k {
-                  type = "derivation";
-                  name = "dummy-${typeOf v}";
-                  __functor = _: v;
+                  name = "dummy-rust-std";
                 })
-              ]
-          )
-          (import ./. {
-            inherit system rust-analyzer-src;
-            inherit (nixpkgs) lib;
-            pkgs = nixpkgs.legacyPackages.${system};
-          }))));
+            else
+              attrDerivations v [ k ])
+            // {
+              ${k} = {
+                type = "derivation";
+                name = "dummy-attrset";
+              } // v;
+            }
+          else v)
+        (import ./. {
+          inherit system rust-analyzer-src;
+          inherit (nixpkgs) lib;
+          pkgs = nixpkgs.legacyPackages.${system};
+        }));
 
       overlay = warn
         "`fenix.overlay` is deprecated; use 'fenix.overlays.default' instead"
         self.overlays.default;
 
-      overlays.default = final: prev: import ./overlay.nix final prev;
+      overlays.default = import ./overlay.nix;
     };
 }
