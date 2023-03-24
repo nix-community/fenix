@@ -494,7 +494,10 @@ x86_64-linux | x86_64-unknown-linux-gnu
             src = ./.;
             CARGO_BUILD_TARGET = target;
             CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER =
-              "${pkgs.pkgsCross.aarch64-multiplatform.stdenv.cc}/bin/${target}-gcc";
+              let
+                inherit (pkgs.pkgsCross.aarch64-multiplatform.stdenv) cc;
+              in
+              "${cc}/bin/${cc.targetPrefix}cc";
           };
       });
   }
