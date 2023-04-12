@@ -12,7 +12,7 @@ symlinkJoin {
     for file in $(find $out/bin -xtype f -maxdepth 1); do
       install -m755 $(realpath "$file") $out/bin
 
-      if [[ $file =~ /(rustfmt|miri)$ ]]; then
+      if [[ $file =~ /rustfmt$ ]]; then
         continue
       fi
 
