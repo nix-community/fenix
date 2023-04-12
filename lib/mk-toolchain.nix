@@ -133,6 +133,13 @@ let
     };
     clippy-preview-unwrapped = toolchain.clippy-preview;
     clippy-unwrapped = toolchain.clippy-preview;
+  } // optionalAttrs (toolchain ? miri-preview) {
+    miri-preview = combine "clippy${suffix}-with-src-${date}"
+      (with toolchain; [ miri-preview rustc rust-src ]) // {
+      unwrapped = toolchain.miri-preview;
+    };
+    miri-preview-unwrapped = toolchain.miri-preview;
+    miri-unwrapped = toolchain.miri-preview;
   };
 
   toolchain'' = toolchain' // mapAttrs' (k: nameValuePair (removeSuffix "-preview" k)) toolchain';
