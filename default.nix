@@ -75,14 +75,14 @@ let
   fromToolchainName = target: name: sha256:
     mapNullable
       (matches:
-        let target' = elemAt matches 4; in
+        let target' = elemAt matches 5; in
         toolchainOf' (if target' == null then target else target') {
           inherit sha256;
           channel = elemAt matches 0;
-          date = elemAt matches 2;
+          date = elemAt matches 3;
         })
       (match
-        "^(stable|beta|nightly|[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+)(-([[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}))?(-([-[:alnum:]]+))?\n?$"
+        "^(stable|beta|nightly|[[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+)?)(-([[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}))?(-([-[:alnum:]]+))?\n?$"
         name);
 
   fromToolchainFile' = target:
