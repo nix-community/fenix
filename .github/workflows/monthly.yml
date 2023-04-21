@@ -16,5 +16,5 @@ jobs:
 
       - name: Merge main into monthly
         run: |
-          git pull --ff-only origin main
-          git push
+          git reset --hard origin/main
+          git push -p
