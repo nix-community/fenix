@@ -27,8 +27,8 @@ symlinkJoin {
       ''}
     done
 
-    for file in $(find $out/lib -name "librustc_driver-*" -maxdepth 1); do
-      install $(realpath "$file") $out/lib
+    for file in $(find $out/lib -name "librustc_driver-*"); do
+      install $(realpath "$file") "$file"
     done
   '';
   meta = {
