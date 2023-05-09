@@ -126,7 +126,7 @@
 "x86_64-unknown-linux-gnu": {
 "available": true,
 "url": "https://static.rust-lang.org/dist/2023-05-08/cargo-beta-x86_64-unknown-linux-gnu.tar.gz",
-"hash": "5e2c867206cf2c9c2baf35d1928e3eb277c3250da4ab95d492145c1fd2e17c37"
+"hash": "81fe9cba7fcbcc730d51cbd83b1a4babccd4c0b16c3a9b72409dd7bc397da9c5"
 },
 "x86_64-unknown-linux-musl": {
 "available": true,
@@ -137,6 +137,284 @@
 "available": true,
 "url": "https://static.rust-lang.org/dist/2023-05-08/cargo-beta-x86_64-unknown-netbsd.tar.gz",
 "hash": "34af2e46c93bd793ade453c7b291f2497c8b5ab2dc65ae026df5c91ae949080c"
+}
+}
+},
+"clippy-preview": {
+"target": {
+"aarch64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-aarch64-apple-darwin.tar.gz",
+"hash": "dbdbe80d46496659960f58858fbda2c964d471f73ab85e0dbf2a53139b789de0"
+},
+"aarch64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-aarch64-pc-windows-msvc.tar.gz",
+"hash": "0162e5f818020dae9cbd16383b7e58b14db34cef45089687abc2ab3e01ee6cba"
+},
+"aarch64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-aarch64-unknown-linux-gnu.tar.gz",
+"hash": "1e0c5a30562d90662796b8a9f15380aee25884b23a70957b26ea181fb3d9b133"
+},
+"aarch64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-aarch64-unknown-linux-musl.tar.gz",
+"hash": "5f79254faa0d13959e1b4027e79ddb774580dbf257886c40e5c0f70411156736"
+},
+"arm-unknown-linux-gnueabi": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-arm-unknown-linux-gnueabi.tar.gz",
+"hash": "097609bda9afddb9301ff0273e078fa1a3e6b9ef68af261fc449f8b3f5a94608"
+},
+"arm-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-arm-unknown-linux-gnueabihf.tar.gz",
+"hash": "4fbcf38daa4a4af46b4e7a17876d621859341e286c325aba1ecdd0f85d5287b3"
+},
+"armv7-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-armv7-unknown-linux-gnueabihf.tar.gz",
+"hash": "9783bba1d8707342fbaeec38979b94eaf5ccac093faa0faff147cd1c2314451a"
+},
+"i686-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-i686-pc-windows-gnu.tar.gz",
+"hash": "8281b3e1a059dcb62d362636ded38336c6a8449faed043726bf3004ac59af3da"
+},
+"i686-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-i686-pc-windows-msvc.tar.gz",
+"hash": "3ed1517c6d884292a8c838bdb46bcb72d312f9ecf240bad70acb16020f548964"
+},
+"i686-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-i686-unknown-linux-gnu.tar.gz",
+"hash": "a11ba47b7364f1d7f9a85877eb6fde8df3805da53ae5bebcd3924dfb984e14cb"
+},
+"mips-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-mips-unknown-linux-gnu.tar.gz",
+"hash": "95276cf1648344e5174d01a0dea17217c28f39ba90f0adb7257ccac33373cdf0"
+},
+"mips64-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-mips64-unknown-linux-gnuabi64.tar.gz",
+"hash": "29d847df0ad479957733ffd653354f9552fc6f069f3899e1bd7ac33f4e4ecdf9"
+},
+"mips64el-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-mips64el-unknown-linux-gnuabi64.tar.gz",
+"hash": "1a23455e53447ad0aa58ba36846216ebe397f811f79a15d0b6671ee93d964459"
+},
+"mipsel-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-mipsel-unknown-linux-gnu.tar.gz",
+"hash": "c18928d1ad70c394c93bff9ef4e9817d02f9c667d0a308dfe1e5e058aac538f4"
+},
+"powerpc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-powerpc-unknown-linux-gnu.tar.gz",
+"hash": "48ad8d2d011161e2af6fada1bbdccb23c903fca90556348e26901e5464092b18"
+},
+"powerpc64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-powerpc64-unknown-linux-gnu.tar.gz",
+"hash": "ca92ad03c2c8ae9e2ad13c2fcbb7d89435d574e4d7c1499f60c32a2c842be5fa"
+},
+"powerpc64le-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-powerpc64le-unknown-linux-gnu.tar.gz",
+"hash": "0a70a540f7a3e2962a14066a7ff1fd2637d36f7bc765830d8c3df6acc89b47b7"
+},
+"riscv64gc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-riscv64gc-unknown-linux-gnu.tar.gz",
+"hash": "0e4a65b8099efd26e9b0314ac85a04d4c462b41ff6b0a5132d87a0d95bff9229"
+},
+"s390x-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-s390x-unknown-linux-gnu.tar.gz",
+"hash": "6058ae5660a42713c34ecfd9796f9aa5afceddc9166f0a92cb792630c28a3609"
+},
+"x86_64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-apple-darwin.tar.gz",
+"hash": "ae10c9ffa83cc26b42449efcb45364f035fc63bb0b733977a558cae9e64f056a"
+},
+"x86_64-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-pc-windows-gnu.tar.gz",
+"hash": "3a1bb21db8381a4b6ccd9ec5b75a14e93d1911148d85b717145a5e8069846051"
+},
+"x86_64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-pc-windows-msvc.tar.gz",
+"hash": "ea1abf80be9b65aa491024b4af9947332e455fbaf7d9aa4293267c2bb5090462"
+},
+"x86_64-unknown-freebsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-unknown-freebsd.tar.gz",
+"hash": "3bbae1dedf5f1cf38c9b7f82567cf01c47db88144443a41d71b0286b0098da83"
+},
+"x86_64-unknown-illumos": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-unknown-illumos.tar.gz",
+"hash": "e83873630381f208da2cabe018e59cbc577c2d912014f67882de460b664ec66a"
+},
+"x86_64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-unknown-linux-gnu.tar.gz",
+"hash": "7c74fcdfb256908c47373fa6a6f8eba9f6870e905cfe624a9dfe88ca4ba73639"
+},
+"x86_64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-unknown-linux-musl.tar.gz",
+"hash": "0f14ba537c1f4489ce74fc82bad8aa0aa89b033591f5deed7601ebbf8495d344"
+},
+"x86_64-unknown-netbsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/clippy-beta-x86_64-unknown-netbsd.tar.gz",
+"hash": "a66198d6c7774bfc81a32c556b3c2665477bfbd1be8a8cc8128e65f1186c4693"
+}
+}
+},
+"llvm-tools-preview": {
+"target": {
+"aarch64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-aarch64-apple-darwin.tar.gz",
+"hash": "8a6a9b896a6d2fc6ff3767ca827c2cc521444e20c8c335dfb756d90d13edb359"
+},
+"aarch64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-aarch64-pc-windows-msvc.tar.gz",
+"hash": "0f0170fe07756f338fc5dc5ce03a5054f4e162df9ee387da284c6e55c010979d"
+},
+"aarch64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-aarch64-unknown-linux-gnu.tar.gz",
+"hash": "23d486538e28e9c3f5174b1ad6643932e61dc4256cd93a47d9d16bc7a3d37ff5"
+},
+"aarch64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-aarch64-unknown-linux-musl.tar.gz",
+"hash": "16be3af75afcab80dcc0f4570a5c2418e7d92f5c31f4b1e5f68b47de9e0f676d"
+},
+"arm-unknown-linux-gnueabi": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-arm-unknown-linux-gnueabi.tar.gz",
+"hash": "5a86a51ab80edfac3ac7e9efc134e0014757f457e5faccc308927da8dad36723"
+},
+"arm-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-arm-unknown-linux-gnueabihf.tar.gz",
+"hash": "7e4e350cb250ea3981c6972645013699b277c062600d2cd863ed0f4925e3ad55"
+},
+"armv7-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-armv7-unknown-linux-gnueabihf.tar.gz",
+"hash": "af757763e3cb1f32c6cac0db801f655cd3613c1e2eee0e5c1d2b5c356cd74b98"
+},
+"i686-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-i686-pc-windows-gnu.tar.gz",
+"hash": "1210fd9b7e5f7bc223f54c404ebdd5da05271479eb8e8bc73109673aa218e5f9"
+},
+"i686-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-i686-pc-windows-msvc.tar.gz",
+"hash": "eee566fbf7778219c0de2fda85cd959093ad81814f1cbc846b7df5c6c499abf7"
+},
+"i686-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-i686-unknown-linux-gnu.tar.gz",
+"hash": "6373a1c7ec8df348376da692342979c5d59df601728f58375f960dcc41616ee3"
+},
+"mips-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-mips-unknown-linux-gnu.tar.gz",
+"hash": "7e3bde4e4f3986a1a4ddf23508eb3179fe4a70553347bcdd62c8b304fcde9205"
+},
+"mips64-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-mips64-unknown-linux-gnuabi64.tar.gz",
+"hash": "e192d25be10790218b80d74a6962ee2ecfa5c5dc444511ec71ed5c4e21dea78b"
+},
+"mips64el-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-mips64el-unknown-linux-gnuabi64.tar.gz",
+"hash": "ec11386a9dd683d4ad207251a3264e590491a1af14a37e21aeb2bf7981d81cf1"
+},
+"mipsel-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-mipsel-unknown-linux-gnu.tar.gz",
+"hash": "cf5c68c09d7784f50b229858eaf39f550f4030cd25a2106b69645250464ec0ff"
+},
+"powerpc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-powerpc-unknown-linux-gnu.tar.gz",
+"hash": "1c85d4b7ca4428aa83fcafa2b66d3b71ebfdea089ba6f9bd149951790d9c365e"
+},
+"powerpc64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-powerpc64-unknown-linux-gnu.tar.gz",
+"hash": "8c45f57170d80b18e2df30f05007ae0e119d1c38b2f699c84d4ac09ea46d44d2"
+},
+"powerpc64le-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-powerpc64le-unknown-linux-gnu.tar.gz",
+"hash": "5fffbc4392c72ba4e83006fdacd4a5e14b03e0e6d524066c744c4995dea02cf5"
+},
+"riscv64gc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-riscv64gc-unknown-linux-gnu.tar.gz",
+"hash": "dda1b1d3b17b3bf6647b18b00e00ae4f6f3266b5b95f92b8dd1a7b3caf42b30d"
+},
+"s390x-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-s390x-unknown-linux-gnu.tar.gz",
+"hash": "5386372ae44a00b42e4008c0b99725da250a1789a1c6e46442464d4eab47afe1"
+},
+"x86_64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-apple-darwin.tar.gz",
+"hash": "6e1e42edb6047e3e10058a7656405593dea18be00f81c9f5b9fbf5ef3f8d6d3b"
+},
+"x86_64-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-pc-windows-gnu.tar.gz",
+"hash": "1bd82fc2f6558c49b3f38f49c1692e14e277ebad7795b2d02620c6c16b4165fc"
+},
+"x86_64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-pc-windows-msvc.tar.gz",
+"hash": "b408b08f34ae7e0db2f97699778b3f7e7cd6828ebd47dcf8a27df529b48dfa7f"
+},
+"x86_64-unknown-freebsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-unknown-freebsd.tar.gz",
+"hash": "14dc4aff83d8e5147033cfc6179eea44b1ed85f562c6c423a5d2bf589fb598da"
+},
+"x86_64-unknown-illumos": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-unknown-illumos.tar.gz",
+"hash": "f8c40dacb0894ff661b376b6a532bee651eb1dedb7652a52d857ebcd7a6729fd"
+},
+"x86_64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-unknown-linux-gnu.tar.gz",
+"hash": "ab254a377d85ab0fd9bc46aa9666e03ef085451d4e87f9aa914a0c946ca158ab"
+},
+"x86_64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-unknown-linux-musl.tar.gz",
+"hash": "44f6ea4ceacd82e45ecd266fb2ea84a0a84b370437f961f80c37b6abad5d6530"
+},
+"x86_64-unknown-netbsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/llvm-tools-beta-x86_64-unknown-netbsd.tar.gz",
+"hash": "86aa91c815c0c5a0fdfac032ec6d644eb81b3c217481b4fa3d86a00eb5cee7a3"
 }
 }
 },
@@ -151,6 +429,145 @@
 "available": true,
 "url": "https://static.rust-lang.org/dist/2023-05-08/reproducible-artifacts-beta-x86_64-unknown-linux-gnu.tar.gz",
 "hash": "86631be00f94e126a5cf8d625285a57d7d1bfa064ddec14542b6e2dff99669d9"
+}
+}
+},
+"rls-preview": {
+"target": {
+"aarch64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-aarch64-apple-darwin.tar.gz",
+"hash": "9a3e60d08997b77554f0d1a1eb9031c22c76f0a96d2cf491c730d377064a9ac1"
+},
+"aarch64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-aarch64-pc-windows-msvc.tar.gz",
+"hash": "bcdb401b2c243b43ab632a0553eabfb54fba0f9ce749859313b1c04a6bd8a435"
+},
+"aarch64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-aarch64-unknown-linux-gnu.tar.gz",
+"hash": "4a82ddb92fd5dac6ea387dc5f4caa1141b9c4d2f419715f08b2bfb493a1d22bc"
+},
+"aarch64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-aarch64-unknown-linux-musl.tar.gz",
+"hash": "dd0754c0fad8b16bbfff187a3481a007c38684dfcb80c912c64932828b56b87a"
+},
+"arm-unknown-linux-gnueabi": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-arm-unknown-linux-gnueabi.tar.gz",
+"hash": "c09a3ec9e1f50d13741c90e3ec27703efaebf1815df252a000170a5a792f90e4"
+},
+"arm-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-arm-unknown-linux-gnueabihf.tar.gz",
+"hash": "d13efe08a8bcc2ba530651f21dea3bc88ea297ae22b30dd799be461bae7986fa"
+},
+"armv7-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-armv7-unknown-linux-gnueabihf.tar.gz",
+"hash": "02513d6eafaac801d05f686003ce3362c1a22eebd689233d4f5f4627ea938404"
+},
+"i686-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-i686-pc-windows-gnu.tar.gz",
+"hash": "890e688afa870ce9820f6ddca2565aa5417e7561e0c3a1963b52b765f31c5e62"
+},
+"i686-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-i686-pc-windows-msvc.tar.gz",
+"hash": "4a2f305de0f6ae1a79be4b197c703d33ed7e2099ca2a9755e1b409b21a73328f"
+},
+"i686-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-i686-unknown-linux-gnu.tar.gz",
+"hash": "7d65c533dba098f154368cdddc6fdc658d30ea4a1d2b366fb1ecfa2f9397b826"
+},
+"mips-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-mips-unknown-linux-gnu.tar.gz",
+"hash": "c55d54fee49a6063b1e213e0671a25c712c775da9052a9e7b79cfc915de34c03"
+},
+"mips64-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-mips64-unknown-linux-gnuabi64.tar.gz",
+"hash": "bc9bdb856b6a0620c8600957a945d7e463bce5bf6b5aeca67083f594c0725b7b"
+},
+"mips64el-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-mips64el-unknown-linux-gnuabi64.tar.gz",
+"hash": "63624d656a8980fd0d04eb86467a1669b6000b115d7bffb524b15a3aeed8251a"
+},
+"mipsel-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-mipsel-unknown-linux-gnu.tar.gz",
+"hash": "28e1baa3ce7c676c464a0671e6af2faf57444deee1081aac558823e55de32d6f"
+},
+"powerpc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-powerpc-unknown-linux-gnu.tar.gz",
+"hash": "b0a9faf20e568a69aa03745cd36006406032c52a5be10660aa0d57bc55e052ee"
+},
+"powerpc64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-powerpc64-unknown-linux-gnu.tar.gz",
+"hash": "86ec0ce1b48d802c1109f8c4c7edbc23df2c5a1dc93dcc4f84fbddb3e0a405b1"
+},
+"powerpc64le-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-powerpc64le-unknown-linux-gnu.tar.gz",
+"hash": "c083e09f63ddc020ca01ef959d4f3a21ce9a2e9db9ce5a045dd1cedfa5a0aa8b"
+},
+"riscv64gc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-riscv64gc-unknown-linux-gnu.tar.gz",
+"hash": "fea8d3e9d010612e3b74660d51bee613bcf354c3313807c3dd3eedba7443619c"
+},
+"s390x-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-s390x-unknown-linux-gnu.tar.gz",
+"hash": "40202539135efb950b86f0aa88cafcf2170d8e7aeb055c759a2ef6f6b31654aa"
+},
+"x86_64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-apple-darwin.tar.gz",
+"hash": "492e7dc733dcb0047e21de80b75d47e730ad142c3b7628a02013b847c438bad9"
+},
+"x86_64-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-pc-windows-gnu.tar.gz",
+"hash": "da28875a72566c93f21b517a6cbfbd6f5c29bd2fa0eba437ea3fb35bdafdbb88"
+},
+"x86_64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-pc-windows-msvc.tar.gz",
+"hash": "35d01ea473ea67246a5162824a7a70e182a8c0dee5aa1f47bbb4055d9f449f03"
+},
+"x86_64-unknown-freebsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-unknown-freebsd.tar.gz",
+"hash": "c648bf1e554b2e38a552c506209f78c705fef0c9f1d2f151605a9884226dec87"
+},
+"x86_64-unknown-illumos": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-unknown-illumos.tar.gz",
+"hash": "16f79b7a4c907a11a043264a26007882ee96bea76300ce8a6c477c0755f45405"
+},
+"x86_64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-unknown-linux-gnu.tar.gz",
+"hash": "01d279fb4f9a9fe26c886627dd65cba0ead44eea752118fcb86e250f1324b83a"
+},
+"x86_64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-unknown-linux-musl.tar.gz",
+"hash": "b53476303857eb4dd951a1653116279b821505bd33af5417846fbe08b56a3dd3"
+},
+"x86_64-unknown-netbsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rls-beta-x86_64-unknown-netbsd.tar.gz",
+"hash": "4ddac20075e47ab904b5b9b307c93ad711df1c09a44ce33e8b7c6eaa99eceb3b"
 }
 }
 },
@@ -279,7 +696,7 @@
 "x86_64-unknown-linux-gnu": {
 "available": true,
 "url": "https://static.rust-lang.org/dist/2023-05-08/rust-beta-x86_64-unknown-linux-gnu.tar.gz",
-"hash": "523433845c4b7b78029a27f9de05851c945a6a855ec6773c8ea61dd45c92d905"
+"hash": "63307c03267fbc8e21d9d68c70ce898fefa66cb32e28c6f58c626fa6825fa908"
 },
 "x86_64-unknown-linux-musl": {
 "available": true,
@@ -549,6 +966,145 @@
 "available": true,
 "url": "https://static.rust-lang.org/dist/2023-05-08/rust-analysis-beta-x86_64-unknown-uefi.tar.gz",
 "hash": "ba1737bb6e299b7e8c974c6a1049f6cbf95f80d5407a549ec7a12ce5ac2e8d8f"
+}
+}
+},
+"rust-analyzer-preview": {
+"target": {
+"aarch64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-aarch64-apple-darwin.tar.gz",
+"hash": "3ffdba203d33e2da956c5b05facf26c731c4486ef6ac4d7c9aaffdf1ebf79358"
+},
+"aarch64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-aarch64-pc-windows-msvc.tar.gz",
+"hash": "b76fb6a15c8fd37921307981c2cbe3cdabe29f6ea1a422a97e853136f0588ddb"
+},
+"aarch64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-aarch64-unknown-linux-gnu.tar.gz",
+"hash": "d121402538cd62ad8c006947015787a27825d12c904e55eee3091c145cfc810c"
+},
+"aarch64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-aarch64-unknown-linux-musl.tar.gz",
+"hash": "6e5a38e01661ee2c3368b6619c5134e1b67ad6788f0fb95385a35e81c765b830"
+},
+"arm-unknown-linux-gnueabi": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-arm-unknown-linux-gnueabi.tar.gz",
+"hash": "804cd5eeb73792f021a064685612e05972ccf634fd8125e4ecd17a9b74bebc8f"
+},
+"arm-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-arm-unknown-linux-gnueabihf.tar.gz",
+"hash": "cd35da89b3855ad466149335f01e798fce295791dfb55fccd9d069ad2c1032dc"
+},
+"armv7-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-armv7-unknown-linux-gnueabihf.tar.gz",
+"hash": "7651c3a4cff9820fbaee0741b0cb8ea027392eb4a26304f1397dcb232fad2bf5"
+},
+"i686-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-i686-pc-windows-gnu.tar.gz",
+"hash": "945772c55ae3ec75c732d3a5cab443332cfdecd2112ed62bafcfa84448d9d990"
+},
+"i686-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-i686-pc-windows-msvc.tar.gz",
+"hash": "f04826533d3dba68d84ec308ca6a6ea7540756b253de85858ec7b4fb9dc702c5"
+},
+"i686-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-i686-unknown-linux-gnu.tar.gz",
+"hash": "ad689e1c74ccc3e73bf85b46b80a5519248a41696ed4af82643525a6252239e8"
+},
+"mips-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-mips-unknown-linux-gnu.tar.gz",
+"hash": "87f13dd8314186cc5e39b8f083a152fcf945ac0183e97de82d3dacfe2cc18d27"
+},
+"mips64-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-mips64-unknown-linux-gnuabi64.tar.gz",
+"hash": "bbc947cfd083d873b35afcbf6d115e0a5d00e775316aab9a59890df1869275bd"
+},
+"mips64el-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-mips64el-unknown-linux-gnuabi64.tar.gz",
+"hash": "a469bde47f51d438d1d57b9f3a0bfacc3cf44d90d6d8afd7190f880a6c0af66b"
+},
+"mipsel-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-mipsel-unknown-linux-gnu.tar.gz",
+"hash": "6579ee3416e78a13a6e198001ef175676e05d504c3a3e1cf065ebf4b22e1f53d"
+},
+"powerpc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-powerpc-unknown-linux-gnu.tar.gz",
+"hash": "8e48c7a88ddad61699e561707dcbc69bdaae30abcc22d5a5dd642a449678e18e"
+},
+"powerpc64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-powerpc64-unknown-linux-gnu.tar.gz",
+"hash": "4fc9a0727131bf0d873ac1417d4fca6d31baf635f17319aafa20bf77eecc7590"
+},
+"powerpc64le-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-powerpc64le-unknown-linux-gnu.tar.gz",
+"hash": "ba00669838ab7163f242aa2225d858219ecf8c9117c053ad951959c498902974"
+},
+"riscv64gc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-riscv64gc-unknown-linux-gnu.tar.gz",
+"hash": "d4cbb075829024be531769b0da505c99d029dd28aaba03a5ca8d0d345fe2771d"
+},
+"s390x-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-s390x-unknown-linux-gnu.tar.gz",
+"hash": "89ee943c6c4db8270e1305991f8740c592b9a2fa244734ee13280acf6f922bfe"
+},
+"x86_64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-apple-darwin.tar.gz",
+"hash": "95a52ea942c1f6951868a4de44762d0b05b4447682926d410b6fb37b6aa9f19d"
+},
+"x86_64-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-pc-windows-gnu.tar.gz",
+"hash": "2986e7164c61c455f736f4bc5ff8be4f71560db31224d17ee2605a56d35ddf80"
+},
+"x86_64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-pc-windows-msvc.tar.gz",
+"hash": "0061ee8cf14d9627e8ed2748bfbb51851092432439f03aa9db0144ba9af674ad"
+},
+"x86_64-unknown-freebsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-unknown-freebsd.tar.gz",
+"hash": "27a1b5c945711cad5aaf32528be742823746db6626dd4b524dfecc07828d223c"
+},
+"x86_64-unknown-illumos": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-unknown-illumos.tar.gz",
+"hash": "1703e1eab33e280d1bba4a940d4098d918f36cc0f00c4c00e17b92dd782a055c"
+},
+"x86_64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-unknown-linux-gnu.tar.gz",
+"hash": "c6c0f2d2a1b8199e422a6bbb29efa5823b99f0f591d352281900771fa93043a6"
+},
+"x86_64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-unknown-linux-musl.tar.gz",
+"hash": "0b844d5aca99ee79cd85c42b7f56e45257fa57fe3575d397faa6c9c9055d5212"
+},
+"x86_64-unknown-netbsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rust-analyzer-beta-x86_64-unknown-netbsd.tar.gz",
+"hash": "3d6a65b1cfd71e8b8aa1b224e993b33be730083fa721e3624264795aff510b62"
 }
 }
 },
@@ -1477,6 +2033,145 @@
 "available": true,
 "url": "https://static.rust-lang.org/dist/2023-05-08/rustc-docs-beta-x86_64-unknown-linux-gnu.tar.gz",
 "hash": "88a2e163437c973f37928235f54dec632bff4ce1937d7c116a3f2bfeb85d2059"
+}
+}
+},
+"rustfmt-preview": {
+"target": {
+"aarch64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-aarch64-apple-darwin.tar.gz",
+"hash": "ca4f490b8a1cd1c715f81cfe8fd2e94169a2dae7f752c825493d09fa1227c432"
+},
+"aarch64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-aarch64-pc-windows-msvc.tar.gz",
+"hash": "5530f3f198edefa7eb56cc41e1d0d433a7bba146b40446d317e2a55604adbf5f"
+},
+"aarch64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-aarch64-unknown-linux-gnu.tar.gz",
+"hash": "4f236a98e6c2d52dd5c90eda26cf970ab44071692adbcbc27c124af6fef4b03b"
+},
+"aarch64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-aarch64-unknown-linux-musl.tar.gz",
+"hash": "f29ad095c40623c1de58b85787aee30388373dde3bc25cb57296336e1bde7329"
+},
+"arm-unknown-linux-gnueabi": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-arm-unknown-linux-gnueabi.tar.gz",
+"hash": "bd0148714ce2cad0ba25d4a8604d044c2f800e6cfe8e5d7777c80aeb1c9996e9"
+},
+"arm-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-arm-unknown-linux-gnueabihf.tar.gz",
+"hash": "24de6d0816efe3c25c8723dd3c74fd59d1fb44f994a642ceea27a16c545954c1"
+},
+"armv7-unknown-linux-gnueabihf": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-armv7-unknown-linux-gnueabihf.tar.gz",
+"hash": "574dac541da5c4fd96e8fbadaeb7dff9d0cbd22d1f0223ae4f37d06ecfdf222d"
+},
+"i686-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-i686-pc-windows-gnu.tar.gz",
+"hash": "305397b5720208f481535d6ea9d629222913fadc02fa093ea2d3d7480cc6045e"
+},
+"i686-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-i686-pc-windows-msvc.tar.gz",
+"hash": "68a02f865e195cee55e1d3d674bdfdc4cda04f9b18024300637a6be96d0e5a8b"
+},
+"i686-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-i686-unknown-linux-gnu.tar.gz",
+"hash": "50d42b4c4bf68b736a2e50645f9a1e2c881e5f88ea4023cf827d7ea6d2ae7cb2"
+},
+"mips-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-mips-unknown-linux-gnu.tar.gz",
+"hash": "ecbc9eac3ec10580c6cdb5bb3e9f904a0068868a98e6f847b2abbf5f9aae6329"
+},
+"mips64-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-mips64-unknown-linux-gnuabi64.tar.gz",
+"hash": "8283527c33ff06e4d1842cd865c5636233a788bda6ba139effc03667a9c5819b"
+},
+"mips64el-unknown-linux-gnuabi64": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-mips64el-unknown-linux-gnuabi64.tar.gz",
+"hash": "1222927d8ef277149344c9f815d6ede99a0eb3e892bf4b24c9073b1945752995"
+},
+"mipsel-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-mipsel-unknown-linux-gnu.tar.gz",
+"hash": "8eb6998ae42d66d2a49f9d7935b9b18e30b76058fc9e22716f14da468ae0689d"
+},
+"powerpc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-powerpc-unknown-linux-gnu.tar.gz",
+"hash": "640f6c7d3370e209c17eeda61f0863cc929d8f001aac8e9745e68d0188fb50bb"
+},
+"powerpc64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-powerpc64-unknown-linux-gnu.tar.gz",
+"hash": "ef8c15e345c21b40ae612c5841097c9507fdd59b9f4a8a53438fc06cd1eb98e4"
+},
+"powerpc64le-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-powerpc64le-unknown-linux-gnu.tar.gz",
+"hash": "ce136613ffc1b8f8a5be86956c78003ed681cb2ba8b774f6a1037783ecf281aa"
+},
+"riscv64gc-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-riscv64gc-unknown-linux-gnu.tar.gz",
+"hash": "0c1190c7df802d975e3e1d5719a12c38b08686ed3adb27bc3e00e870b3c51dd7"
+},
+"s390x-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-s390x-unknown-linux-gnu.tar.gz",
+"hash": "246cd2791843f49ebf59f3dcb6addb9ba45216916e7227888f3d7256720ce645"
+},
+"x86_64-apple-darwin": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-apple-darwin.tar.gz",
+"hash": "fb232b3fed61ec357f483737dbdffd66356e88d1cc933ece62a2d17781636557"
+},
+"x86_64-pc-windows-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-pc-windows-gnu.tar.gz",
+"hash": "b782884e89189f50f4bdd573a2bea13a4f1711f5cb6647a6ce61863610e95920"
+},
+"x86_64-pc-windows-msvc": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-pc-windows-msvc.tar.gz",
+"hash": "81338ec3c875a5d7c7104a00fdce8f5c7e95df9aefa2b752d6b7b0e3f082f3cc"
+},
+"x86_64-unknown-freebsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-unknown-freebsd.tar.gz",
+"hash": "413c3cc284268653d8bb80ea7add411ec8cc89d76f48544aad2793a9329b5767"
+},
+"x86_64-unknown-illumos": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-unknown-illumos.tar.gz",
+"hash": "4b371c305ac98ee7975d4530289401a3a2802ddd1f53032a3b89c97a370cb911"
+},
+"x86_64-unknown-linux-gnu": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-unknown-linux-gnu.tar.gz",
+"hash": "8d1aa4e9d432ba55276fdb37bf405692dae19dad2f5fbad7e3f1d012bee2ff84"
+},
+"x86_64-unknown-linux-musl": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-unknown-linux-musl.tar.gz",
+"hash": "2a6883b15206f5c361c5e61cd088ea4fb19050c1770b1985c1c69564b26e241e"
+},
+"x86_64-unknown-netbsd": {
+"available": true,
+"url": "https://static.rust-lang.org/dist/2023-05-08/rustfmt-beta-x86_64-unknown-netbsd.tar.gz",
+"hash": "9aed2365a1776402afc65fe46ea8983f1591a313f07ec128cabecf11adff9f78"
 }
 }
 }
