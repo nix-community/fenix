@@ -215,9 +215,14 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 </details>
 
 <details>
-  <summary><code>fromToolchainName : string -> <a href="#toolchain">toolchain</a></code></summary>
+  <summary><code>fromToolchainName : attrs -> <a href="#toolchain">toolchain</a></code></summary>
 
-  Creates a [toolchain](#toolchain) from a toolchain name.
+  Creates a [toolchain](#toolchain) from a toolchain name, accepts the following arguments:
+
+  argument | description
+  -|-
+  channel | rust channel, one of `"stable"`, `"beta"`, `"nightly"`, and date.
+  sha256 | sha256 of the manifest, required in pure evaluation mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
 
   ```nix
   fromToolchainName "nightly-2021-08-29"
