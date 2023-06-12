@@ -194,7 +194,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 <details>
   <summary><code>fromToolchainFile : attrs -> derivation</code></summary>
 
-  Creates a [toolchain](#toolchain) from a [rust toolchain file](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file), accepts the following arguments:
+  Creates a package from a [rust toolchain file](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file), accepts the following arguments:
 
   argument | description
   -|-
@@ -211,6 +211,20 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 
   ```nix
   fromToolchainFile { dir = ./.; }
+  ```
+</details>
+
+<details>
+  <summary><code>fromToolchainName : string -> <a href="#toolchain">toolchain</a></code></summary>
+
+  Creates a [toolchain](#toolchain) from a toolchain name.
+
+  ```nix
+  fromToolchainName "nightly-2021-08-29"
+  ```
+
+  ```nix
+  fromToolchainName (builtins.readFile ./rust-toolchain)
   ```
 </details>
 
