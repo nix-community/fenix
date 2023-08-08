@@ -221,15 +221,15 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 
   argument | description
   -|-
-  channel | rust channel, one of `"stable"`, `"beta"`, `"nightly"`, and date.
+  name | rust channel, one of `"stable"`, `"beta"`, `"nightly"`, and date.
   sha256 | sha256 of the manifest, required in pure evaluation mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
 
   ```nix
-  fromToolchainName "nightly-2021-08-29"
+  fromToolchainName { name = "nightly-2023-08-07"; sha256 = "Ho2/rJSi6KiHbxgDpdvYE0dwrEUD3psnyYyLmFNYKII="; }
   ```
 
   ```nix
-  fromToolchainName (builtins.readFile ./rust-toolchain)
+  fromToolchainName { name = (lib.importTOML ./rust-toolchain.toml).toolchain.channel; }
   ```
 </details>
 
