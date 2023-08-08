@@ -15,7 +15,7 @@ jobs:
           ref: staging
 
       - name: Install nix
-        uses: cachix/install-nix-action@v21
+        uses: cachix/install-nix-action@v22
 
       - name: Update everything
         run: |
