@@ -194,7 +194,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 <details>
   <summary><code>fromToolchainFile : attrs -> derivation</code></summary>
 
-  Creates a [toolchain](#toolchain) from a [rust toolchain file](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file), accepts the following arguments:
+  Creates a derivation from a [rust toolchain file](https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file), accepts the following arguments:
 
   argument | description
   -|-
@@ -211,6 +211,25 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 
   ```nix
   fromToolchainFile { dir = ./.; }
+  ```
+</details>
+
+<details>
+  <summary><code>fromToolchainName : attrs -> <a href="#toolchain">toolchain</a></code></summary>
+
+  Creates a [toolchain](#toolchain) from a toolchain name, accepts the following arguments:
+
+  argument | description
+  -|-
+  name | rust channel, one of `"stable"`, `"beta"`, `"nightly"`, and date.
+  sha256 | sha256 of the manifest, required in pure evaluation mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
+
+  ```nix
+  fromToolchainName { name = "nightly-2023-08-07"; sha256 = "Ho2/rJSi6KiHbxgDpdvYE0dwrEUD3psnyYyLmFNYKII="; }
+  ```
+
+  ```nix
+  fromToolchainName { name = (lib.importTOML ./rust-toolchain.toml).toolchain.channel; }
   ```
 </details>
 

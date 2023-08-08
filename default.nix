@@ -72,7 +72,7 @@ let
     else
       pkgs.fetchurl { inherit url sha256; });
 
-  fromToolchainName = target: name: sha256:
+  fromToolchainName' = target: name: sha256:
     mapNullable
       (matches:
         let target' = elemAt matches 5; in
@@ -96,14 +96,14 @@ let
         file
       else
         throw "One and only one of `file` and `dir` should be specified");
-      toolchain = fromToolchainName target text sha256;
+      toolchain = fromToolchainName' target text sha256;
     in
     if toolchain == null then
       let t = (fromTOML text).toolchain; in
       if t ? path then
         throw "fenix doesn't support toolchain.path"
       else
-        let toolchain = fromToolchainName target t.channel sha256; in
+        let toolchain = fromToolchainName' target t.channel sha256; in
         combine' "rust-${t.channel}" (attrVals
           (filter (component: toolchain ? ${component}) (unique
             (toolchain.manifest.profiles.${t.profile or "default"}
@@ -132,6 +132,8 @@ nightlyToolchains.${v} // rec {
   toolchainOf = toolchainOf' v;
 
   fromToolchainFile = fromToolchainFile' v;
+
+  fromToolchainName = { name, sha256 ? "" }: fromToolchainName' v name sha256;
 
   stable = fromManifest' v "-stable" (importJSON ./data/stable.json);
 
