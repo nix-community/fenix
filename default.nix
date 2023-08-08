@@ -133,7 +133,7 @@ nightlyToolchains.${v} // rec {
 
   fromToolchainFile = fromToolchainFile' v;
 
-  fromToolchainName = { name, sha256 }: fromToolchainName' v name sha256;
+  fromToolchainName = { name, sha256 ? "" }: fromToolchainName' v name sha256;
 
   stable = fromManifest' v "-stable" (importJSON ./data/stable.json);
 
