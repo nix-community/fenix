@@ -19,3 +19,16 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
           git push -f
+
+  flakehub:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DeterminateSystems/nix-installer-action@v4
+      - uses: DeterminateSystems/flakehub-push@v3
+        with:
+          visibility: public
+          rolling: true
