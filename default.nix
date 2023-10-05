@@ -22,7 +22,7 @@ in
 let
   inherit (lib)
     attrVals filterAttrs findFirst foldl importJSON importTOML maintainers
-    mapAttrs' mapNullable nameValuePair optionalString optionals
+    mapAttrs' mapNullable mkIf nameValuePair optionalString optionals
     pathIsRegularFile unique zipAttrsWith;
 
   v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
@@ -40,7 +40,11 @@ let
       toolchain = mkToolchain suffix {
         inherit (manifest) date;
         components = mapAttrs
-          (_: src: { inherit (src) url; sha256 = src.hash; })
+          (_: src: {
+            inherit (src) url;
+            sha256 = src.hash;
+            version = if src ? version then src.version else null;
+          })
           (filterAttrs (_: src: src ? available && src.available) (mapAttrs
             (_: pkg: pkg.target."*" or pkg.target.${target} or null)
             manifest.pkg));

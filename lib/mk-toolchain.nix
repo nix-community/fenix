@@ -16,7 +16,7 @@ let
     (component: source:
       stdenv.mkDerivation {
         pname = "${component}${suffix}";
-        version = source.date or date;
+        version = source.version or source.date or date;
         src = fetchurl { inherit (source) url sha256; };
         installPhase = ''
           patchShebangs install.sh
