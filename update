@@ -136,6 +136,7 @@ for channel in "stable", "beta":
                     "available": True,
                     "url": src["url"],
                     "hash": src["hash"],
+                    "version": pkg["version"],
                 }
         if data["pkg"][component]["target"] == {}:
             del data["pkg"][component]
