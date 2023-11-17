@@ -74,12 +74,12 @@ let
     else
       pkgs.fetchurl { inherit url sha256; });
 
-  fromToolchainName' = target: name: sha256:
+  fromToolchainName' = target: root: name: sha256:
     mapNullable
       (matches:
         let target' = elemAt matches 5; in
         toolchainOf' (if target' == null then target else target') {
-          inherit sha256;
+          inherit root sha256;
           channel = elemAt matches 0;
           date = elemAt matches 3;
         })
@@ -88,7 +88,7 @@ let
         name);
 
   fromToolchainFile' = target:
-    { file ? null, dir ? null, sha256 ? null }:
+    { root ? default_dist_server, file ? null, dir ? null, sha256 ? null }:
     let
       text = readFile (if file == null && dir != null then
         findFirst pathIsRegularFile
@@ -98,14 +98,14 @@ let
         file
       else
         throw "One and only one of `file` and `dir` should be specified");
-      toolchain = fromToolchainName' target text sha256;
+      toolchain = fromToolchainName' target root text sha256;
     in
     if toolchain == null then
       let t = (fromTOML text).toolchain; in
       if t ? path then
         throw "fenix doesn't support toolchain.path"
       else
-        let toolchain = fromToolchainName' target t.channel sha256; in
+        let toolchain = fromToolchainName' target root t.channel sha256; in
         combine' "rust-${t.channel}" (attrVals
           (filter (component: toolchain ? ${component}) (unique
             (toolchain.manifest.profiles.${t.profile or "default"}
@@ -135,7 +135,7 @@ nightlyToolchains.${v} // rec {
 
   fromToolchainFile = fromToolchainFile' v;
 
-  fromToolchainName = { name, sha256 ? "" }: fromToolchainName' v name sha256;
+  fromToolchainName = { name, sha256 ? "" }: fromToolchainName' v default_dist_server name sha256;
 
   stable = fromManifest' v default_dist_server "-stable" (importJSON ./data/stable.json);
 
