@@ -42,7 +42,7 @@ let
       toolchain = mkToolchain suffix {
         inherit (manifest) date;
         components = mapAttrs
-          (_: src: { url = builtins.replaceStrings [ default_dist_server ] [ root ] src.url; sha256 = src.hash; })
+          (_: src: { url = builtins.replaceStrings [ default_dist_server ] [ root ] src.xz_url; sha256 = src.xz_hash; })
           (filterAttrs (_: src: src ? available && src.available) (mapAttrs
             (_: pkg: pkg.target."*" or pkg.target.${target} or null)
             manifest.pkg));
