@@ -106,7 +106,7 @@ Following is a list of outputs, examples are prefixed with:
   - `with fenix.packages.<system>;` (flakes), or
   - `with import (fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz") { };`
 
-<a name="toolchain" />
+<a name="toolchain"></a>
 
 Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 
