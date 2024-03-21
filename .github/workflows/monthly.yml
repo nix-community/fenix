@@ -27,7 +27,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v9
+      - uses: DeterminateSystems/nix-installer-action@v10
       - uses: DeterminateSystems/flakehub-push@v3
         with:
           visibility: public
