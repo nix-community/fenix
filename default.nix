@@ -163,6 +163,7 @@ nightlyToolchains.${v} // rec {
           fromManifestFile = fromManifestFile' target "";
           toolchainOf = toolchainOf' target;
           fromToolchainFile = fromToolchainFile' target;
+          fromToolchainName = { name, sha256 ? "" }: fromToolchainName' target name sha256;
         })
       collectedTargets;
 
