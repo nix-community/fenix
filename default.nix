@@ -172,6 +172,8 @@ nightlyToolchains.${v} // rec {
       ];
     doCheck = false;
     CARGO_INCREMENTAL = 0;
+    # ensure `rust-analyzer` is built in release mode https://github.com/rust-lang/rust-analyzer/blob/8772b865c913afd1510f69649f238b0f31eace3d/crates/rust-analyzer/build.rs#L9
+    CFG_RELEASE = 1;
     RUST_ANALYZER_REV = rust-analyzer-rev;
     meta = {
       maintainers = with maintainers; [ figsoda ];
