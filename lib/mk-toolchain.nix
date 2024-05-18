@@ -108,6 +108,17 @@ let
                 -add_rpath ${toolchain.rustc}/lib $out/bin/rustfmt || true
             ''}
           ''}
+
+          ${optionalString (component == "rust-analyzer-preview") ''
+            ${optionalString stdenv.isLinux ''
+              patchelf \
+                --set-rpath ${toolchain.rustc}/lib $out/bin/rust-analyzer || true
+            ''}
+            ${optionalString stdenv.isDarwin ''
+              install_name_tool \
+                -add_rpath ${toolchain.rustc}/lib $out/bin/rust-analyzer || true
+            ''}
+          ''}
         '';
         dontStrip = true;
         meta = {
