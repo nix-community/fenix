@@ -182,7 +182,7 @@ nightlyToolchains.${v} // rec {
   rust-analyzer-vscode-extension =
     let
       setDefault = k: v: ''
-        .contributes.configuration.properties."rust-analyzer.${k}".default = "${v}"
+        .contributes.configuration |= map(.properties."rust-analyzer.${k}".default = "${v}")
       '';
     in
     pkgs.vscode-utils.buildVscodeExtension {
