@@ -182,7 +182,7 @@ nightlyToolchains.${v} // rec {
   rust-analyzer-vscode-extension =
     let
       setDefault = k: v: ''
-        .contributes.configuration.properties."rust-analyzer.${k}".default = "${v}"
+        .contributes.configuration |= map(if .properties."rust-analyzer.${k}" != null then .properties."rust-analyzer.${k}".default = "${v}" end)
       '';
     in
     pkgs.vscode-utils.buildVscodeExtension {
@@ -196,7 +196,6 @@ nightlyToolchains.${v} // rec {
       postPatch = ''
         jq -e '
           ${setDefault "server.path" "${rust-analyzer}/bin/rust-analyzer"}
-          | ${setDefault "updates.channel" "nightly"}
         ' package.json | sponge package.json
       '';
       meta.maintainers = with maintainers; [ figsoda ];
