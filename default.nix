@@ -10,13 +10,22 @@ let
         sha256 = narHash;
       };
     };
+
+  formatDate = date:
+    let
+      year = substring 0 4 date;
+      month = substring 4 2 date;
+      day = substring 6 2 date;
+    in
+    "${year}-${month}-${day}";
 in
 
 { system ? currentSystem
 , pkgs ? import (getFlake "nixpkgs") { localSystem = { inherit system; }; }
 , lib ? pkgs.lib
 , rust-analyzer-src ? getFlake "rust-analyzer-src"
-, rust-analyzer-rev ? substring 0 7 (rust-analyzer-src.rev or "0000000")
+, rust-analyzer-rev ? rust-analyzer-src.rev or "0000000000000000000000000000000000000000"
+, rust-analyzer-date ? formatDate (rust-analyzer-src.lastModifiedDate or "00000000000000")
 }:
 
 let
@@ -172,7 +181,17 @@ nightlyToolchains.${v} // rec {
       ];
     doCheck = false;
     CARGO_INCREMENTAL = 0;
-    RUST_ANALYZER_REV = rust-analyzer-rev;
+
+    # See rust-analyzer's crates/rust-analyzer/build.rs
+    patchPhase = ''
+      mkdir .git/
+      echo nightly > .git/HEAD
+    '';
+    CFG_RELEASE_CHANNEL = "nightly";
+    RA_COMMIT_HASH = rust-analyzer-rev;
+    RA_COMMIT_SHORT_HASH = substring 0 7 rust-analyzer-rev;
+    RA_COMMIT_DATE = rust-analyzer-date;
+
     meta = {
       maintainers = with maintainers; [ figsoda ];
       mainProgram = "rust-analyzer";
