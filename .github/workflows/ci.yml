@@ -27,7 +27,7 @@ jobs:
           ref: staging
 
       - name: Install nix
-        uses: cachix/install-nix-action@V27
+        uses: cachix/install-nix-action@V28
 
       - name: Set up cachix
         uses: cachix/cachix-action@v15
