@@ -16,7 +16,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os:
+          - macos-13 # Intel
+          - macos-latest # Apple M1
+          - ubuntu-latest
         build-flags:
           - ""
           - --override-input nixpkgs github:nixos/nixpkgs/nixpkgs-unstable

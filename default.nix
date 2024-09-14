@@ -25,7 +25,7 @@ let
     mapAttrs' mapNullable nameValuePair optionalString optionals
     pathIsRegularFile unique zipAttrsWith;
 
-  v = pkgs.rust.toRustTarget pkgs.stdenv.buildPlatform;
+  v = pkgs.stdenv.buildPlatform.rust.rustcTarget;
 
   combine' = pkgs.callPackage ./lib/combine.nix { };
 
