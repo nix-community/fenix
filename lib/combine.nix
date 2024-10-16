@@ -1,4 +1,4 @@
-{ lib, symlinkJoin, stdenv }:
+{ lib, symlinkJoin, stdenv, rustc }:
 
 let
   inherit (lib) maintainers optionalString platforms;
@@ -34,5 +34,10 @@ symlinkJoin {
   meta = {
     maintainers = with maintainers; [ figsoda ];
     platforms = platforms.all;
+  };
+  passthru = {
+    targetPlatforms = rustc.targetPlatform or lib.platforms.all;
+    tier1TargetPlatforms = rustc.tier1TargetPlatforms or lib.platforms.all;
+    badTargetPlatforms = rustc.badTargetPlatforms or [ ];
   };
 }
