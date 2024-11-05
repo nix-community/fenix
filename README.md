@@ -446,10 +446,6 @@ x86_64-linux | x86_64-unknown-linux-gnu
     inputs = {
       crane = {
         url = "github:ipetkov/crane";
-        inputs = {
-          flake-utils.follows = "flake-utils";
-          nixpkgs.follows = "nixpkgs";
-        };
       };
       fenix = {
         url = "github:nix-community/fenix";
@@ -463,7 +459,8 @@ x86_64-linux | x86_64-unknown-linux-gnu
       flake-utils.lib.eachDefaultSystem (system: {
         packages.default =
           let
-            craneLib = crane.lib.${system}.overrideToolchain
+            pkgs = nixpkgs.legacyPackages.${system};
+            craneLib = (crane.mkLib pkgs).overrideToolchain
               fenix.packages.${system}.minimal.toolchain;
           in
 
