@@ -75,7 +75,7 @@
             }
           else v)
         (import ./. {
-          inherit system rust-analyzer-src;
+          inherit rust-analyzer-src;
           inherit (nixpkgs) lib;
           pkgs = nixpkgs.legacyPackages.${system};
         }));
