@@ -189,6 +189,7 @@ nightlyToolchains.${v} // rec {
     in
     pkgs.vscode-utils.buildVscodeExtension {
       name = "rust-analyzer-${rust-analyzer-rev}";
+      pname = "rust-analyzer";
       version = rust-analyzer-rev;
       src = ./data/rust-analyzer-vsix.zip;
       vscodeExtName = "rust-analyzer";
