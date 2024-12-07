@@ -1,6 +1,6 @@
 let
   inherit (builtins)
-    currentSystem elemAt filter fromJSON mapAttrs match readFile substring;
+    elemAt filter fromJSON mapAttrs match readFile substring;
 
   getFlake = name:
     with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked; {
@@ -12,8 +12,7 @@ let
     };
 in
 
-{ system ? currentSystem
-, pkgs ? import (getFlake "nixpkgs") { localSystem = { inherit system; }; }
+{ pkgs ? import (getFlake "nixpkgs") { }
 , lib ? pkgs.lib
 , rust-analyzer-src ? getFlake "rust-analyzer-src"
 , rust-analyzer-rev ? substring 0 7 (rust-analyzer-src.rev or "0000000")
