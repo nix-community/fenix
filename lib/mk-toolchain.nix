@@ -1,4 +1,4 @@
-{ callPackage, fetchurl, lib, stdenv, zlib }:
+{ callPackage, fetchurl, lib, stdenv, zlib, curl }:
 
 suffix:
 { date, components }:
@@ -76,6 +76,14 @@ let
             ''}
           ''}
 
+          ${optionalString (component == "cargo") ''
+            ${optionalString stdenv.isDarwin ''
+              install_name_tool \
+                -change "/usr/lib/libcurl.4.dylib" "${curl.out}/lib/libcurl.4.dylib" \
+                $out/bin/cargo || true
+            ''}
+          ''}
+          
           ${optionalString (component == "miri-preview") ''
             ${optionalString stdenv.isLinux ''
               patchelf \
