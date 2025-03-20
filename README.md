@@ -50,7 +50,7 @@ To fix this, use the packages directly or use the following workaround (see [#79
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ fenix.overlays.default ];
             environment.systemPackages = with pkgs; [
-              (fenix.complete.withComponents [
+              (fenix.packages.${system}.complete.withComponents [
                 "cargo"
                 "clippy"
                 "rust-src"
