@@ -122,7 +122,10 @@ let
       manifest.pkg.rust-std.target;
 in
 
-nightlyToolchains.${v} // rec {
+(lib.removeAttrs nightlyToolchains.${v} [ "toRustTarget" ]) // rec {
+  # TODO: drop toRustTarget workaround to not print the deprecation warning
+  inherit (nightlyToolchains.${v}) toRustTarget;
+
   combine = combine' "rust-mixed";
 
   fromManifest = fromManifest' v "";
