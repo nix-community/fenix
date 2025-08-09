@@ -79,7 +79,7 @@ let
           ${optionalString (component == "cargo") ''
             ${optionalString stdenv.isDarwin ''
               install_name_tool \
-                -change "/usr/lib/libcurl.4.dylib" "${curl}/lib/libcurl.4.dylib" \
+                -change "/usr/lib/libcurl.4.dylib" "${curl.out}/lib/libcurl.4.dylib" \
                 $out/bin/cargo || true
             ''}
           ''}
