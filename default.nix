@@ -167,7 +167,6 @@ nightlyToolchains.${v} // rec {
     cargoBuildFlags = [ "-p" "rust-analyzer" ];
     buildInputs = with pkgs;
       optionals stdenv.isDarwin [
-        darwin.apple_sdk.frameworks.CoreServices
         libiconv
       ];
     doCheck = false;
