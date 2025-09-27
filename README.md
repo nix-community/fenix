@@ -201,6 +201,7 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
   file | path to the rust toolchain file, usually either `./rust-toolchain` or `./rust-toolchain.toml`, conflicts with `dir`
   dir | path to the directory that has `rust-toolchain` or `rust-toolchain.toml`, conflicts with `file`
   sha256 | sha256 of the manifest, required in pure evaluation mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
+  root | rustup server to download the toolchain from. Defaults to `https://static.rust-lang.org/dist`.
 
   ```nix
   fromToolchainFile {
@@ -546,6 +547,35 @@ x86_64-linux | x86_64-unknown-linux-gnu
     };
   }
   ```
+</details>
+
+<details>
+  <summary>Use a rustup mirror, such as pannamax, to download the components indicated in a rust toolchain file.</summary>
+
+  ```nix
+  {
+    inputs = {
+      fenix = {
+        url = "github:nix-community/fenix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      nixpkgs.url = "nixpkgs/nixos-unstable";
+      rust-manifest = {
+        url = "https://static.rust-lang.org/dist/2022-02-06/channel-rust.toml";
+        flake = false;
+      };
+    };
+
+    outputs = { self, fenix, nixpkgs, rust-manifest }: {
+      packages.x86_64-linux.default = fromToolchainFile {
+        file = ./rust-toolchain.toml;
+        sha256 = lib.fakeSha256;
+        root = "https://127.0.0.1:5900/rustup/dist
+      };
+    };
+  }
+  ```
+
 </details>
 
 ## Contributing
