@@ -535,7 +535,7 @@ x86_64-linux | x86_64-unknown-linux-gnu
       };
       nixpkgs.url = "nixpkgs/nixos-unstable";
       rust-manifest = {
-        url = "https://static.rust-lang.org/dist/2022-02-06/channel-rust.toml";
+        url = "https://static.rust-lang.org/dist/channel-rust-stable.toml";
         flake = false;
       };
     };
