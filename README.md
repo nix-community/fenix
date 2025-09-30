@@ -49,15 +49,15 @@ To fix this, use the packages directly or use the following workaround (see [#79
         modules = [
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ fenix.overlays.default ];
-            environment.systemPackages = with pkgs; [
-              (fenix.complete.withComponents [
+            environment.systemPackages = [
+              (pkgs.fenix.complete.withComponents [
                 "cargo"
                 "clippy"
                 "rust-src"
                 "rustc"
                 "rustfmt"
               ])
-              rust-analyzer-nightly
+              pkgs.rust-analyzer-nightly
             ];
           })
         ];
