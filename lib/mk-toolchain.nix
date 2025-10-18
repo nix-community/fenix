@@ -42,6 +42,15 @@ let
                   patchelf --set-rpath ${rpath} "$file" || true
                 fi
               done
+
+              for file in $(find $out/lib -path '*/bin/*' -type f); do
+                if isELF "$file"; then
+                  patchelf \
+                    --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+                    --set-rpath ${stdenv.cc.cc.lib}/lib:${rpath} \
+                    "$file" || true
+                fi
+              done
             fi
 
             if [ -d $out/libexec ]; then
@@ -54,17 +63,6 @@ let
                 fi
               done
             fi
-
-            ${optionalString (component == "rustc") ''
-              for file in $(find $out/lib/rustlib/*/bin -type f); do
-                if isELF "$file"; then
-                  patchelf \
-                    --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-                    --set-rpath ${stdenv.cc.cc.lib}/lib:${rpath} \
-                    "$file" || true
-                fi
-              done
-            ''}
 
             ${optionalString (component == "llvm-tools-preview") ''
               for file in $out/lib/rustlib/*/bin/*; do
