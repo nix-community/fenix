@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: monthly
 
@@ -26,9 +26,9 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v14
-      - uses: DeterminateSystems/flakehub-push@v5
+      - uses: DeterminateSystems/flakehub-push@v6
         with:
           visibility: public
           rolling: true
