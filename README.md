@@ -49,15 +49,15 @@ To fix this, use the packages directly or use the following workaround (see [#79
         modules = [
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ fenix.overlays.default ];
-            environment.systemPackages = with pkgs; [
-              (fenix.complete.withComponents [
+            environment.systemPackages = [
+              (pkgs.fenix.complete.withComponents [
                 "cargo"
                 "clippy"
                 "rust-src"
                 "rustc"
                 "rustfmt"
               ])
-              rust-analyzer-nightly
+              pkgs.rust-analyzer-nightly
             ];
           })
         ];
@@ -189,6 +189,13 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
     sha256 = "0dkmjil9avba6l0l9apmgwa8d0h4f8jzgxkq3gvn8d2xc68ks5a5";
   }
   ```
+
+  ```nix
+  toolchainOf {
+    channel = "1.90.0";
+    sha256 = "sha256-SJwZ8g0zF2WrKDVmHrVG3pD2RGoQeo24MEXnNx5FyuI=";
+  }
+  ```
 </details>
 
 <details>
@@ -221,8 +228,12 @@ Some outputs are toolchains, a rust toolchain in fenix is structured like this:
 
   argument | description
   -|-
-  name | rust channel, one of `"stable"`, `"beta"`, `"nightly"`, and date.
+  name | rust channel, version number, one of `"stable"`, `"beta"`, `"nightly"`, and date.
   sha256 | sha256 of the manifest, required in pure evaluation mode, set to `lib.fakeSha256` to get the actual sha256 from the error message
+
+  ```nix
+  fromToolchainName { name = "1.90.0"; sha256 = "sha256-SJwZ8g0zF2WrKDVmHrVG3pD2RGoQeo24MEXnNx5FyuI="; }
+  ```
 
   ```nix
   fromToolchainName { name = "nightly-2023-08-07"; sha256 = "Ho2/rJSi6KiHbxgDpdvYE0dwrEUD3psnyYyLmFNYKII="; }
@@ -463,8 +474,7 @@ x86_64-linux | x86_64-unknown-linux-gnu
       flake-utils.lib.eachDefaultSystem (system: {
         packages.default =
           let
-            craneLib = crane.lib.${system}.overrideToolchain
-              fenix.packages.${system}.minimal.toolchain;
+            craneLib = (crane.mkLib nixpkgs.legacyPackages.${system}).overrideToolchain fenix.packages.${system}.stable.toolchain;
           in
 
           craneLib.buildPackage {
