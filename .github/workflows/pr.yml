@@ -11,7 +11,7 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install nix
         uses: cachix/install-nix-action@v30
@@ -22,7 +22,7 @@ jobs:
         run: nix run nixpkgs#nixpkgs-fmt --inputs-from . -- {,lib/}*.nix --check
 
       - name: Set up cachix
-        uses: cachix/cachix-action@v15
+        uses: cachix/cachix-action@v16
         with:
           name: nix-community
 
