@@ -44,12 +44,21 @@ let
     (_: mapAttrs (profile: mkToolchain "-nightly-${profile}"))
     (importJSON ./data/nightly.json);
 
-  fromManifest' = target: suffix: manifest:
+  default_dist_server = "https://static.rust-lang.org/dist";
+
+  fromManifest' = target: root: suffix: manifest:
     let
       toolchain = mkToolchain suffix {
         inherit (manifest) date;
         components = mapAttrs
-          (_: src: { inherit (src) url; sha256 = src.hash; })
+          (_: src:
+            let
+              # Either use xz_url/xz_hash if xz_url is present, or url/hash
+              # otherwise.
+              url = if src ? xz_url then src.xz_url else src.url;
+              hash = if src ? xz_url then src.xz_hash else src.hash;
+            in
+            { url = builtins.replaceStrings [ default_dist_server ] [ root ] url; sha256 = hash; })
           (filterAttrs (_: src: src ? available && src.available) (mapAttrs
             (_: pkg: pkg.target."*" or pkg.target.${target} or null)
             manifest.pkg));
@@ -64,11 +73,11 @@ let
       inherit manifest;
     };
 
-  fromManifestFile' = target: name: file:
-    fromManifest' target name (importTOML file);
+  fromManifestFile' = target: root: name: file:
+    fromManifest' target root name (importTOML file);
 
   toolchainOf' = target:
-    { root ? "https://static.rust-lang.org/dist"
+    { root ? default_dist_server
     , channel ? "nightly"
     , date ? null
     , sha256 ? null
@@ -76,26 +85,26 @@ let
     let
       url = "${root}${optionalString (date != null) "/${date}"}/channel-rust-${channel}.toml";
     in
-    fromManifestFile' target "-${channel}" (if (sha256 == null) then
+    fromManifestFile' target root "-${channel}" (if (sha256 == null) then
       builtins.fetchurl url
     else
       pkgs.fetchurl { inherit url sha256; });
 
-  fromToolchainName' = target: name: sha256:
+  fromToolchainName' = target: root: name: sha256:
     mapNullable
       (matches:
         let target' = elemAt matches 5; in
         toolchainOf' (if target' == null then target else target') {
-          inherit sha256;
+          inherit root sha256;
           channel = elemAt matches 0;
           date = elemAt matches 3;
         })
       (match
-        "^(stable|beta|nightly|[[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+)?)(-([[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}))?(-([-[:alnum:]]+))?\n?$"
+        "^(stable|beta|nightly|[[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+(-beta\.[[:digit:]]+)?)?)(-([[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}))?(-([-[:alnum:]]+))?\n?$"
         name);
 
   fromToolchainFile' = target:
-    { file ? null, dir ? null, sha256 ? null }:
+    { root ? default_dist_server, file ? null, dir ? null, sha256 ? null }:
     let
       text = readFile (if file == null && dir != null then
         findFirst pathIsRegularFile
@@ -105,21 +114,21 @@ let
         file
       else
         throw "One and only one of `file` and `dir` should be specified");
-      toolchain = fromToolchainName' target text sha256;
+      toolchain = fromToolchainName' target root text sha256;
     in
     if toolchain == null then
       let t = (fromTOML text).toolchain; in
       if t ? path then
         throw "fenix doesn't support toolchain.path"
       else
-        let toolchain = fromToolchainName' target t.channel sha256; in
+        let toolchain = fromToolchainName' target root t.channel sha256; in
         combine' "rust-${t.channel}" (attrVals
           (filter (component: toolchain ? ${component}) (unique
             (toolchain.manifest.profiles.${t.profile or "default"}
               ++ t.components or [ ])))
           toolchain ++ map
           (target:
-            (fromManifest' target "-${t.channel}" toolchain.manifest).rust-std)
+            (fromManifest' target root "-${t.channel}" toolchain.manifest).rust-std)
           (t.targets or [ ]))
     else
       toolchain.defaultToolchain;
@@ -127,26 +136,26 @@ let
   mkToolchains = channel:
     let manifest = importJSON (./data + "/${channel}.json"); in
     mapAttrs
-      (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
+      (target: _: { ${channel} = fromManifest' target default_dist_server "-${channel}" manifest; })
       manifest.pkg.rust-std.target;
 in
 
 nightlyToolchains.${v} // rec {
   combine = combine' "rust-mixed";
 
-  fromManifest = fromManifest' v "";
+  fromManifest = fromManifest' v default_dist_server "";
 
-  fromManifestFile = fromManifestFile' v "";
+  fromManifestFile = fromManifestFile' v default_dist_server "";
 
   toolchainOf = toolchainOf' v;
 
   fromToolchainFile = fromToolchainFile' v;
 
-  fromToolchainName = { name, sha256 ? "" }: fromToolchainName' v name sha256;
+  fromToolchainName = { name, sha256 ? "" }: fromToolchainName' v default_dist_server name sha256;
 
-  stable = fromManifest' v "-stable" (importJSON ./data/stable.json);
+  stable = fromManifest' v default_dist_server "-stable" (importJSON ./data/stable.json);
 
-  beta = fromManifest' v "-beta" (importJSON ./data/beta.json);
+  beta = fromManifest' v default_dist_server "-beta" (importJSON ./data/beta.json);
 
   targets =
     let
@@ -159,8 +168,8 @@ nightlyToolchains.${v} // rec {
     mapAttrs
       (target: v:
         v // {
-          fromManifest = fromManifest' target "";
-          fromManifestFile = fromManifestFile' target "";
+          fromManifest = fromManifest' target default_dist_server "";
+          fromManifestFile = fromManifestFile' target default_dist_server "";
           toolchainOf = toolchainOf' target;
           fromToolchainFile = fromToolchainFile' target;
           fromToolchainName = { name, sha256 ? "" }: fromToolchainName' target name sha256;
