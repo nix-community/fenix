@@ -28,14 +28,11 @@ jobs:
         with:
           ref: staging
 
+      - uses: wimpysworld/nothing-but-nix@main
+        if: matrix.os == 'ubuntu-latest'
+
       - name: Install nix
         uses: cachix/install-nix-action@v31
-
-      - name: Set up cachix
-        uses: cachix/cachix-action@v16
-        with:
-          name: nix-community
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - name: Check with nix
         run: |
