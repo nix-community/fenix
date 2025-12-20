@@ -218,7 +218,7 @@ nightlyToolchains.${v} // rec {
       vscodeExtName = "rust-analyzer";
       vscodeExtPublisher = "The Rust Programming Language";
       vscodeExtUniqueId = "rust-lang.rust-analyzer";
-      nativeBuildInputs = with pkgs; [ jq moreutils ];
+      nativeBuildInputs = with pkgs; [ jq moreutils unzip ];
       postPatch = ''
         jq -e '
           ${setDefault "server.path" "${rust-analyzer}/bin/rust-analyzer"}
