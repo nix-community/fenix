@@ -100,7 +100,7 @@ let
       text = readFile (if file == null && dir != null then
         findFirst pathIsRegularFile
           (throw "No rust toolchain file found in ${dir}")
-          [ (dir + "/rust-toolchain") (dir + "/rust-toolchain.toml") ]
+          [ (dir + "/rust-toolchain") (dir + "/.rust-toolchain") (dir + "/rust-toolchain.toml") (dir + "/.rust-toolchain.toml") ]
       else if file != null && dir == null then
         file
       else
