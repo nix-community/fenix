@@ -1,4 +1,4 @@
-{ callPackage, fetchurl, lib, stdenv, zlib, curl }:
+{ callPackage, fetchurl, lib, stdenv, zlib, curl, makeWrapper }:
 
 suffix:
 { date, components }:
@@ -18,6 +18,7 @@ let
         pname = "${component}${suffix}";
         version = source.date or date;
         src = fetchurl { inherit (source) url sha256; };
+        nativeBuildInputs = lib.optional (components ? "rust-src") makeWrapper;
         installPhase = ''
           patchShebangs install.sh
           CFG_DISABLE_LDCONFIG=1 ./install.sh --prefix=$out
@@ -123,6 +124,10 @@ let
             ${optionalString stdenv.isDarwin ''
               install_name_tool \
                 -add_rpath ${toolchain.rustc}/lib $out/bin/rust-analyzer || true
+            ''}
+            ${optionalString (components ? "rust-src") ''
+              wrapProgram $out/bin/rust-analyzer \
+                --set RUST_SRC_PATH ${toolchain.rust-src}/lib/rustlib/src/rust/library
             ''}
           ''}
         '';
