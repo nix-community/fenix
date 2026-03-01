@@ -129,6 +129,50 @@ let
     mapAttrs
       (target: _: { ${channel} = fromManifest' target "-${channel}" manifest; })
       manifest.pkg.rust-std.target;
+
+  rust-analyzer' = { rust-src ? null }: (pkgs.makeRustPlatform {
+    inherit (nightlyToolchains.${v}.minimal) cargo rustc;
+  }).buildRustPackage ({
+    pname = "rust-analyzer-nightly";
+    version = rust-analyzer-rev;
+    src = rust-analyzer-src;
+    cargoLock.lockFile = rust-analyzer-src + "/Cargo.lock";
+    cargoBuildFlags = [ "-p" "rust-analyzer" ];
+    buildInputs = with pkgs;
+      optionals stdenv.isDarwin [
+        libiconv
+      ];
+    doCheck = false;
+    CARGO_INCREMENTAL = 0;
+
+    # See rust-analyzer's https://github.com/rust-lang/rust-analyzer/blob/2025-08-25/crates/rust-analyzer/build.rs
+    patchPhase = ''
+      mkdir .git/
+      echo nightly > .git/HEAD
+    '';
+    CFG_RELEASE_CHANNEL = "nightly";
+    RA_COMMIT_HASH = rust-analyzer-rev;
+    RA_COMMIT_SHORT_HASH = substring 0 7 rust-analyzer-rev;
+    RA_COMMIT_DATE = rust-analyzer-date;
+    # Value chosen to look like RA is from a nightly toolchain
+    # Needs to be set explicitly to disable `POKE_RA_DEVS`
+    # https://github.com/rust-lang/rust-analyzer/blob/2025-08-25/crates/rust-analyzer/src/version.rs#L39-L42
+    # https://github.com/rust-lang/rust-analyzer/blob/2025-08-25/crates/rust-analyzer/build.rs#L9-L11
+    # https://github.com/rust-lang/rust-analyzer/blob/f5e049d09dc17d0b61de2ec179b3607cf1e431b2/crates/rust-analyzer/src/lsp/utils.rs#L110
+    CFG_RELEASE = "0.0.0-nightly";
+
+    meta = {
+      maintainers = with maintainers; [ figsoda ];
+      mainProgram = "rust-analyzer";
+    };
+  } // lib.optionalAttrs (rust-src != null) {
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    propagatedBuildInputs = [ rust-src ];
+    postInstall = ''
+      wrapProgram $out/bin/rust-analyzer \
+        --set RUST_SRC_PATH ${rust-src}/lib/rustlib/src/rust/library
+    '';
+  });
 in
 
 nightlyToolchains.${v} // rec {
@@ -167,42 +211,7 @@ nightlyToolchains.${v} // rec {
         })
       collectedTargets;
 
-  rust-analyzer = (pkgs.makeRustPlatform {
-    inherit (nightlyToolchains.${v}.minimal) cargo rustc;
-  }).buildRustPackage {
-    pname = "rust-analyzer-nightly";
-    version = rust-analyzer-rev;
-    src = rust-analyzer-src;
-    cargoLock.lockFile = rust-analyzer-src + "/Cargo.lock";
-    cargoBuildFlags = [ "-p" "rust-analyzer" ];
-    buildInputs = with pkgs;
-      optionals stdenv.isDarwin [
-        libiconv
-      ];
-    doCheck = false;
-    CARGO_INCREMENTAL = 0;
-
-    # See rust-analyzer's https://github.com/rust-lang/rust-analyzer/blob/2025-08-25/crates/rust-analyzer/build.rs
-    patchPhase = ''
-      mkdir .git/
-      echo nightly > .git/HEAD
-    '';
-    CFG_RELEASE_CHANNEL = "nightly";
-    RA_COMMIT_HASH = rust-analyzer-rev;
-    RA_COMMIT_SHORT_HASH = substring 0 7 rust-analyzer-rev;
-    RA_COMMIT_DATE = rust-analyzer-date;
-    # Value chosen to look like RA is from a nightly toolchain
-    # Needs to be set explicitly to disable `POKE_RA_DEVS`
-    # https://github.com/rust-lang/rust-analyzer/blob/2025-08-25/crates/rust-analyzer/src/version.rs#L39-L42
-    # https://github.com/rust-lang/rust-analyzer/blob/2025-08-25/crates/rust-analyzer/build.rs#L9-L11
-    # https://github.com/rust-lang/rust-analyzer/blob/f5e049d09dc17d0b61de2ec179b3607cf1e431b2/crates/rust-analyzer/src/lsp/utils.rs#L110
-    CFG_RELEASE = "0.0.0-nightly";
-
-    meta = {
-      maintainers = with maintainers; [ figsoda ];
-      mainProgram = "rust-analyzer";
-    };
-  };
+  rust-analyzer = pkgs.callPackage rust-analyzer' { };
 
   rust-analyzer-vscode-extension =
     let
