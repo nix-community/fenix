@@ -1,4 +1,4 @@
-{ callPackage, fetchurl, lib, stdenv, zlib, curl }:
+{ callPackage, fetchurl, lib, stdenv, zlib, curl, makeBinaryWrapper }:
 
 suffix:
 { date, components }:
@@ -6,7 +6,7 @@ suffix:
 let
   inherit (builtins) attrValues mapAttrs;
   inherit (lib)
-    attrVals maintainers mapAttrs' nameValuePair optionalAttrs optionalString
+    attrVals maintainers mapAttrs' nameValuePair optionals optionalAttrs optionalString
     platforms removeSuffix;
 
   combine = callPackage ./combine.nix { };
@@ -18,6 +18,11 @@ let
         pname = "${component}${suffix}";
         version = source.date or date;
         src = fetchurl { inherit (source) url sha256; };
+
+        nativeBuildInputs = optionals (component == "rustfmt-preview" && stdenv.isDarwin) [
+          makeBinaryWrapper
+        ];
+
         installPhase = ''
           patchShebangs install.sh
           CFG_DISABLE_LDCONFIG=1 ./install.sh --prefix=$out
@@ -109,10 +114,14 @@ let
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib $out/bin/rustfmt || true
             ''}
-            ${optionalString stdenv.isDarwin ''
-              install_name_tool \
-                -add_rpath ${toolchain.rustc}/lib $out/bin/rustfmt || true
-            ''}
+            ${
+              # error: install_name_tool: changing install names or rpaths can't be redone
+              # because larger updated load commands do not fit (the program must be relinked)
+              optionalString stdenv.isDarwin ''
+                wrapProgram $out/bin/rustfmt \
+                  --prefix DYLD_LIBRARY_PATH : ${toolchain.rustc}/lib
+              ''
+            }
           ''}
 
           ${optionalString (component == "rust-analyzer-preview") ''
