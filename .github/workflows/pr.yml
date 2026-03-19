@@ -25,7 +25,7 @@ jobs:
         run: nix run nixpkgs#nixpkgs-fmt --inputs-from . -- {,lib/}*.nix --check
 
       - name: Set up cachix
-        uses: cachix/cachix-action@v16
+        uses: cachix/cachix-action@v17
         with:
           name: nix-community
 
