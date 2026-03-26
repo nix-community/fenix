@@ -3,10 +3,10 @@
 Fenix provides the `minimal`, `default`, and `complete` [profile](https://rust-lang.github.io/rustup/concepts/profiles.html) of rust toolchains, [`latest`](#latest) profile of nightly toolchains, nightly version of [rust analyzer](https://rust-analyzer.github.io) and [its vscode extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
 It aims to be a replacement for [rustup](https://rustup.rs) and the rust overlay provided by [nixpkgs-mozilla](https://github.com/mozilla/nixpkgs-mozilla).
 
-Binary cache is available for `x86_64-darwin`, `aarch64-darwin` and `x86_64-linux` on [cachix](https://nix-community.cachix.org/)
+Binary cache is available for `x86_64-darwin`, `aarch64-darwin` and `x86_64-linux` on [cachix](https://app.cachix.org/cache/fenix)
 
 ```sh
-cachix use nix-community
+cachix use fenix
 ```
 
 Note: The nixpkgs from your system will be used when fenix is being used as an overlay, which may not be cached if you are using a stable/older version of nixpkgs.

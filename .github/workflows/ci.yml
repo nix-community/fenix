@@ -34,6 +34,12 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v31
 
+      - name: Set up cachix
+        uses: cachix/cachix-action@v17
+        with:
+          name: fenix
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
       - name: Check with nix
         run: |
           nix flake check
