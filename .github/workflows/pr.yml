@@ -27,7 +27,7 @@ jobs:
       - name: Set up cachix
         uses: cachix/cachix-action@v17
         with:
-          name: nix-community
+          name: fenix
 
       - name: Build with nix
         run: |
