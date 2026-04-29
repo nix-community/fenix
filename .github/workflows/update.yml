@@ -22,7 +22,7 @@ jobs:
           git config --local user.name "github-actions"
           git config --local user.email "action@github.com"
 
-          nix shell nixpkgs#python311 -c ./update
+          ./update
           nix flake update
           curl -fLSso data/rust-analyzer-vsix.zip \
             https://github.com/rust-lang/rust-analyzer/releases/download/nightly/rust-analyzer-no-server.vsix || true
