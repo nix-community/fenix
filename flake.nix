@@ -54,6 +54,8 @@
               ${k} = {
                 type = "derivation";
                 name = "dummy-function";
+                outputName = "dummy-out";
+                outputs = [ ];
                 __functor = _: v;
               };
             }
@@ -64,6 +66,8 @@
                 (_: {
                   type = "derivation";
                   name = "dummy-rust-std";
+                  outputName = "dummy-out";
+                  outputs = [ ];
                 })
             else
               attrDerivations v [ k ])
@@ -71,6 +75,8 @@
               ${k} = {
                 type = "derivation";
                 name = "dummy-attrset";
+                outputName = "dummy-out";
+                outputs = [ ];
               } // v;
             }
           else v)
