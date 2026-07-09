@@ -28,17 +28,20 @@ def write_json(channel: str, content: Any) -> None:
         file.write("\n")
 
 
-def fetch_nightly(d: Optional[datetime.date] = None) -> None:
-    date_path = f"/{d}" if d else ""
+def fetch_nightly() -> None:
+    fetch_date: Optional[datetime.date] = None
 
-    try:
-        resp = urlopen(f"{dist_root}{date_path}/channel-rust-nightly.toml")
-    except HTTPError as e:
-        if e.code == 404 and d:
-            fetch_nightly(d - one_day)
-        else:
+    while True:
+        date_path = f"/{fetch_date}" if fetch_date else ""
+
+        try:
+            resp = urlopen(f"{dist_root}{date_path}/channel-rust-nightly.toml")
+        except HTTPError as e:
+            if e.code == 404 and fetch_date:
+                fetch_date -= one_day
+                continue
             raise e
-    else:
+
         manifest = tomllib.load(resp)
         components = manifest["profiles"]
         date_str = manifest["date"]
@@ -47,7 +50,7 @@ def fetch_nightly(d: Optional[datetime.date] = None) -> None:
         skipped = False
 
         for target in targets:
-            if not d:
+            if not fetch_date:
                 nightly[target]["latest"] = {
                     "date": date_str,
                     "components": {},
@@ -113,8 +116,9 @@ def fetch_nightly(d: Optional[datetime.date] = None) -> None:
                         },
                     }
 
-        if skipped:
-            fetch_nightly(date - one_day)
+        if not skipped:
+            return
+        fetch_date = date - one_day
 
 
 fetch_nightly()
