@@ -18,7 +18,7 @@ symlinkJoin {
 
       ${optionalString stdenv.isLinux ''
         if isELF "$file"; then
-          patchelf --set-rpath $out/lib "$file" || true
+          patchelf --set-rpath $out/lib:${stdenv.cc.cc.lib}/lib "$file" || true
         fi
       ''}
 
