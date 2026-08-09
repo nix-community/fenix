@@ -558,6 +558,49 @@ x86_64-linux | x86_64-unknown-linux-gnu
   ```
 </details>
 
+## Overriding the linker
+
+Some cross-compilation targets fail with a linker error like:
+
+```
+= note: rust-lld: error: /nix/store/.../libgcc_s.so.1 is incompatible with elf32-i386
+```
+
+Fenix only provides the Rust toolchain, so it doesn't control which system
+linker cargo ends up invoking during cross compilation. If the default
+linker doesn't support your target, you can switch to `lld` from LLVM
+instead.
+
+First, make `lld` and the libraries it needs available to your build, e.g.
+in your cargo derivation's `nativeBuildInputs`/`buildInputs`:
+
+```nix
+nativeBuildInputs = with pkgs; [
+  llvmPackages.bintools
+  libclang.lib
+] ++ lib.optional stdenv.isLinux pkgs.autoPatchelfHook;
+
+buildInputs = lib.optional stdenv.isDarwin pkgs.libiconv
+  ++ lib.optionals stdenv.isLinux (with pkgs; [
+    gcc.cc
+    gcc.cc.lib
+  ]);
+```
+
+Then tell cargo to use `lld` by adding a `.cargo/config.toml` (see the
+[cargo book](https://doc.rust-lang.org/cargo/guide/build-performance.html#use-an-alternative-linker)
+for other linker options) to your project:
+
+```toml
+# .cargo/config.toml
+[build]
+rustflags = ["-Clink-arg=-fuse-ld=lld"]
+```
+
+You can also set `rustflags` directly on your cargo derivation instead, but
+including `.cargo/config.toml` in your derivation's source works just as
+well.
+
 ## Contributing
 
 All pull requests should target `staging` branch instead of the default `main` branch
