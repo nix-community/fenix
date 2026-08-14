@@ -16,13 +16,13 @@ symlinkJoin {
         continue
       fi
 
-      ${optionalString stdenv.isLinux ''
+      ${optionalString stdenv.hostPlatform.isLinux ''
         if isELF "$file"; then
           patchelf --set-rpath $out/lib "$file" || true
         fi
       ''}
 
-      ${optionalString stdenv.isDarwin ''
+      ${optionalString stdenv.hostPlatform.isDarwin ''
         install_name_tool -add_rpath $out/lib "$file" || true
       ''}
     done
