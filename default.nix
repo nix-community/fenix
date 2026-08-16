@@ -176,7 +176,7 @@ nightlyToolchains.${v} // rec {
     cargoLock.lockFile = rust-analyzer-src + "/Cargo.lock";
     cargoBuildFlags = [ "-p" "rust-analyzer" ];
     buildInputs = with pkgs;
-      optionals stdenv.isDarwin [
+      optionals stdenv.hostPlatform.isDarwin [
         libiconv
       ];
     doCheck = false;

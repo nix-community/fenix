@@ -19,7 +19,7 @@ let
         version = source.date or date;
         src = fetchurl { inherit (source) url sha256; };
 
-        nativeBuildInputs = optionals (component == "rustfmt-preview" && stdenv.isDarwin) [
+        nativeBuildInputs = optionals (component == "rustfmt-preview" && stdenv.hostPlatform.isDarwin) [
           makeBinaryWrapper
         ];
 
@@ -29,7 +29,7 @@ let
 
           rm $out/lib/rustlib/{components,install.log,manifest-*,rust-installer-version,uninstall.sh} || true
 
-          ${optionalString stdenv.isLinux ''
+          ${optionalString stdenv.hostPlatform.isLinux ''
             if [ -d $out/bin ]; then
               for file in $(find $out/bin -type f); do
                 if isELF "$file"; then
@@ -80,7 +80,7 @@ let
           ''}
 
           ${optionalString (component == "cargo") ''
-            ${optionalString stdenv.isDarwin ''
+            ${optionalString stdenv.hostPlatform.isDarwin ''
               install_name_tool \
                 -change "/usr/lib/libcurl.4.dylib" "${curl.out}/lib/libcurl.4.dylib" \
                 $out/bin/cargo || true
@@ -88,36 +88,36 @@ let
           ''}
           
           ${optionalString (component == "miri-preview") ''
-            ${optionalString stdenv.isLinux ''
+            ${optionalString stdenv.hostPlatform.isLinux ''
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib $out/bin/miri || true
             ''}
-            ${optionalString stdenv.isDarwin ''
+            ${optionalString stdenv.hostPlatform.isDarwin ''
               install_name_tool \
                 -add_rpath ${toolchain.rustc}/lib $out/bin/miri || true
             ''}
           ''}
 
           ${optionalString (component == "rls-preview") ''
-            ${optionalString stdenv.isLinux ''
+            ${optionalString stdenv.hostPlatform.isLinux ''
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib $out/bin/rls || true
             ''}
-            ${optionalString stdenv.isDarwin ''
+            ${optionalString stdenv.hostPlatform.isDarwin ''
               install_name_tool \
                 -add_rpath ${toolchain.rustc}/lib $out/bin/rls || true
             ''}
           ''}
 
           ${optionalString (component == "rustfmt-preview") ''
-            ${optionalString stdenv.isLinux ''
+            ${optionalString stdenv.hostPlatform.isLinux ''
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib $out/bin/rustfmt || true
             ''}
             ${
               # error: install_name_tool: changing install names or rpaths can't be redone
               # because larger updated load commands do not fit (the program must be relinked)
-              optionalString stdenv.isDarwin ''
+              optionalString stdenv.hostPlatform.isDarwin ''
                 wrapProgram $out/bin/rustfmt \
                   --prefix DYLD_LIBRARY_PATH : ${toolchain.rustc}/lib
               ''
@@ -125,11 +125,11 @@ let
           ''}
 
           ${optionalString (component == "rust-analyzer-preview") ''
-            ${optionalString stdenv.isLinux ''
+            ${optionalString stdenv.hostPlatform.isLinux ''
               patchelf \
                 --set-rpath ${toolchain.rustc}/lib $out/bin/rust-analyzer || true
             ''}
-            ${optionalString stdenv.isDarwin ''
+            ${optionalString stdenv.hostPlatform.isDarwin ''
               install_name_tool \
                 -add_rpath ${toolchain.rustc}/lib $out/bin/rust-analyzer || true
             ''}
