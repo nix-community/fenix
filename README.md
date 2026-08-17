@@ -587,19 +587,16 @@ buildInputs = lib.optional stdenv.isDarwin pkgs.libiconv
   ]);
 ```
 
-Then tell cargo to use `lld` by adding a `.cargo/config.toml` (see the
-[cargo book](https://doc.rust-lang.org/cargo/guide/build-performance.html#use-an-alternative-linker)
-for other linker options) to your project:
+Then tell cargo to use `lld`. See the [cargo book](https://doc.rust-lang.org/cargo/guide/build-performance.html#use-an-alternative-linker)
+for the full set of linker options; the relevant flag here is
+`-Clink-arg=-fuse-ld=lld`.
 
-```toml
-# .cargo/config.toml
-[build]
-rustflags = ["-Clink-arg=-fuse-ld=lld"]
-```
-
-You can also set `rustflags` directly on your cargo derivation instead, but
-including `.cargo/config.toml` in your derivation's source works just as
-well.
+Prefer setting this via an environment variable or a build flag on your
+cargo derivation, e.g. `RUSTFLAGS = "-Clink-arg=-fuse-ld=lld";`, rather than
+committing a `.cargo/config.toml` to your project. A config file becomes
+part of the derivation's source, which locks the linker choice in for every
+build of that source, including ones that don't need it. An env var or flag
+only affects the specific build that requires it.
 
 ## Contributing
 
