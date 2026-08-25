@@ -79,6 +79,19 @@ let
             ''}
           ''}
 
+          ${optionalString (component == "rustc") ''
+            ${optionalString stdenv.hostPlatform.isDarwin ''
+              if [ -e $out/lib/libLLVM.dylib ]; then
+                for dir in $out/lib/rustlib/*-apple-darwin; do
+                  if [ -d "$dir/bin" ] && [ ! -e "$dir/lib/libLLVM.dylib" ]; then
+                    mkdir -p "$dir/lib"
+                    ln -s $out/lib/libLLVM.dylib "$dir/lib/libLLVM.dylib"
+                  fi
+                done
+              fi
+            ''}
+          ''}
+
           ${optionalString (component == "cargo") ''
             ${optionalString stdenv.hostPlatform.isDarwin ''
               install_name_tool \
