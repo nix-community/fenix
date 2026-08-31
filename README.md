@@ -578,10 +578,10 @@ in your cargo derivation's `nativeBuildInputs`/`buildInputs`:
 nativeBuildInputs = with pkgs; [
   llvmPackages.bintools
   libclang.lib
-] ++ lib.optional stdenv.isLinux pkgs.autoPatchelfHook;
+] ++ lib.optional stdenv.hostPlatform.isLinux pkgs.autoPatchelfHook;
 
-buildInputs = lib.optional stdenv.isDarwin pkgs.libiconv
-  ++ lib.optionals stdenv.isLinux (with pkgs; [
+buildInputs = lib.optional stdenv.hostPlatform.isDarwin pkgs.libiconv
+  ++ lib.optionals stdenv.hostPlatform.isLinux (with pkgs; [
     gcc.cc
     gcc.cc.lib
   ]);
