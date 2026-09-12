@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <title>Hello, World!</title>
+  </head>
+  <body>
+    <script type="module">
+      import init, { greet } from "./pkg/fenix_wasm.js";
+
+      async function run() {
+        await init();
+        greet("World");
+      }
+
+      run();
+    </script>
+  </body>
+</html>
