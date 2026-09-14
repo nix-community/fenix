@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: DeterminateSystems/nix-installer-action@v22
-      - uses: DeterminateSystems/flakehub-push@v6
+      - uses: DeterminateSystems/flakehub-push@v7
         with:
           visibility: public
           rolling: true
