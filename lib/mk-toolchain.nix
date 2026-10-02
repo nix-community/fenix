@@ -10,7 +10,7 @@ let
     platforms removeSuffix;
 
   combine = callPackage ./combine.nix { };
-  rpath = "${zlib}/lib:$out/lib";
+  rpath = "${zlib}/lib:$out/lib:${stdenv.cc.cc.lib}/lib";
 
   toolchain = mapAttrs
     (component: source:
@@ -52,7 +52,7 @@ let
                 if isELF "$file"; then
                   patchelf \
                     --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-                    --set-rpath ${stdenv.cc.cc.lib}/lib:${rpath} \
+                    --set-rpath ${rpath} \
                     "$file" || true
                 fi
               done
