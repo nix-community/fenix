@@ -7,7 +7,7 @@ let
   inherit (builtins) attrValues mapAttrs pathExists;
   inherit (lib)
     attrVals maintainers mapAttrs' nameValuePair optionals optionalAttrs optionalString
-    platforms removeSuffix;
+    platforms removeSuffix replaceStrings;
 
   combine = callPackage ./combine.nix { };
   rpath = "${zlib}/lib:$out/lib";
@@ -125,9 +125,8 @@ let
                 substituteAll ${darwinSdkSetup} $out/nix-support/darwin-sdk-setup.bash
               ''}
 
-              ${optionalString stdenv.targetPlatform.isDarwin ''
-                substituteAll ${path + "/pkgs/build-support/bintools-wrapper/add-darwin-ldflags-before.sh"} $out/nix-support/add-local-ldflags-before.sh
-              ''}
+              # nixpkgs also installs add-darwin-ldflags-before.sh for Darwin targets. That script
+              # adds flags for ld64, Apple's linker, which ld.lld rejects, so it's left out here.
 
               for dst in "''${dsts[@]}"; do
                 # ld.lld finds rust-lld relative to its own path and picks its flavor from its
@@ -198,25 +197,27 @@ let
         '';
 
         # Values that the ld wrapper scripts above substitute.
-        env = optionalAttrs (component == "rustc") (
-          {
-            inherit (stdenv.cc.bintools)
-              coreutils_bin expandResponseParams shell suffixSalt wrapperName;
+        env = optionalAttrs (component == "rustc") {
+          inherit (stdenv.cc.bintools)
+            coreutils_bin expandResponseParams shell wrapperName;
 
-            # Only available in recent nixpkgs.
-            mktemp = stdenv.cc.bintools.mktemp or "mktemp";
-            rm = stdenv.cc.bintools.rm or "rm";
+          # Only available in recent nixpkgs.
+          mktemp = stdenv.cc.bintools.mktemp or "mktemp";
+          rm = stdenv.cc.bintools.rm or "rm";
 
-            hardening_unsupported_flags = "";
+          # Like the values below, the salt describes the platform that ld.lld links for,
+          # as in the nixpkgs bintools wrapper. `stdenv.cc.bintools` links for the host.
+          suffixSalt = replaceStrings [ "-" "." ] [ "_" "_" ] stdenv.targetPlatform.config
+            + optionalString (stdenv.targetPlatform.isDarwin && stdenv.targetPlatform.isStatic) "_static";
 
-            fallback_sdk = optionalString (apple-sdk != null && stdenv.targetPlatform.isDarwin)
-              (apple-sdk.__spliced.buildTarget or apple-sdk);
-          }
-          // mapAttrs (_: optionalString stdenv.targetPlatform.isDarwin) {
-            inherit (stdenv.targetPlatform)
-              darwinPlatform darwinSdkVersion darwinMinVersion darwinMinVersionVariable;
-          }
-        );
+          hardening_unsupported_flags = "";
+
+          darwinMinVersion = optionalString stdenv.targetPlatform.isDarwin
+            stdenv.targetPlatform.darwinMinVersion;
+
+          fallback_sdk = optionalString (apple-sdk != null && stdenv.targetPlatform.isDarwin)
+            (apple-sdk.__spliced.buildTarget or apple-sdk);
+        };
 
         dontStrip = true;
         meta = {
