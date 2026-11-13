@@ -10,7 +10,7 @@ let
     platforms removeSuffix replaceStrings;
 
   combine = callPackage ./combine.nix { };
-  rpath = "${zlib}/lib:$out/lib";
+  rpath = "${zlib}/lib:$out/lib:${stdenv.cc.cc.lib}/lib";
 
   # Only available in recent nixpkgs.
   darwinSdkSetup = path + "/pkgs/build-support/wrapper-common/darwin-sdk-setup.bash";
@@ -55,7 +55,7 @@ let
                 if isELF "$file"; then
                   patchelf \
                     --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-                    --set-rpath ${stdenv.cc.cc.lib}/lib:${rpath} \
+                    --set-rpath ${rpath} \
                     "$file" || true
                 fi
               done
